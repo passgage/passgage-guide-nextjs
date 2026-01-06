@@ -117,8 +117,19 @@ npm run lint
 - [x] Accordion components
 - [x] Button & Card UI components
 
+### ✅ Phase 3: FAQ Vector Search (Complete)
+- [x] Extract FAQ content from HTML → faq-data.ts (22 entries)
+- [x] Setup Qdrant Cloud + create collection
+- [x] Generate embeddings with OpenAI
+- [x] Seed Qdrant database script
+- [x] Build search API route (/api/search)
+- [x] Create search UI (modal, button, results)
+- [x] Implement ⌘K keyboard shortcut
+- [x] Add search analytics
+- [x] Zustand state management
+- [x] Smart search with client-side fallback
+
 ### 📅 Upcoming Phases
-- Phase 3: FAQ Vector Search
 - Phase 4: Landing Page Migration
 - Phase 5: iOS Guide Migration
 - Phase 6: Android Guide Migration
@@ -142,13 +153,30 @@ npm run lint
 - Warning/Info/Success boxes
 - Custom scrollbars
 
-## 🔍 FAQ Vector Search (Planned)
+## 🔍 FAQ Vector Search (Implemented ✅)
 
 Semantic search powered by:
-- **Qdrant Cloud** - Vector database
+- **Qdrant Cloud** - Vector database with cosine similarity
 - **OpenAI Embeddings** - text-embedding-3-small (1536 dimensions)
-- **Search UI** - Floating button + Header search bar
-- **Keyboard Shortcut** - ⌘K / Ctrl+K
+- **Search UI** - Floating button + Header search bar + Full modal
+- **Keyboard Shortcuts** - ⌘K / Ctrl+K (open), ↑↓ (navigate), Enter (select), Esc (close)
+- **Smart Fallback** - Client-side search when Qdrant unavailable
+- **22 FAQ Entries** - iOS (5), Android (12), Access Tag (5)
+- **Platform Filters** - Filter by iOS, Android, or Access Tag
+- **Score Threshold** - 70% minimum similarity
+- **Search History** - Last 5 searches cached
+- **Analytics** - Google Analytics integration
+
+### Usage
+```bash
+# Seed Qdrant database (one-time setup)
+npm run seed-qdrant
+
+# Start development server
+npm run dev
+
+# Press ⌘K or click floating button to search
+```
 
 ## 📦 Build & Deployment
 
@@ -183,7 +211,7 @@ This is a private project for Passgage. Internal contributions only.
 
 ---
 
-**Status**: Phase 2 Complete ✅
-**Next**: Phase 3 - FAQ Vector Search
+**Status**: Phase 3 Complete ✅
+**Next**: Phase 4 - Landing Page Migration
 **Timeline**: 9-week migration plan
-**Progress**: 2/9 phases complete (22%)
+**Progress**: 3/9 phases complete (33%)
