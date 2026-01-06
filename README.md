@@ -144,8 +144,20 @@ npm run lint
 - [x] Fix Tailwind CSS 4 compatibility issues
 - [x] Verify production build
 
+### 🔄 Phase 5: iOS Guide Migration (In Progress)
+- [x] Analyze ios.html structure (6 steps + troubleshooting)
+- [x] Create shared guide components (PhoneMockup, InfoBox, Accordion)
+- [x] Create iOS Hero section
+- [x] Implement Step 1: Download from App Store
+- [x] Implement Step 6: Troubleshooting with Accordion FAQ
+- [x] Verify initial build
+- [ ] Add Steps 2-5 (Permissions, Login, Pairing, NFC)
+- [ ] Add ProgressNav component with scroll tracking
+- [ ] Configure iOS-specific SEO metadata
+- [ ] Optimize with Next.js Image for screenshots
+- [ ] Complete troubleshooting FAQ (5 total items)
+
 ### 📅 Upcoming Phases
-- Phase 5: iOS Guide Migration
 - Phase 6: Android Guide Migration
 - Phase 7: Access Tag Guide Migration
 - Phase 8: Testing & Optimization
@@ -225,7 +237,7 @@ This is a private project for Passgage. Internal contributions only.
 
 ---
 
-**Status**: Phase 4 Complete ✅
-**Next**: Phase 5 - iOS Guide Migration
+**Status**: Phase 5 In Progress 🔄
+**Current**: iOS Guide Migration - Foundation Complete
 **Timeline**: 9-week migration plan
-**Progress**: 4/9 phases complete (44%)
+**Progress**: 4.5/9 phases complete (50%)
