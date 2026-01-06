@@ -6,14 +6,58 @@ import { SearchModal, FloatingSearchButton } from "@/components/search";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Passgage Kurulum Kılavuzu",
-  description: "iOS, Android ve Access Tag için detaylı kurulum kılavuzu",
-  keywords: ["passgage", "kurulum", "kılavuz", "iOS", "Android", "access tag", "nfc"],
-  authors: [{ name: "Passgage" }],
+  title: {
+    default: "Passgage Kurulum Kılavuzu | iOS, Android ve Access Tag",
+    template: "%s | Passgage Kurulum Kılavuzu",
+  },
+  description: "iOS, Android ve Access Tag için adım adım detaylı kurulum rehberi. Sisteminizi dakikalar içinde kurun ve kullanmaya başlayın. Şifresiz güvenli giriş sistemi.",
+  keywords: [
+    "passgage",
+    "kurulum",
+    "kılavuz",
+    "iOS",
+    "Android",
+    "access tag",
+    "nfc",
+    "şifresiz giriş",
+    "güvenli giriş",
+    "qr kod",
+    "kurulum rehberi",
+    "adım adım",
+    "sorun giderme",
+  ],
+  authors: [{ name: "Passgage", url: "https://passgage.com" }],
+  creator: "Passgage",
+  publisher: "Passgage",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: "Passgage Kurulum Kılavuzu",
-    description: "iOS, Android ve Access Tag için detaylı kurulum kılavuzu",
+    title: "Passgage Kurulum Kılavuzu | iOS, Android ve Access Tag",
+    description: "iOS, Android ve Access Tag için adım adım detaylı kurulum rehberi. Sisteminizi dakikalar içinde kurun ve kullanmaya başlayın.",
     type: "website",
+    locale: "tr_TR",
+    url: "https://kilavuz.passgage.com",
+    siteName: "Passgage Kurulum Kılavuzu",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Passgage Kurulum Kılavuzu",
+    description: "iOS, Android ve Access Tag için adım adım kurulum rehberi",
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
+  alternates: {
+    canonical: "https://kilavuz.passgage.com",
   },
 };
 

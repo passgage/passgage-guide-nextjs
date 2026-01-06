@@ -1,28 +1,337 @@
+'use client';
+
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import { PlatformCard } from '@/components/landing';
+
 export default function Home() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Passgage Kurulum Kılavuzu',
+    url: 'https://kilavuz.passgage.com',
+    description: 'iOS, Android ve Access Tag için adım adım detaylı kurulum rehberi',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Passgage',
+      url: 'https://passgage.com',
+    },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://kilavuz.passgage.com/?q={search_term_string}',
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Ana Sayfa',
+        item: 'https://kilavuz.passgage.com',
+      },
+    ],
+  };
+
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-passgage-blue to-blue-600">
-      <div className="text-center px-6">
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-slide-up">
-          Passgage Kılavuzu
-        </h1>
-        <p className="text-xl md:text-2xl text-white/90 mb-8 animate-fade-in">
-          Next.js Migration - Phase 1: Foundation ✅
-        </p>
-        <div className="flex gap-4 justify-center animate-scale-in">
-          <div className="card p-6">
-            <h2 className="font-bold text-passgage-blue mb-2">✓ Next.js 15</h2>
-            <p className="text-neutral-600 text-sm">App Router + TypeScript</p>
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
+      <Header showSearch={true} />
+
+      <main>
+        {/* Hero Section */}
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-passgage-blue via-blue-600 to-blue-700">
+          {/* Grid Overlay */}
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
+
+          {/* Animated Blobs */}
+          <div className="absolute top-20 left-20 w-72 h-72 bg-white/10 rounded-full blur-3xl animate-blob" />
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-blob animation-delay-4000" />
+
+          {/* Hero Content */}
+          <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+            <div className="inline-block mb-6 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium animate-fade-in">
+              iOS · Android · Access Tag
+            </div>
+
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 animate-slide-up">
+              Passgage
+              <br />
+              <span className="bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+                Kurulum Kılavuzu
+              </span>
+            </h1>
+
+            <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in animation-delay-200">
+              iOS, Android ve Access Tag için adım adım kurulum rehberi.
+              <br />
+              Sisteminizi dakikalar içinde kurun ve kullanmaya başlayın.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in animation-delay-400">
+              <a
+                href="#platforms"
+                className="group px-8 py-4 bg-white text-passgage-blue rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).gtag) {
+                    (window as any).gtag('event', 'cta_click', {
+                      event_category: 'engagement',
+                      event_label: 'hero_get_started',
+                    });
+                  }
+                }}
+              >
+                Hemen Başla
+                <svg
+                  className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href="https://passgage.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-2xl font-bold text-lg hover:bg-white/20 hover:border-white/50 transition-all duration-300"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).gtag) {
+                    (window as any).gtag('event', 'cta_click', {
+                      event_category: 'engagement',
+                      event_label: 'hero_learn_more',
+                    });
+                  }
+                }}
+              >
+                Daha Fazla Bilgi
+              </a>
+            </div>
           </div>
-          <div className="card p-6">
-            <h2 className="font-bold text-passgage-blue mb-2">✓ Tailwind CSS</h2>
-            <p className="text-neutral-600 text-sm">v4 + Custom Config</p>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg
+              className="w-6 h-6 text-white/60"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
+            </svg>
           </div>
-          <div className="card p-6">
-            <h2 className="font-bold text-passgage-blue mb-2">✓ Structure</h2>
-            <p className="text-neutral-600 text-sm">Components + Lib</p>
+        </section>
+
+        {/* Platform Selection Section */}
+        <section id="platforms" className="py-20 px-6 bg-neutral-50">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-passgage-dark mb-4">
+                Platformunuzu Seçin
+              </h2>
+              <p className="text-xl text-passgage-gray max-w-2xl mx-auto">
+                Kurulum yapmak istediğiniz platformu seçerek adım adım rehbere ulaşın
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* iOS Card */}
+              <PlatformCard
+                type="ios"
+                title="iOS Kurulumu"
+                description="iPhone ve iPad için detaylı kurulum adımları, Safari ayarları ve sorun giderme rehberi."
+                href="/ios"
+                gradient="bg-gradient-to-br from-ios-black to-ios-gray"
+                icon={
+                  <svg className="w-16 h-16 text-white" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                  </svg>
+                }
+              />
+
+              {/* Android Card */}
+              <PlatformCard
+                type="android"
+                title="Android Kurulumu"
+                description="Android telefonlar için kapsamlı kurulum rehberi, marka özel ayarlar ve pil optimizasyonu."
+                href="/android"
+                gradient="bg-gradient-to-br from-android-green to-green-600"
+                icon={
+                  <svg className="w-16 h-16 text-white" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.6,9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88,3.24a11.46,11.46,0,0,0-8.94,0L5.65,5.67c-.19-.28-.54-.37-.83-.22-.3.16-.42.54-.26.85L6.4,9.48A10.88,10.88,0,0,0,1,18H23A10.88,10.88,0,0,0,17.6,9.48ZM7,15.25A1.25,1.25,0,1,1,8.25,14,1.25,1.25,0,0,1,7,15.25Zm10,0A1.25,1.25,0,1,1,18.25,14,1.25,1.25,0,0,1,17,15.25Z"/>
+                  </svg>
+                }
+              />
+
+              {/* Access Tag Card */}
+              <PlatformCard
+                type="access-tag"
+                title="Access Tag Kurulumu"
+                description="Fiziksel NFC etiket kurulumu, QR kod yapılandırması ve bakım rehberi."
+                href="/access-tag"
+                gradient="bg-gradient-to-br from-tag-blue to-blue-500"
+                icon={
+                  <svg className="w-16 h-16 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <rect x="3" y="3" width="18" height="18" rx="2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <rect x="7" y="7" width="4" height="4" fill="currentColor"/>
+                    <rect x="7" y="13" width="4" height="4" fill="currentColor"/>
+                    <rect x="13" y="7" width="4" height="4" fill="currentColor"/>
+                    <path d="M13 13h2v2h-2v2h2v2h-2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                }
+              />
+            </div>
           </div>
-        </div>
-      </div>
-    </main>
+        </section>
+
+        {/* Features Section */}
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-passgage-dark mb-4">
+                Neden Passgage?
+              </h2>
+              <p className="text-xl text-passgage-gray max-w-2xl mx-auto">
+                Güvenli, hızlı ve kullanıcı dostu giriş sistemi
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Feature 1 */}
+              <div className="card p-8 text-center hover:-translate-y-2 transition-all duration-300 group">
+                <div className="w-16 h-16 bg-gradient-to-br from-passgage-blue to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-passgage-dark mb-3">Güvenli</h3>
+                <p className="text-passgage-gray">
+                  Şifresiz giriş ile maksimum güvenlik
+                </p>
+              </div>
+
+              {/* Feature 2 */}
+              <div className="card p-8 text-center hover:-translate-y-2 transition-all duration-300 group">
+                <div className="w-16 h-16 bg-gradient-to-br from-android-green to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-passgage-dark mb-3">Hızlı</h3>
+                <p className="text-passgage-gray">
+                  Saniyeler içinde giriş yapın
+                </p>
+              </div>
+
+              {/* Feature 3 */}
+              <div className="card p-8 text-center hover:-translate-y-2 transition-all duration-300 group">
+                <div className="w-16 h-16 bg-gradient-to-br from-tag-blue to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-passgage-dark mb-3">Kolay</h3>
+                <p className="text-passgage-gray">
+                  Kullanıcı dostu arayüz ve kurulum
+                </p>
+              </div>
+
+              {/* Feature 4 */}
+              <div className="card p-8 text-center hover:-translate-y-2 transition-all duration-300 group">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-passgage-dark mb-3">Güvenilir</h3>
+                <p className="text-passgage-gray">
+                  7/24 kesintisiz hizmet
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="py-20 px-6 bg-gradient-to-br from-passgage-blue to-blue-600">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Yardıma mı İhtiyacınız Var?
+            </h2>
+            <p className="text-xl text-white/90 mb-10 leading-relaxed">
+              Kurulum sırasında sorun yaşıyorsanız veya sorularınız varsa,
+              <br className="hidden md:block" />
+              destek ekibimiz size yardımcı olmaktan mutluluk duyacaktır.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a
+                href="mailto:support@passgage.com"
+                className="group px-8 py-4 bg-white text-passgage-blue rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).gtag) {
+                    (window as any).gtag('event', 'contact_click', {
+                      event_category: 'engagement',
+                      event_label: 'email_support',
+                    });
+                  }
+                }}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                support@passgage.com
+              </a>
+
+              <a
+                href="https://passgage.com/support"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-2xl font-bold text-lg hover:bg-white/20 hover:border-white/50 transition-all duration-300"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).gtag) {
+                    (window as any).gtag('event', 'contact_click', {
+                      event_category: 'engagement',
+                      event_label: 'support_center',
+                    });
+                  }
+                }}
+              >
+                Destek Merkezi
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </>
   );
 }

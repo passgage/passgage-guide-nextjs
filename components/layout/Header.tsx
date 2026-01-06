@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useSearchStore } from '@/store/searchStore';
 
 export interface HeaderProps {
   showSearch?: boolean;
@@ -6,6 +9,8 @@ export interface HeaderProps {
 }
 
 export default function Header({ showSearch = false, className = '' }: HeaderProps) {
+  const openModal = useSearchStore((state) => state.openModal);
+
   return (
     <header className={`bg-white border-b border-neutral-200 sticky top-0 z-50 ${className}`}>
       <div className="max-w-7xl mx-auto px-6 py-4">
@@ -36,15 +41,12 @@ export default function Header({ showSearch = false, className = '' }: HeaderPro
             </div>
           </Link>
 
-          {/* Search Bar Placeholder (Phase 3) */}
+          {/* Search Bar */}
           {showSearch && (
             <div className="hidden md:flex items-center flex-1 max-w-md mx-8">
               <button
                 className="w-full px-4 py-2 bg-neutral-50 hover:bg-neutral-100 text-neutral-500 text-left rounded-xl border border-neutral-200 transition-colors flex items-center justify-between"
-                onClick={() => {
-                  // Will be implemented in Phase 3 with search modal
-                  console.log('Search functionality coming in Phase 3');
-                }}
+                onClick={openModal}
               >
                 <div className="flex items-center gap-2">
                   <svg
