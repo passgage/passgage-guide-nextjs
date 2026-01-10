@@ -487,27 +487,24 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Access Tag Video */}
+              {/* Şifre Oluşturma Video */}
               <div className="group bg-neutral-50 rounded-3xl overflow-hidden hover:shadow-hover transition-all">
-                <div className="relative aspect-video bg-gradient-to-br from-orange-600 to-yellow-400 flex items-center justify-center">
-                  <div className="absolute inset-0 bg-black/20"></div>
-                  <div className="relative z-10">
-                    <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform cursor-pointer">
-                      <i className="fas fa-play text-white text-2xl ml-1"></i>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs font-bold">
-                      2:45
-                    </span>
-                  </div>
+                <div className="relative aspect-video">
+                  <iframe
+                    className="absolute inset-0 w-full h-full rounded-t-3xl"
+                    src="https://www.youtube.com/embed/_g-zcaH-3bE"
+                    title="Şifre Oluşturma Rehberi"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-neutral-900 mb-2">
-                    Access Tag Kurulum Rehberi
+                    Şifre Oluşturma Rehberi
                   </h3>
                   <p className="text-neutral-600 text-sm">
-                    NFC kart ve QR kod aktivasyonu
+                    Güvenli şifre oluşturma adımları
                   </p>
                 </div>
               </div>
