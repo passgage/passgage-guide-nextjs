@@ -196,7 +196,7 @@ export default function IOSGuidePage() {
           {/* Center: Logo */}
           <div className="absolute left-1/2 transform -translate-x-1/2">
             <Image
-              src="https://passgage.com/wp-content/uploads/2024/06/cropped-passgage-logo-1.png"
+              src="/logo.png"
               alt="Passgage"
               width={120}
               height={30}
