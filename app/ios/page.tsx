@@ -115,7 +115,7 @@ export default function IOSGuidePage() {
                 href="https://apps.apple.com/app/passgage/id6477761817"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card p-8 hover:-translate-y-2 transition-all duration-300 no-underline flex items-center justify-between group block"
+                className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-shadow duration-300 p-8 hover:-translate-y-2 no-underline flex items-center justify-between group block"
               >
                 <div className="flex items-center gap-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-3xl">
@@ -134,7 +134,7 @@ export default function IOSGuidePage() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-              <div className="card p-6 text-center">
+              <div className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-shadow duration-300 p-6 text-center">
                 <div className="w-12 h-12 bg-passgage-blue/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <i className="fas fa-mobile-alt text-2xl text-passgage-blue" />
                 </div>
@@ -144,7 +144,7 @@ export default function IOSGuidePage() {
                 </p>
               </div>
 
-              <div className="card p-6 text-center">
+              <div className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-shadow duration-300 p-6 text-center">
                 <div className="w-12 h-12 bg-passgage-blue/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <i className="fas fa-wifi text-2xl text-passgage-blue" />
                 </div>

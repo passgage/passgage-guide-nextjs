@@ -178,7 +178,7 @@ export default function AndroidGuidePage() {
                 href="https://play.google.com/store/apps/details?id=com.passgage.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card p-6 hover:-translate-y-2 transition-all duration-300 no-underline block group"
+                className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-shadow duration-300 p-6 hover:-translate-y-2 no-underline block group"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-android-green to-green-600 rounded-2xl flex items-center justify-center text-white text-3xl mb-4">
                   <i className="fab fa-google-play" />
@@ -196,7 +196,7 @@ export default function AndroidGuidePage() {
                 href="https://appgallery.huawei.com/app/C104521415"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card p-6 hover:-translate-y-2 transition-all duration-300 no-underline block group"
+                className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-shadow duration-300 p-6 hover:-translate-y-2 no-underline block group"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center text-white text-3xl mb-4">
                   <i className="fas fa-store" />
@@ -211,7 +211,7 @@ export default function AndroidGuidePage() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-              <div className="card p-6 text-center">
+              <div className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-shadow duration-300 p-6 text-center">
                 <div className="w-12 h-12 bg-android-green/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <i className="fas fa-mobile-alt text-2xl text-android-green" />
                 </div>
@@ -221,7 +221,7 @@ export default function AndroidGuidePage() {
                 </p>
               </div>
 
-              <div className="card p-6 text-center">
+              <div className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-shadow duration-300 p-6 text-center">
                 <div className="w-12 h-12 bg-android-green/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <i className="fas fa-cog text-2xl text-android-green" />
                 </div>
