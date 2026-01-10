@@ -3,8 +3,11 @@
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { PlatformCard } from '@/components/landing';
+import { useSearchStore } from '@/store/searchStore';
 
 export default function Home() {
+  const openModal = useSearchStore((state) => state.openModal);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -55,39 +58,51 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900">
-          {/* Grid Overlay */}
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
-
-          {/* Animated Blobs */}
-          <div className="absolute top-20 left-20 w-72 h-72 bg-white/10 rounded-full blur-3xl animate-blob" />
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-blob animation-delay-4000" />
-
-          {/* Hero Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-            <div className="inline-block mb-6 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium animate-fade-in">
-              iOS · Android · Access Tag
+        <section
+          className="relative min-h-screen flex items-center justify-center overflow-hidden"
+          style={{ background: 'linear-gradient(135deg, #2d2b3a 0%, #1a1926 100%)' }}
+        >
+          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-20 text-center">
+            {/* Icon */}
+            <div
+              className="w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-12 rounded-3xl flex items-center justify-center shadow-xl"
+              style={{
+                background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
+              }}
+            >
+              <i className="fas fa-rocket text-4xl sm:text-5xl text-white"></i>
             </div>
 
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 animate-slide-up">
-              Passgage
-              <br />
-              <span className="bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-                Kurulum Kılavuzu
-              </span>
+            {/* Heading */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 sm:mb-8">
+              Passgage{' '}
+              <span
+                className="inline-block"
+                style={{
+                  background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+              >
+                Kurulum
+              </span>{' '}
+              Rehberi
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in animation-delay-200">
-              iOS, Android ve Access Tag için adım adım kurulum rehberi.
-              <br />
-              Sisteminizi dakikalar içinde kurun ve kullanmaya başlayın.
+            {/* Description */}
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-10 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-4">
+              Birkaç dakikada uygulamayı kurun ve kullanmaya başlayın. Size
+              <br className="hidden sm:block" />
+              adım adım, görsel ve interaktif olarak rehberlik ediyoruz.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in animation-delay-400">
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
+              {/* Primary Button */}
               <a
                 href="#platforms"
-                className="group px-8 py-4 bg-white text-passgage-red rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-passgage-red to-passgage-gold text-white font-bold text-base sm:text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto justify-center"
                 onClick={() => {
                   if (typeof window !== 'undefined' && (window as any).gtag) {
                     (window as any).gtag('event', 'cta_click', {
@@ -97,56 +112,30 @@ export default function Home() {
                   }
                 }}
               >
-                Hemen Başla
-                <svg
-                  className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
+                <i className="fas fa-play text-sm"></i>
+                Başlayalım
               </a>
 
-              <a
-                href="https://passgage.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-2xl font-bold text-lg hover:bg-white/20 hover:border-white/50 transition-all duration-300"
+              {/* Secondary Button */}
+              <button
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-transparent text-white font-bold text-base sm:text-lg border-2 border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-300 w-full sm:w-auto justify-center"
                 onClick={() => {
+                  // Open search modal
+                  openModal();
+
+                  // Analytics tracking
                   if (typeof window !== 'undefined' && (window as any).gtag) {
-                    (window as any).gtag('event', 'cta_click', {
+                    (window as any).gtag('event', 'search_open', {
                       event_category: 'engagement',
-                      event_label: 'hero_learn_more',
+                      event_label: 'hero_trouble_button',
                     });
                   }
                 }}
               >
-                Daha Fazla Bilgi
-              </a>
+                <i className="fas fa-question-circle text-sm"></i>
+                Sorun mu Var?
+              </button>
             </div>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-            <svg
-              className="w-6 h-6 text-white/60"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </svg>
           </div>
         </section>
 
