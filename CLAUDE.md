@@ -2,6 +2,59 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Project Vision
+
+**Mission**: Passgage HR uygulamasını kullanan **düşük teknik bilgiye sahip son kullanıcılar** (kargo görevlileri, mağaza personeli, depo çalışanları) için **sıfır sürtünme kurulum deneyimi** sağlamak.
+
+**Target Users**: Perakende/mağaza çalışanları, kargo görevlileri, depo personeli - minimal teknik bilgi seviyesi.
+
+**Core Values**:
+- 🎯 **Basitlik**: Her adım açık ve net
+- 👁️ **Görsellik**: Ekran görüntüleri ve mockup'larla öğretme
+- ⚡ **Hızlı Yardım**: AI-destekli arama ile anında çözüm
+- 📱 **Platform-Agnostic**: iOS, Android, Access Tag eşit öncelik
+- 🌍 **Türkçe-First**: Kullanıcılarımızın dili
+
+**User Journey**: Landing → Platform Seçimi → Step-by-Step Guide → FAQ Search → Başarılı Kurulum
+
+### Kullanıcı Senaryosu
+
+> Bir market çalışanı işe ilk gününde Passgage'i kuruyor. Teknik bilgisi yok, telefonunu eline alıyor ve QR kod ile giriş yapması gerekiyor. Kılavuz onu step-by-step yönlendiriyor, her adımda ne yapacağını görsel olarak gösteriyor. Takıldığında "Sorun mu var?" butonuna basıyor, FAQ search açılıyor ve "NFC açılmıyor" yazıyor - 3 saniyede cevabı buluyor.
+
+## User Journey Map
+
+### Kullanıcı Akışı
+
+```
+Landing Page (/)
+    ↓
+Platform Seçimi (iOS / Android / Access Tag)
+    ↓
+Hero Section (Platforma özel)
+    ↓
+Step-by-Step Guide (ProgressNav ile tracking)
+    │
+    ├─→ Step 1: Uygulama İndir
+    ├─→ Step 2: İzinleri Ver
+    ├─→ Step 3: Login / Giriş
+    ├─→ Step 4: Cihaz Eşleştir (Android) / NFC Kontrol (iOS)
+    ├─→ Step 5: QR ile Check-in
+    └─→ Step 6: Sorun Giderme (FAQ accordion)
+
+    ↓ (her adımda)
+
+Search Bar (Header) → FAQ Modal → Vector Search + Fallback
+    ↓
+Cevap Bulundu ✓ veya Destek Email
+```
+
+### Kritik Başarı Faktörleri
+
+- ✅ Kullanıcı 5 dakikada uygulamayı kurabilmeli
+- ✅ Hiçbir adımda "ne yapacağımı bilmiyorum" düşüncesi olmamalı
+- ✅ Takıldığında 10 saniyede cevap bulabilmeli (FAQ search)
+- ✅ Platformlar arası tutarlı deneyim
+
 ## Project Overview
 
 Passgage Guide is a Next.js 16 migration of a static HTML installation guide website. This is an **active migration project** - all guide pages have been fully migrated from the original static HTML with 1:1 design matching.
@@ -11,7 +64,7 @@ Passgage Guide is a Next.js 16 migration of a static HTML installation guide web
 ## Development Commands
 
 ```bash
-# Development server (port 3000)
+# Development server (port 3002)
 npm run dev
 
 # Production build
@@ -310,24 +363,115 @@ NEXT_PUBLIC_GA_ID=G-374JCV17P7
 NEXT_PUBLIC_APP_URL=https://kilavuz.passgage.com
 ```
 
-## Migration Status
+## Development Roadmap
 
-**Completed Phases**:
-- ✅ Phase 1: Foundation (Next.js 16, TypeScript, Tailwind CSS 4)
-- ✅ Phase 2: Shared Components (Header, Footer, ProgressNav, etc.)
-- ✅ Phase 3: FAQ Vector Search (Qdrant + OpenAI + Zustand + Smart Fallback)
-- ✅ Phase 4: Landing Page Migration (1:1 design match)
+### ✅ Completed Phases (Phase 1-6)
 
-**Completed Pages** (1:1 design match):
-- ✅ `/` - Landing page with 3 platform cards
-- ✅ `/ios` - iOS guide (6 steps) - **Partial** (foundation complete)
-- ✅ `/android` - Android guide (6 steps + battery warning) - **Partial** (foundation complete)
-- ✅ `/access-tag` - Access Tag guide (5 steps + mounting methods + maintenance)
+- **Phase 1**: Foundation (Next.js 16, TypeScript, Tailwind CSS 4)
+- **Phase 2**: Shared Components (Header, Footer, ProgressNav, Hero, etc.)
+- **Phase 3**: FAQ Vector Search (Qdrant + OpenAI + Zustand + Smart Fallback)
+- **Phase 4**: Landing Page Migration (1:1 design match)
+- **Phase 5-6**: iOS/Android Guide Foundation
 
-**Current Phase**: Phase 5-6 (iOS/Android Guide Migration - In Progress)
-**Next Phase**: Phase 7 (Access Tag Guide Migration)
+### Completed Pages
 
-## Design Consistency Rules
+| Sayfa | URL | Durum | Adım Sayısı | Notlar |
+|-------|-----|-------|-------------|--------|
+| **Landing** | `/` | ✅ Tamamlandı | - | 3 platform kartı, search, hero |
+| **iOS Guide** | `/ios` | 🟡 Temel Yapı | 6 adım | Hero + foundation, içerik kısmi |
+| **Android Guide** | `/android` | 🟡 Temel Yapı | 6 adım + battery warning | Hero + foundation, içerik kısmi |
+| **Access Tag** | `/access-tag` | 🟡 Temel Yapı | 5 adım | Montaj metodları + bakım |
+
+### 🚧 Active Development
+
+#### **Phase 7: iOS/Android Guide İçerik Tamamlama** (ŞİMDİKİ ÖNCELİK)
+
+**Hedef**: Her adımı detaylı içerik, ekran görüntüleri ve örnek senaryolar ile doldurmak.
+
+**iOS Guide - 6 Adım:**
+- ✅ Step 1: App Store'dan İndirme (temel yapı var)
+- 🔴 Step 2: Konum/Bildirim İzinleri (detay eksik)
+- 🔴 Step 3: Login/Giriş (screenshot ekle)
+- 🔴 Step 4: NFC Kontrolü (iPhone 7+ vurgusu)
+- 🔴 Step 5: İlk QR Okutma
+- 🔴 Step 6: Sorun Giderme (FAQ accordion genişlet)
+
+**Android Guide - 6 Adım:**
+- ✅ Step 1: Google Play/Huawei AppGallery (temel yapı var)
+- 🔴 Step 2: İzinler (marka-spesifik: Xiaomi MIUI, Samsung One UI)
+- 🔴 Step 3: Login + SMS Doğrulama (banking-style pairing)
+- 🔴 Step 4: Cihaz Eşleştirme (tek cihaz vurgusu)
+- 🔴 Step 5: NFC Ayarları (marka-spesifik yollar)
+- 🔴 Step 6: Sorun Giderme (7 FAQ var, expand et)
+- ⚠️ Battery Optimization Warning (MIUI/One UI özel talimatlar)
+
+**Görevler**:
+- [ ] Her adım için 2-3 phone mockup ekle
+- [ ] Settings path gösterimleri (iOS: gri ok, Android: yeşil ok)
+- [ ] Manufacturer-specific content (Samsung, Xiaomi, Huawei, Google)
+- [ ] "Yaygın hatalar" kutucukları her adımda
+
+#### **Phase 8: Access Tag Guide Tamamlama**
+
+**Access Tag - 5 Adım:**
+- 🔴 Step 1: Kutu İçeriği (unboxing görselleri)
+- 🔴 Step 2: Lokasyon Planlama (yükseklik, görünürlük, ortam)
+- 🔴 Step 3: Montaj Metodları (adhesive, screw, magnetic)
+- 🔴 Step 4: QR Konfigürasyonu (admin panelden)
+- 🔴 Step 5: Bakım ve Temizlik Programı
+
+#### **Phase 9: Kapsamlı Troubleshooting Sayfası** (YENİ!)
+
+**Hedef**: Tüm platformlar için merkezi sorun giderme hub'ı.
+
+Yapı: `/troubleshooting` - Platform filter, kategori tabs (NFC, GPS, Pil, İzinler, Login, QR), 50+ yaygın sorun ve çözümleri.
+
+### 🔮 Future Roadmap
+
+- **Phase 10+**: Cloudflare AI Entegrasyonu (TBD - kullanıcı tarafından detaylandırılacak)
+- **Phase 11+**: Admin/Web Guides, Offline Mode (PWA), Multi-language (EN, RU)
+
+**Detaylı roadmap**: `/Users/gokhanalmas/.claude/plans/curried-zooming-sun.md`
+
+## Design Principles for Low-Tech Users
+
+### Content Writing Guidelines
+
+Bu proje **düşük teknik bilgiye sahip kullanıcılar** için tasarlandığından, içerik yazımında şu kurallara uyulmalı:
+
+1. **Basit Dil**:
+   - ❌ "NFC modülünü aktive edin"
+   - ✅ "NFC'yi açın"
+   - ❌ "Konum servislerini etkinleştirin"
+   - ✅ "Konumu açın"
+
+2. **Görsel-Öncelikli**:
+   - Her adımda **en az 1 ekran görüntüsü** olmalı
+   - Phone mockup kullan (iOS/Android farkları göster)
+   - Icon'lar ve renklerle yönlendirme yapın
+   - "Şu butona basın" yerine → "🟢 Yeşil butona basın"
+
+3. **Kısa Paragraflar**:
+   - Maksimum 2-3 cümle
+   - Bullet point'leri tercih et
+   - Uzun açıklamalar → Accordion'a koy
+
+4. **Actionable (Eyleme Dönük)**:
+   - Her adım bir **eylem** içermeli
+   - "Şimdi şunu yapın" tarzı yönlendirme
+   - Pasif cümleler kullanma
+
+### Visual Hierarchy
+
+Her step section şu yapıda olmalı:
+
+1. 🎯 **Step numarası** (turuncu gradient badge - büyük ve belirgin)
+2. 📸 **Screenshot/Mockup** (büyük ve net - merkezi)
+3. 📝 **Kısa açıklama** (2-3 cümle - hemen altında)
+4. ⚠️ **Uyarılar** (warning box - pulsing animation ile kritik bilgiler)
+5. 💡 **İpuçları** (info box - ek bilgiler)
+
+### Design Consistency Rules
 
 1. **Colors**: Never modify the original Passgage color palette (use Tailwind config colors)
 2. **Gradients**: Always use inline styles for gradient text and backgrounds (see Rule #0 above)
@@ -405,6 +549,59 @@ Google Analytics 4 events (hardcoded ID: G-374JCV17P7):
 - `scroll_depth` - 25%, 50%, 75%, 100%
 
 **Implementation**: GA4 script loaded in app/layout.tsx head section. Events tracked via `window.gtag()` calls.
+
+## Future Features & Integrations
+
+### Planned Enhancements
+
+- **Cloudflare AI Integration**: TBD (Kullanıcı tarafından detaylandırılacak)
+  - Potansiyel kullanım: AI Workers ile FAQ search geliştirme, akıllı kurulum asistanı (chatbot), cihaz/marka tanıma ve otomatik yönlendirme
+  - Mevcut Qdrant search ile entegrasyon stratejisi belirlenecek
+  - UI/UX tasarımı (chat widget vs modal vs inline) planlanacak
+
+- **Interactive Demos**: Step-by-step sandbox mode
+  - Loom/Scribe gibi interaktif step recorder entegrasyonu
+  - Kullanıcı tıklayarak deneyebilir (sandbox mode)
+  - Her adımı canlı olarak gösterme
+
+- **Progress Tracking**: LocalStorage ile kullanıcı ilerlemesi kaydetme
+  - Landing page'de "Kurulum İlerlemeniz: 3/6" gibi tracker
+  - Kullanıcı hangi adımda kaldığını hatırlama
+  - Cross-device sync (gelecekte)
+
+- **Device Detection**: Otomatik platform yönlendirmesi
+  - User-agent ile cihaz/OS tanıma
+  - iOS kullanıcısı otomatik /ios'a yönlendirilir
+  - Akıllı öneri sistemi ("Android kullanıyorsunuz, Android kılavuzuna geçmek ister misiniz?")
+
+- **Offline Support**: PWA + cached content
+  - Progressive Web App manifestosu
+  - Service Worker ile offline erişim
+  - Guide sayfalarını cache'leme
+  - "İnternet bağlantısı yok" durumunda da kullanılabilir
+
+- **Multi-language**: İngilizce, Rusça (gelecekte)
+  - i18n altyapısı (next-intl veya next-i18next)
+  - Türkçe → İngilizce → Rusça öncelik sırası
+  - Dil seçici header'da
+
+### Integration Candidates
+
+- **Loom/Scribe**: Interactive walkthroughs için video/screenshot capture
+- **Hotjar/FullStory**: User behavior analytics (hangi adımda takılıyorlar?)
+- **Sentry**: Error tracking ve monitoring
+- **Vercel Analytics**: Performance monitoring ve Core Web Vitals
+- **Cloudflare Workers AI**: Akıllı arama ve öneri sistemi (Phase 10+)
+
+### Research & Best Practices
+
+Bu özellikler şu kaynaklardan ilham alınarak planlanmıştır:
+- Progressive Disclosure Patterns (NN/G, UXPin)
+- Interactive Documentation Best Practices (Document360, Scribe)
+- AI-Powered Knowledge Bases (HelpScout, Guru)
+- Generative AI Search UX Patterns (Medium Design Bootcamp)
+
+Detaylı araştırma bulguları: `/Users/gokhanalmas/.claude/plans/curried-zooming-sun.md`
 
 ## Common Patterns to Follow
 
