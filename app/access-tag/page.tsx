@@ -5,10 +5,10 @@ import Hero from '@/components/layout/Hero';
 import Footer from '@/components/layout/Footer';
 
 const accessTagSteps = [
-  { id: 'step1', number: 1, label: 'Paket içeriği' },
+  { id: 'step1', number: 1, label: 'Teknik özellikler' },
   { id: 'step2', number: 2, label: 'Lokasyon belirleme' },
   { id: 'step3', number: 3, label: 'Montaj' },
-  { id: 'step4', number: 4, label: 'QR kod yapılandırma' },
+  { id: 'step4', number: 4, label: 'Yapılandırma' },
   { id: 'step5', number: 5, label: 'Bakım' },
 ];
 
@@ -43,28 +43,18 @@ export default function AccessTagPage() {
             </div>
             <div className="flex-1">
               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
-                Paket İçeriği ve{' '}
+                Access Tag{' '}
                 <span
                   className="inline-block bg-gradient-to-r from-passgage-red to-passgage-gold bg-clip-text text-transparent"
                 >
-                  Hazırlık
+                  Özellikleri
                 </span>
               </h2>
-              <p className="text-xl text-gray-600">Access Tag paketinizi açın ve içeriği kontrol edin</p>
-            </div>
-          </div>
-
-          {/* Package Contents */}
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">Paket İçeriği</h3>
-          <div className="grid grid-cols-1 gap-6 mb-12 max-w-md">
-            <div className="flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-passgage-blue hover:shadow-soft transition-all duration-300">
-              <i className="fas fa-qrcode text-3xl text-passgage-blue" />
-              <span className="text-gray-700 font-semibold">Access Tag (QR kod etiketi)</span>
+              <p className="text-xl text-gray-600">Teknik özellikler ve cihaz bilgileri</p>
             </div>
           </div>
 
           {/* Technical Specifications */}
-          <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Teknik Özellikler</h3>
           <div className="bg-white rounded-3xl overflow-hidden shadow-card">
             <table className="w-full">
               <thead>
@@ -447,6 +437,78 @@ export default function AccessTagPage() {
                 <span className="text-gray-700 text-sm leading-relaxed">
                   <strong>Basınçlı su sıkmayın</strong>
                 </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Troubleshooting */}
+          <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Sık Karşılaşılan Sorunlar</h3>
+          <div className="space-y-4">
+            <div className="bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-passgage-blue transition-all">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-passgage-blue/10 flex items-center justify-center">
+                  <i className="fas fa-qrcode text-passgage-blue"></i>
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">QR Kod Taranmıyor</h4>
+                  <p className="text-gray-700 text-sm mb-3">
+                    QR kodun yüzeyi kirli olabilir. Yumuşak bir bezle temizleyin. Ayrıca kameranın odak mesafesini kontrol edin (15-30 cm ideal).
+                  </p>
+                  <p className="text-gray-600 text-xs">
+                    💡 <strong>İpucu:</strong> Farklı açılardan ve mesafelerden deneyerek en iyi tarama pozisyonunu bulun.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-passgage-blue transition-all">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-passgage-blue/10 flex items-center justify-center">
+                  <i className="fas fa-sun text-passgage-blue"></i>
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">Tag Solmuş veya Bozulmuş</h4>
+                  <p className="text-gray-700 text-sm mb-3">
+                    UV koruma özelliğine sahip olmasına rağmen, uzun süre direkt güneş ışığına maruz kalan tag'ler solabilir. Tag'i gölge bir alana taşıyın veya değiştirin.
+                  </p>
+                  <p className="text-gray-600 text-xs">
+                    💡 <strong>İpucu:</strong> Dış mekanda saçak altı veya korumalı alanlara monte edin.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-passgage-blue transition-all">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-passgage-blue/10 flex items-center justify-center">
+                  <i className="fas fa-sticky-note text-passgage-blue"></i>
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">Yapışkan Tutmuyor</h4>
+                  <p className="text-gray-700 text-sm mb-3">
+                    Yüzey yeterince temiz olmayabilir. Yüzeyi alkol ile temizleyin, kurulayın ve 24 saat boyunca tag'e baskı uygulamadan bekletin. Tam yapışma için 24 saat bekleyin.
+                  </p>
+                  <p className="text-gray-600 text-xs">
+                    💡 <strong>İpucu:</strong> Pürüzlü veya gözenekli yüzeylerde yapışkan yetersiz kalabilir, daha düz bir yüzey seçin.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-passgage-blue transition-all">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-passgage-blue/10 flex items-center justify-center">
+                  <i className="fas fa-map-marker-alt text-passgage-blue"></i>
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">Yanlış Konum Kaydedilmiş</h4>
+                  <p className="text-gray-700 text-sm mb-3">
+                    Admin panelinden tag'in lokasyon bilgilerini güncelleyin. GPS koordinatlarını kontrol edin ve gerekirse manuel olarak düzeltin.
+                  </p>
+                  <p className="text-gray-600 text-xs">
+                    💡 <strong>İpucu:</strong> Mobil cihazdan tag'i tararken konumun açık olduğundan emin olun.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
