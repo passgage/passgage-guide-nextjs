@@ -84,6 +84,160 @@ npm run seed-qdrant
 
 ## Critical Architecture Patterns
 
+### 🏢 **KURUMSAL STANDARTLAR - Tüm Kılavuz Sayfaları İçin Zorunlu**
+
+**TÜM kılavuz sayfaları (iOS, Android, Access Tag) AYNI standart component'leri kullanmalıdır. Custom header/hero/footer YASAK.**
+
+#### Zorunlu Standart Component'ler
+
+**1. Header Component** (`@/components/layout/Header`)
+```tsx
+// ✅ CORRECT - Tüm guide sayfalarında AYNI yapı
+<Header
+  isGuide={true}
+  progressSteps={steps}
+/>
+```
+
+**Özellikler:**
+- Back button + Passgage logo
+- Search bar (desktop center, mobile right icon)
+- ProgressNav otomatik integrate (header içinde render)
+- Sticky positioning (top-0)
+
+**❌ YASAK:**
+- Custom header HTML
+- Ayrı `<ProgressNav>` component çağırma
+- Platform badge'leri header'da (artık ProgressNav içinde)
+- Logo için external URL (her zaman `/logo.png` kullan)
+
+---
+
+**2. Hero Component** (`@/components/layout/Hero`)
+```tsx
+// ✅ CORRECT - Tüm guide sayfalarında AYNI yapı
+<Hero
+  icon={<i className="fab fa-apple" />}      // Platform icon
+  titleBefore="Passgage"
+  titleHighlight="iOS"                        // Platform adı (gradient)
+  titleAfter="Kurulumu"
+  description="iPhone ve iPad için detaylı kurulum adımları..."
+  primaryButtonText="Başlayalım"             // Optional
+  primaryButtonHref="#step1"                  // Optional
+  secondaryButtonText="Sorun Giderme"        // Optional
+  secondaryButtonHref="#step6"                // Optional
+/>
+```
+
+**Özellikler:**
+- Platform-agnostic gradient background
+- Animated floating icon
+- Gradient highlight text
+- Optional CTA buttons
+- Responsive design (mobile-first)
+
+**❌ YASAK:**
+- Custom hero section HTML
+- Platform-specific gradient backgrounds
+- Custom grid patterns
+- Inline hero content
+
+---
+
+**3. Footer Component** (`@/components/layout/Footer`)
+```tsx
+// ✅ CORRECT - Tüm sayfalarda AYNI
+<Footer />
+```
+
+**Özellikler:**
+- Copyright text
+- Passgage.com link
+- Simple, minimal design
+
+**❌ YASAK:**
+- Custom footer HTML
+- Platform-specific footer content
+
+---
+
+#### Standart Sayfa Yapısı
+
+**Tüm kılavuz sayfaları (iOS, Android, Access Tag) bu yapıyı kullanmalı:**
+
+```tsx
+'use client';
+
+import Header from '@/components/layout/Header';
+import Hero from '@/components/layout/Hero';
+import Footer from '@/components/layout/Footer';
+import { PhoneMockup, InfoBox, Accordion } from '@/components/guide';
+
+export default function GuidePage() {
+  const steps = [
+    { id: 'step1', number: 1, label: 'Adım 1' },
+    { id: 'step2', number: 2, label: 'Adım 2' },
+    // ...
+  ];
+
+  return (
+    <>
+      {/* Standard Header Component */}
+      <Header
+        isGuide={true}
+        progressSteps={steps}
+      />
+
+      <main>
+        {/* Hero Section - Standard Component */}
+        <Hero
+          icon={<i className="fab fa-apple" />}
+          titleBefore="Passgage"
+          titleHighlight="iOS"
+          titleAfter="Kurulumu"
+          description="Platform-specific description..."
+        />
+
+        {/* Main Content */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20 lg:py-24">
+          {/* Step sections */}
+        </div>
+      </main>
+
+      {/* Standard Footer Component */}
+      <Footer />
+    </>
+  );
+}
+```
+
+---
+
+#### Neden Kurumsal Standartlar?
+
+1. **Tutarlı UX**: Kullanıcı iOS'tan Android'e geçtiğinde aynı deneyim
+2. **Bakım Kolaylığı**: Tek bir yerde değişiklik, tüm sayfalara yansır
+3. **Brand Consistency**: Passgage kurumsal kimliği korunur
+4. **Code Quality**: DRY prensibi, code duplication yok
+5. **Performance**: Shared components, tek render pipeline
+
+---
+
+#### Migration Checklist
+
+Yeni kılavuz sayfası eklerken veya mevcut sayfayı güncellerken:
+
+- [ ] `Header` component kullanılıyor mu? (`isGuide={true}`)
+- [ ] `Hero` component kullanılıyor mu? (custom hero yok)
+- [ ] `Footer` component kullanılıyor mu? (custom footer yok)
+- [ ] `ProgressNav` ayrıca çağrılmıyor mu? (Header içinde otomatik)
+- [ ] Logo `/logo.png` local path kullanıyor mu? (external URL değil)
+- [ ] Main content wrapper standart mı? (`max-w-7xl mx-auto px-4 sm:px-6 py-16...`)
+
+**Commit Örneği**: Referans için `e8d7ac4` (Access Tag standardization) ve `1f6bf17` (iOS standardization) commitlerini incele.
+
+---
+
 ### 0. **MOST IMPORTANT RULE: Tailwind CSS ONLY**
 
 **This project uses ONLY Tailwind CSS utility classes with a mobile-first approach. NO custom CSS classes are allowed.**
@@ -190,17 +344,28 @@ import Image from 'next/image'
 />
 ```
 
-### 2. Page Structure - Custom Headers for Guide Pages
+### 2. Page Structure - Standard Components for All Pages
 
-**Landing page** (`/`): Uses standard Header component with logo and badge.
+**Landing page** (`/`): Uses standard Header component (no guide mode).
+```tsx
+<Header />  // isGuide=false (default)
+```
 
-**Guide pages** (`/ios`, `/android`, `/access-tag`): Use **custom header** integrated directly in the page with:
-- Back button linking to home
-- Passgage logo
-- Platform-specific badge (e.g., "iOS Kurulumu", "Android Kurulumu", "Access Tag Kurulumu")
-- ProgressNav component for step tracking
+**Guide pages** (`/ios`, `/android`, `/access-tag`): Use **standard Header component** with guide mode enabled:
+```tsx
+<Header
+  isGuide={true}
+  progressSteps={steps}
+/>
+```
 
-Do not use the shared Header component for guide pages - they have custom headers with ProgressNav.
+**Features:**
+- Back button linking to home (guide pages only)
+- Passgage logo (all pages)
+- Search bar (all pages - desktop center, mobile right icon)
+- ProgressNav automatically integrated (guide pages only, when `progressSteps` provided)
+
+**IMPORTANT:** All guide pages MUST use the standard Header component. Custom headers are prohibited. See "KURUMSAL STANDARTLAR" section above for details.
 
 ### 3. ProgressNav Component - Automatic Scroll Tracking
 
