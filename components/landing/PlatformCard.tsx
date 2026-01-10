@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 export type PlatformType = 'ios' | 'android' | 'access-tag';
 
 interface PlatformCardProps {
+  badge?: string;  // 🆕 Optional badge text
   type: PlatformType;
   title: string;
   description: string;
@@ -15,6 +16,7 @@ interface PlatformCardProps {
 }
 
 export default function PlatformCard({
+  badge,
   type,
   title,
   description,
@@ -59,6 +61,15 @@ export default function PlatformCard({
 
       {/* Content */}
       <div className="relative z-10">
+        {/* Badge (Category) */}
+        {badge && (
+          <div className="mb-4">
+            <span className="inline-block px-3 py-1 text-xs font-bold text-neutral-800 bg-white/90 backdrop-blur-sm rounded-full shadow-sm">
+              {badge}
+            </span>
+          </div>
+        )}
+
         {/* Icon */}
         <div className="mb-6 transform transition-transform duration-500 group-hover:scale-110">
           {icon}
