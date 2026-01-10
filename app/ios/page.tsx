@@ -281,60 +281,127 @@ export default function IOSGuidePage() {
           <section id="step2" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
             <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
-                className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-2xl sm:text-3xl font-bold shadow-medium"
+                className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
                 style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
               >
                 2
               </div>
               <div className="flex-1">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
-                  Gerekli İzinleri Verin
+                  Gerekli{' '}
+                  <span
+                    style={{
+                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    İzinleri
+                  </span>{' '}
+                  Verin
                 </h2>
-                <p className="text-base md:text-lg text-neutral-600">
-                  Passgage uygulamasının iOS sistem izinlerini yapılandırın
+                <p className="text-base sm:text-lg md:text-xl text-neutral-600">
+                  iOS ayarlarından izinleri aktifleştirin
                 </p>
               </div>
             </div>
 
-            <div className="space-y-8 md:space-y-10">
-              <InfoBox
-                icon="fas fa-shield-alt"
-                title="Uygulama İzinleri"
-                variant="gradient"
-              >
-                <p className="mb-4">
-                  Passgage uygulamasının düzgün çalışması için kamera, konum ve bildirim izinlerine ihtiyaç vardır.
-                  İlk kullanımda iOS otomatik olarak bu izinleri isteyecektir.
-                </p>
-                <p className="font-semibold">
-                  Tüm izin isteklerine <strong>"İzin Ver"</strong> butonuna tıklayın.
-                </p>
-              </InfoBox>
-
-              {/* App Permissions Accordion */}
-              <div>
-                <h3 className="text-xl md:text-2xl font-bold text-neutral-900 mb-4">
-                  Uygulama İzin Detayları
-                </h3>
-                <Accordion
-                  items={appPermissionsItems}
-                  platform="ios"
-                  defaultOpenIndex={0}
-                />
-              </div>
-
-              <div className="p-6 md:p-8 bg-amber-50 border-l-4 border-amber-500 rounded-r-xl">
-                <div className="flex gap-4 items-start">
-                  <i className="fas fa-exclamation-triangle text-2xl md:text-3xl text-amber-600 flex-shrink-0 mt-1"></i>
-                  <div>
-                    <h4 className="text-lg md:text-xl font-bold text-amber-900 mb-2">Önemli Not</h4>
-                    <p className="text-sm md:text-base text-amber-800 leading-relaxed">
-                      Eğer herhangi bir izni yanlışlıkla <strong>"İzin Verme"</strong> olarak seçtiyseniz,
-                      Ayarlar → Passgage bölümünden bu izinleri manuel olarak değiştirebilirsiniz.
-                    </p>
+            {/* Substep 2.1: Konum İzni */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/ios/step2-location-permission.jpg"
+                alt="Konum izni ekranı"
+                platform="ios"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-ios-black rounded-xl flex items-center justify-center">
+                    <i className="fas fa-map-marker-alt text-white text-xl"></i>
                   </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">1. Konum İzni</h4>
                 </div>
+                <p className="text-neutral-700 mb-6 text-lg leading-relaxed">
+                  Giriş-çıkış kayıtlarını doğru konumda yapmak için konum iznini vermeniz gerekir.
+                </p>
+                <div className="inline-block bg-gray-100 px-4 py-3 rounded-lg font-mono text-sm text-gray-800 my-2">
+                  Ayarlar <span className="text-gray-500 mx-2">→</span> Gizlilik ve Güvenlik{' '}
+                  <span className="text-gray-500 mx-2">→</span> Konum Servisleri{' '}
+                  <span className="text-gray-500 mx-2">→</span> Passgage
+                </div>
+                <p className="text-neutral-600 text-sm mt-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                  💡 <strong>Önemli:</strong> &quot;Uygulamayı Kullanırken&quot; veya &quot;Her Zaman&quot; seçeneğini işaretleyin.
+                  Bu, uygulamanın konum bilgisi alabilmesini sağlar.
+                </p>
               </div>
+            </div>
+
+            {/* Substep 2.2: Kamera İzni */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/ios/step2-camera-permission.jpg"
+                alt="Kamera izni ekranı"
+                platform="ios"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-ios-black rounded-xl flex items-center justify-center">
+                    <i className="fas fa-camera text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">2. Kamera İzni</h4>
+                </div>
+                <p className="text-neutral-700 mb-6 text-lg leading-relaxed">
+                  QR kod okutmak ve fotoğraf çekmek için kamera iznine ihtiyaç vardır.
+                </p>
+                <div className="inline-block bg-gray-100 px-4 py-3 rounded-lg font-mono text-sm text-gray-800 my-2">
+                  Ayarlar <span className="text-gray-500 mx-2">→</span> Gizlilik ve Güvenlik{' '}
+                  <span className="text-gray-500 mx-2">→</span> Kamera{' '}
+                  <span className="text-gray-500 mx-2">→</span> Passgage
+                </div>
+                <p className="text-neutral-600 text-sm mt-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                  💡 <strong>Öneri:</strong> Kamera izni sadece QR kod okutma sırasında kullanılır.
+                </p>
+              </div>
+            </div>
+
+            {/* Substep 2.3: Bildirim İzni */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/ios/step2-notification-permission.jpg"
+                alt="Bildirim izni ekranı"
+                platform="ios"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-ios-black rounded-xl flex items-center justify-center">
+                    <i className="fas fa-bell text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">3. Bildirim İzni</h4>
+                </div>
+                <p className="text-neutral-700 mb-6 text-lg leading-relaxed">
+                  Önemli güncellemeler ve hatırlatmalar için bildirim iznine ihtiyaç vardır.
+                </p>
+                <div className="inline-block bg-gray-100 px-4 py-3 rounded-lg font-mono text-sm text-gray-800 my-2">
+                  Ayarlar <span className="text-gray-500 mx-2">→</span> Bildirimler{' '}
+                  <span className="text-gray-500 mx-2">→</span> Passgage
+                </div>
+                <p className="text-neutral-600 text-sm mt-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                  💡 <strong>Bilgi:</strong> Kritik Uyarılar özelliğini açmanız önerilir. Bu, acil
+                  bildirimlerin Sessiz Mod&apos;da bile gelmesin sağlar.
+                </p>
+              </div>
+            </div>
+
+            {/* Info Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+              <InfoBox variant="info" icon="fas fa-shield-alt" title="Gizlilik Güvencesi">
+                Konum bilgisi sadece giriş-çıkış anlarında kullanılır ve hiçbir üçüncü tarafla
+                paylaşılmaz. Verileriniz Passgage sunucularında güvenle saklanır.
+              </InfoBox>
+              <InfoBox variant="info" icon="fas fa-mobile-alt" title="Otomatik İzin İstekleri">
+                Uygulama ilk açılışta gerekli izinleri otomatik olarak talep eder. İzinleri daha
+                sonra ayarlardan manuel olarak da değiştirebilirsiniz.
+              </InfoBox>
             </div>
           </section>
 
