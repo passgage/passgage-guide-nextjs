@@ -11,7 +11,7 @@ Passgage Guide is a Next.js 16 migration of a static HTML installation guide web
 ## Development Commands
 
 ```bash
-# Development server (port 3002)
+# Development server (port 3000)
 npm run dev
 
 # Production build
