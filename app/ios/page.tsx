@@ -274,18 +274,6 @@ export default function IOSGuidePage() {
                   </li>
                 </ul>
               </InfoBox>
-
-              <div className="p-6 md:p-8 bg-amber-50 border-l-4 border-amber-500 rounded-r-xl">
-                <div className="flex gap-4 items-start">
-                  <i className="fas fa-exclamation-triangle text-2xl md:text-3xl text-amber-600 flex-shrink-0 mt-1"></i>
-                  <div>
-                    <h4 className="text-lg md:text-xl font-bold text-amber-900 mb-2">Önemli Not</h4>
-                    <p className="text-sm md:text-base text-amber-800 leading-relaxed">
-                      Uygulama yalnızca <strong>App Store</strong> üzerinden indirilebilir. Güvenliğiniz için resmi mağaza dışında indirme yapmayın.
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </section>
 
