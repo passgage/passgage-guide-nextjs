@@ -1,13 +1,34 @@
 'use client';
 
+import { useState } from 'react';
 import Header from '@/components/layout/Header';
 import Hero from '@/components/layout/Hero';
 import Footer from '@/components/layout/Footer';
 import { PlatformCard } from '@/components/landing';
+import VideoCard from '@/components/landing/VideoCard';
+import VideoModal from '@/components/landing/VideoModal';
 import { useSearchStore } from '@/store/searchStore';
 
 export default function Home() {
   const openModal = useSearchStore((state) => state.openModal);
+
+  // Video modal state
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState({ id: '', title: '' });
+
+  const handleVideoClick = (videoId: string, title: string) => {
+    setCurrentVideo({ id: videoId, title });
+    setIsVideoModalOpen(true);
+
+    // Analytics tracking
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'video_opened', {
+        event_category: 'engagement',
+        event_label: title,
+        value: videoId,
+      });
+    }
+  };
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -437,71 +458,29 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Vardiya Planlama Video */}
-              <div className="group bg-neutral-50 rounded-3xl overflow-hidden hover:shadow-hover transition-all">
-                <div className="relative aspect-video">
-                  <iframe
-                    className="absolute inset-0 w-full h-full rounded-t-3xl"
-                    src="https://www.youtube.com/embed/BP4v81qjrs0"
-                    title="Vardiya Planlama Rehberi"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-neutral-900 mb-2">
-                    Vardiya Planlama Rehberi
-                  </h3>
-                  <p className="text-neutral-600 text-sm">
-                    Vardiya oluşturma ve yönetim adımları
-                  </p>
-                </div>
-              </div>
+              {/* Vardiya Planlama Video 1 */}
+              <VideoCard
+                videoId="BP4v81qjrs0"
+                title="Vardiya Planlama Rehberi"
+                description="Vardiya oluşturma ve yönetim adımları"
+                onClick={() => handleVideoClick('BP4v81qjrs0', 'Vardiya Planlama Rehberi')}
+              />
 
-              {/* Vardiya Planlama Video */}
-              <div className="group bg-neutral-50 rounded-3xl overflow-hidden hover:shadow-hover transition-all">
-                <div className="relative aspect-video">
-                  <iframe
-                    className="absolute inset-0 w-full h-full rounded-t-3xl"
-                    src="https://www.youtube.com/embed/bHPdMFhUmsc"
-                    title="Vardiya Planlama Rehberi"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-neutral-900 mb-2">
-                    Vardiya Planlama Rehberi
-                  </h3>
-                  <p className="text-neutral-600 text-sm">
-                    Vardiya oluşturma ve çalışan atama adımları
-                  </p>
-                </div>
-              </div>
+              {/* Vardiya Planlama Video 2 */}
+              <VideoCard
+                videoId="bHPdMFhUmsc"
+                title="Vardiya Planlama Rehberi"
+                description="Vardiya oluşturma ve çalışan atama adımları"
+                onClick={() => handleVideoClick('bHPdMFhUmsc', 'Vardiya Planlama Rehberi')}
+              />
 
               {/* Şifre Oluşturma Video */}
-              <div className="group bg-neutral-50 rounded-3xl overflow-hidden hover:shadow-hover transition-all">
-                <div className="relative aspect-video">
-                  <iframe
-                    className="absolute inset-0 w-full h-full rounded-t-3xl"
-                    src="https://www.youtube.com/embed/_g-zcaH-3bE"
-                    title="Şifre Oluşturma Rehberi"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-neutral-900 mb-2">
-                    Şifre Oluşturma Rehberi
-                  </h3>
-                  <p className="text-neutral-600 text-sm">
-                    Güvenli şifre oluşturma adımları
-                  </p>
-                </div>
-              </div>
+              <VideoCard
+                videoId="_g-zcaH-3bE"
+                title="Şifre Oluşturma Rehberi"
+                description="Güvenli şifre oluşturma adımları"
+                onClick={() => handleVideoClick('_g-zcaH-3bE', 'Şifre Oluşturma Rehberi')}
+              />
             </div>
           </div>
         </section>
@@ -779,6 +758,14 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      {/* Video Modal */}
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoId={currentVideo.id}
+        title={currentVideo.title}
+      />
 
       <Footer />
     </>
