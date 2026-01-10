@@ -1,8 +1,8 @@
 'use client';
 
-import Link from 'next/link';
-import Image from 'next/image';
-import ProgressNav from '@/components/layout/ProgressNav';
+import Header from '@/components/layout/Header';
+import Hero from '@/components/layout/Hero';
+import Footer from '@/components/layout/Footer';
 
 const accessTagSteps = [
   { id: 'step1', number: 1, label: 'Paket içeriği' },
@@ -14,109 +14,25 @@ const accessTagSteps = [
 
 export default function AccessTagPage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Custom Header with ProgressNav */}
-      <header
-        className="fixed top-0 left-0 right-0 z-[1000] px-8 py-4 border-b border-black/[0.06] transition-all duration-300"
-        style={{
-          background: 'rgba(255, 255, 255, 0.95)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)'
-        }}
-      >
-        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-3.5">
-            <Link href="/" className="flex items-center gap-2 text-gray-700 hover:text-passgage-blue transition-colors font-semibold text-sm">
-              <i className="fas fa-arrow-left" />
-              <span className="hidden sm:inline">Ana Sayfa</span>
-            </Link>
-            <div className="h-6 w-px bg-gray-300" />
-            <Image
-              src="https://passgage.com/wp-content/uploads/2023/11/Passgage-Primary-Logo.svg"
-              alt="Passgage"
-              width={120}
-              height={30}
-              className="h-7"
-            />
-            <span
-              className="text-white text-[0.65rem] font-extrabold px-3 py-1.5 rounded-[20px] tracking-[0.8px] uppercase shadow-md"
-              style={{
-                background: 'linear-gradient(135deg, #2872fa 0%, #1a5fd9 100%)'
-              }}
-            >
-              Access Tag Kurulumu
-            </span>
-          </div>
-          <ProgressNav steps={accessTagSteps} />
-        </div>
-      </header>
+    <>
+      {/* Standard Header Component */}
+      <Header
+        isGuide={true}
+        progressSteps={accessTagSteps}
+      />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-8 overflow-hidden">
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            background: 'linear-gradient(135deg, #1a1a2e 0%, #252542 100%)'
-          }}
+      <main>
+        {/* Hero Section - Standard Component */}
+        <Hero
+          icon={<i className="fas fa-qrcode" />}
+          titleBefore="Passgage"
+          titleHighlight="Access Tag"
+          titleAfter="Kurulumu"
+          description="NFC tabanlı Access Tag kurulum, montaj ve bakım rehberi. Akıllı bina giriş sistemleri için optimize edilmiştir."
         />
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px'
-          }}
-        />
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <div
-            className="w-24 h-24 mx-auto mb-10 rounded-[28px] flex items-center justify-center text-white text-5xl shadow-glow-lg animate-float"
-            style={{
-              background: 'linear-gradient(135deg, #2872fa 0%, #1a5fd9 100%)'
-            }}
-          >
-            <i className="fas fa-qrcode" />
-          </div>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6">
-            Passgage{' '}
-            <span
-              className="inline-block"
-              style={{
-                background: 'linear-gradient(135deg, #2872fa 0%, #1a5fd9 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}
-            >
-              Access Tag
-            </span>{' '}
-            Kurulumu
-          </h1>
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-            QR kod etiketlerinizi profesyonelce kurun. Fiziksel montajdan dijital yapılandırmaya kadar eksiksiz rehber.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="#step1"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-br from-passgage-red to-passgage-gold text-white font-bold text-base transition-all duration-300 hover:scale-105 shadow-lg"
-            >
-              <i className="fas fa-play" />
-              Başlayalım
-            </a>
-            <a
-              href="#step5"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-gray-900 font-bold text-base bg-white transition-all duration-300 hover:scale-105 shadow-lg"
-            >
-              <i className="fas fa-tools" />
-              Bakım & Sorun Giderme
-            </a>
-          </div>
-        </div>
-      </section>
 
-      {/* Main Content */}
-      <main className="py-16 md:py-20 px-8 max-w-7xl mx-auto">
+        {/* Main Content */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20 lg:py-24">
         {/* Step 1: Package Contents */}
         <section className="mb-24" id="step1">
           <div className="flex items-start gap-6 mb-12">
@@ -839,23 +755,11 @@ export default function AccessTagPage() {
             İletişime Geçin
           </a>
         </section>
+        </div>
       </main>
 
-      {/* Footer */}
-      <footer className="py-8 px-8 bg-white border-t border-gray-200">
-        <p className="text-center text-gray-600">
-          © 2024{' '}
-          <a
-            href="https://passgage.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-900 font-semibold hover:text-primary-red transition-colors no-underline"
-          >
-            Passgage
-          </a>
-          . Tüm hakları saklıdır. İK Süper Uygulaması
-        </p>
-      </footer>
-    </div>
+      {/* Standard Footer Component */}
+      <Footer />
+    </>
   );
 }
