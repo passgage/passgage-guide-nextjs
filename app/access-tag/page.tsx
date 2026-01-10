@@ -56,26 +56,10 @@ export default function AccessTagPage() {
 
           {/* Package Contents */}
           <h3 className="text-2xl font-bold text-gray-900 mb-6">Paket İçeriği</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 gap-6 mb-12 max-w-md">
             <div className="flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-passgage-blue hover:shadow-soft transition-all duration-300">
               <i className="fas fa-qrcode text-3xl text-passgage-blue" />
               <span className="text-gray-700 font-semibold">Access Tag (QR kod etiketi)</span>
-            </div>
-            <div className="flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-passgage-blue hover:shadow-soft transition-all duration-300">
-              <i className="fas fa-screwdriver text-3xl text-passgage-blue" />
-              <span className="text-gray-700 font-semibold">Montaj donanımı (vida, dübel)</span>
-            </div>
-            <div className="flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-passgage-blue hover:shadow-soft transition-all duration-300">
-              <i className="fas fa-sticky-note text-3xl text-passgage-blue" />
-              <span className="text-gray-700 font-semibold">Yapışkan pad</span>
-            </div>
-            <div className="flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-passgage-blue hover:shadow-soft transition-all duration-300">
-              <i className="fas fa-book text-3xl text-passgage-blue" />
-              <span className="text-gray-700 font-semibold">Kullanım kılavuzu</span>
-            </div>
-            <div className="flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-passgage-blue hover:shadow-soft transition-all duration-300">
-              <i className="fas fa-tag text-3xl text-passgage-blue" />
-              <span className="text-gray-700 font-semibold">Passgage logosu ve markalama</span>
             </div>
           </div>
 
@@ -277,13 +261,13 @@ export default function AccessTagPage() {
                   Monte Edin
                 </span>
               </h2>
-              <p className="text-xl text-gray-600">Fiziksel kurulum için üç farklı yöntem</p>
+              <p className="text-xl text-gray-600">Yapışkan bantla kolay kurulum</p>
             </div>
           </div>
 
           {/* Mounting Methods */}
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">Montaj Yöntemleri</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">Montaj Yöntemi</h3>
+          <div className="grid grid-cols-1 gap-8 max-w-2xl">
             {/* Adhesive Mounting */}
             <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-passgage-blue hover:shadow-strong hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
               <div
@@ -340,116 +324,6 @@ export default function AccessTagPage() {
               </div>
               <p className="mt-6 text-gray-600 text-sm leading-relaxed">
                 <strong>Uygun:</strong> Düz yüzeyler, cam, metal, plastik. Geçici kurulumlar için ideal.
-              </p>
-            </div>
-
-            {/* Screw Mounting */}
-            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-passgage-blue hover:shadow-strong hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
-              <div
-                className="absolute top-0 left-0 right-0 h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
-                style={{
-                  background: 'linear-gradient(135deg, #2872fa 0%, #1a5fd9 100%)'
-                }}
-              />
-              <div
-                className="w-18 h-18 rounded-2xl flex items-center justify-center mb-6"
-                style={{ background: 'rgba(40, 114, 250, 0.1)' }}
-              >
-                <i className="fas fa-screwdriver text-3xl text-passgage-blue" />
-              </div>
-              <h4 className="text-2xl font-extrabold text-gray-900 mb-4">Vida Montaj</h4>
-              <span
-                className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-5 bg-passgage-blue/10 text-passgage-blue"
-              >
-                En Güvenli - Kalıcı Kurulum
-              </span>
-              <div className="flex flex-col gap-3">
-                <div className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-primary-blue text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">
-                    1
-                  </span>
-                  <span className="text-gray-700 leading-relaxed text-sm">
-                    Tag&apos;i yüzeye tutun ve montaj noktalarını kalemle işaretleyin
-                  </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-primary-blue text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">
-                    2
-                  </span>
-                  <span className="text-gray-700 leading-relaxed text-sm">
-                    Matkap ile pilot delikler açın (genellikle 6mm)
-                  </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-primary-blue text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">
-                    3
-                  </span>
-                  <span className="text-gray-700 leading-relaxed text-sm">
-                    Dübelleri deliklere yerleştirin (beton/tuğla için)
-                  </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-primary-blue text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">
-                    4
-                  </span>
-                  <span className="text-gray-700 leading-relaxed text-sm">
-                    Vidaları tornavida ile sıkıştırın, aşırı sıkmayın
-                  </span>
-                </div>
-              </div>
-              <p className="mt-6 text-gray-600 text-sm leading-relaxed">
-                <strong>Uygun:</strong> Kalıcı kurulumlar, yüksek trafik alanları, dış mekan. En dayanıklı yöntem.
-              </p>
-            </div>
-
-            {/* Magnetic Mounting */}
-            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-passgage-blue hover:shadow-strong hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
-              <div
-                className="absolute top-0 left-0 right-0 h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
-                style={{
-                  background: 'linear-gradient(135deg, #2872fa 0%, #1a5fd9 100%)'
-                }}
-              />
-              <div
-                className="w-18 h-18 rounded-2xl flex items-center justify-center mb-6"
-                style={{ background: 'rgba(40, 114, 250, 0.1)' }}
-              >
-                <i className="fas fa-magnet text-3xl text-passgage-blue" />
-              </div>
-              <h4 className="text-2xl font-extrabold text-gray-900 mb-4">Manyetik Montaj</h4>
-              <span
-                className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-5 bg-passgage-blue/10 text-passgage-blue"
-              >
-                En Esnek - Kolay Pozisyon Değişimi
-              </span>
-              <div className="flex flex-col gap-3">
-                <div className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-primary-blue text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">
-                    1
-                  </span>
-                  <span className="text-gray-700 leading-relaxed text-sm">
-                    Manyetik tabanı metal yüzeye yapıştırın veya vidalayın
-                  </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-primary-blue text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">
-                    2
-                  </span>
-                  <span className="text-gray-700 leading-relaxed text-sm">
-                    Access Tag&apos;in arka yüzeyini manyetik tabana yaklaştırın
-                  </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-primary-blue text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">
-                    3
-                  </span>
-                  <span className="text-gray-700 leading-relaxed text-sm">
-                    Pozisyon testini yapın, gerekirse ayarlayın
-                  </span>
-                </div>
-              </div>
-              <p className="mt-6 text-gray-600 text-sm leading-relaxed">
-                <strong>Uygun:</strong> Metal yüzeyler, kapılar, dolap kenarları. Esnek konumlandırma gerektiğinde.
               </p>
             </div>
           </div>
