@@ -452,18 +452,18 @@ export default function AndroidGuidePage() {
         />
 
         {/* Main Content */}
-        <div className="max-w-7xl mx-auto px-6 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20 lg:py-24">
           {/* STEP 1: Download App */}
-          <section id="step1" className="mb-24 scroll-mt-24">
-            <div className="flex items-start gap-6 mb-12">
+          <section id="step1" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
-                className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
+                className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
                 style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
               >
                 1
               </div>
               <div className="flex-1">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-3">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
                   Uygulamayı{' '}
                   <span
                     style={{
@@ -476,7 +476,7 @@ export default function AndroidGuidePage() {
                     İndirin
                   </span>
                 </h2>
-                <p className="text-xl text-neutral-600">Google Play Store veya Huawei AppGallery'den ücretsiz indirin</p>
+                <p className="text-base sm:text-lg md:text-xl text-neutral-600">Google Play Store veya Huawei AppGallery'den ücretsiz indirin</p>
               </div>
             </div>
 
@@ -563,16 +563,16 @@ export default function AndroidGuidePage() {
           </section>
 
           {/* STEP 2: Gerekli İzinleri Verin */}
-          <section id="step2" className="mb-24 scroll-mt-24">
-            <div className="flex items-start gap-6 mb-12">
+          <section id="step2" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
-                className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
+                className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
                 style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
               >
                 2
               </div>
               <div className="flex-1">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-3">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
                   Gerekli{' '}
                   <span
                     style={{
@@ -586,7 +586,7 @@ export default function AndroidGuidePage() {
                   </span>{' '}
                   Verin
                 </h2>
-                <p className="text-lg md:text-xl text-neutral-600">
+                <p className="text-base sm:text-lg md:text-xl text-neutral-600">
                   Android ayarlarından izinleri aktifleştirin
                 </p>
               </div>
@@ -715,16 +715,16 @@ export default function AndroidGuidePage() {
           </section>
 
           {/* STEP 3: Giriş Yapın ve Şifre Oluşturun */}
-          <section id="step3" className="mb-24 scroll-mt-24">
-            <div className="flex items-start gap-6 mb-12">
+          <section id="step3" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
-                className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
+                className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
                 style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
               >
                 3
               </div>
               <div className="flex-1">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-3">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
                   Giriş Yapın ve{' '}
                   <span
                     style={{
@@ -738,7 +738,7 @@ export default function AndroidGuidePage() {
                   </span>{' '}
                   Oluşturun
                 </h2>
-                <p className="text-lg md:text-xl text-neutral-600">
+                <p className="text-base sm:text-lg md:text-xl text-neutral-600">
                   OTP doğrulama ile güvenli giriş yapın
                 </p>
               </div>
@@ -876,16 +876,16 @@ export default function AndroidGuidePage() {
           </section>
 
           {/* STEP 4: Cihaz Eşleştirme */}
-          <section id="step4" className="mb-24 scroll-mt-24">
-            <div className="flex items-start gap-6 mb-12">
+          <section id="step4" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
-                className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
+                className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
                 style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
               >
                 4
               </div>
               <div className="flex-1">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-3">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
                   Cihaz{' '}
                   <span
                     style={{
@@ -898,7 +898,7 @@ export default function AndroidGuidePage() {
                     Eşleştirme
                   </span>
                 </h2>
-                <p className="text-lg md:text-xl text-neutral-600">
+                <p className="text-base sm:text-lg md:text-xl text-neutral-600">
                   Telefonunuzu hesabınızla eşleştirin
                 </p>
               </div>
@@ -992,16 +992,16 @@ export default function AndroidGuidePage() {
           </section>
 
           {/* STEP 5: NFC Kurulumu */}
-          <section id="step5" className="mb-24 scroll-mt-24">
-            <div className="flex items-start gap-6 mb-12">
+          <section id="step5" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
-                className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
+                className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
                 style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
               >
                 5
               </div>
               <div className="flex-1">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-3">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
                   NFC{' '}
                   <span
                     style={{
@@ -1014,7 +1014,7 @@ export default function AndroidGuidePage() {
                     Kurulumu
                   </span>
                 </h2>
-                <p className="text-lg md:text-xl text-neutral-600">
+                <p className="text-base sm:text-lg md:text-xl text-neutral-600">
                   Üretici bazlı NFC aktivasyon talimatları
                 </p>
               </div>
@@ -1070,16 +1070,16 @@ export default function AndroidGuidePage() {
           </section>
 
           {/* STEP 6: Troubleshooting (Existing but updated) */}
-          <section id="step6" className="mb-24 scroll-mt-24">
-            <div className="flex items-start gap-6 mb-12">
+          <section id="step6" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
-                className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
+                className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
                 style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
               >
                 6
               </div>
               <div className="flex-1">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-3">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
                   Sorun{' '}
                   <span
                     style={{
