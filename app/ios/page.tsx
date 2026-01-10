@@ -21,8 +21,8 @@ export default function IOSGuidePage() {
     { id: 'step6', number: 6, label: 'Konum servisleri' },
   ];
 
-  // Safari Permissions Accordion
-  const safariPermissionsItems: AccordionItem[] = [
+  // iOS App Permissions Accordion
+  const appPermissionsItems: AccordionItem[] = [
     {
       id: 'camera',
       question: 'Kamera İzni',
@@ -32,10 +32,10 @@ export default function IOSGuidePage() {
             Passgage uygulaması QR kod okutmak için kamera iznine ihtiyaç duyar.
           </p>
           <div className="inline-block bg-gray-100 px-4 py-2 rounded-lg font-mono text-sm text-gray-800 my-2">
-            Safari <span className="text-gray-500 mx-2">→</span> Kamera <span className="text-gray-500 mx-2">→</span> Sor
+            Ayarlar <span className="text-gray-500 mx-2">→</span> Passgage <span className="text-gray-500 mx-2">→</span> Kamera <span className="text-gray-500 mx-2">→</span> İzin Ver
           </div>
           <p className="text-sm text-neutral-600">
-            İlk QR kod okutma işleminde Safari otomatik olarak izin isteyecektir.
+            İlk QR kod okutma işleminde iOS otomatik olarak izin isteyecektir. "İzin Ver" seçeneğine dokunun.
           </p>
         </div>
       ),
@@ -46,14 +46,15 @@ export default function IOSGuidePage() {
       answer: (
         <div className="space-y-4">
           <p className="text-neutral-700">
-            GPS bazlı işlemler için Safari konum iznine ihtiyaç vardır.
+            GPS bazlı giriş/çıkış işlemleri için konum iznine ihtiyaç vardır.
           </p>
           <div className="inline-block bg-gray-100 px-4 py-2 rounded-lg font-mono text-sm text-gray-800 my-2">
-            Ayarlar <span className="text-gray-500 mx-2">→</span> Safari <span className="text-gray-500 mx-2">→</span> Konum <span className="text-gray-500 mx-2">→</span> Sorarken İzin Ver
+            Ayarlar <span className="text-gray-500 mx-2">→</span> Passgage <span className="text-gray-500 mx-2">→</span> Konum <span className="text-gray-500 mx-2">→</span> Uygulama Kullanımda İken
           </div>
           <div className="mt-4 p-4 bg-amber-50 border-l-4 border-amber-500 rounded-r-xl">
             <p className="text-sm text-amber-900">
               <strong>Önemli:</strong> "Asla" seçeneği seçilmişse, Passgage konum bazlı özellikleri kullanamaz.
+              "Kesin Konum" ayarını da açmanız önerilir.
             </p>
           </div>
         </div>
@@ -65,13 +66,13 @@ export default function IOSGuidePage() {
       answer: (
         <div className="space-y-4">
           <p className="text-neutral-700">
-            Safari bildirimleri için tarayıcı izni gereklidir.
+            Giriş/çıkış, alarm ve vardiya bildirimleri için izin gereklidir.
           </p>
           <div className="inline-block bg-gray-100 px-4 py-2 rounded-lg font-mono text-sm text-gray-800 my-2">
-            Ayarlar <span className="text-gray-500 mx-2">→</span> Safari <span className="text-gray-500 mx-2">→</span> Bildirimler <span className="text-gray-500 mx-2">→</span> İzin Ver
+            Ayarlar <span className="text-gray-500 mx-2">→</span> Bildirimler <span className="text-gray-500 mx-2">→</span> Passgage <span className="text-gray-500 mx-2">→</span> Bildirimlere İzin Ver
           </div>
           <p className="text-sm text-neutral-600">
-            Passgage ilk açılışta bildirim izni isteyecektir. "İzin Ver" butonuna tıklayın.
+            Passgage ilk açılışta bildirim izni isteyecektir. "İzin Ver" butonuna dokunun.
           </p>
         </div>
       ),
@@ -319,8 +320,7 @@ export default function IOSGuidePage() {
                   <div>
                     <h4 className="text-lg md:text-xl font-bold text-amber-900 mb-2">Önemli Not</h4>
                     <p className="text-sm md:text-base text-amber-800 leading-relaxed">
-                      Uygulama yalnızca <strong>App Store</strong> üzerinden indirilebilir.
-                      Kurumsal hesabınızla giriş yapmak için sistem yöneticinizden kullanıcı bilgilerinizi alın.
+                      Uygulama yalnızca <strong>App Store</strong> üzerinden indirilebilir. Güvenliğiniz için resmi mağaza dışında indirme yapmayın.
                     </p>
                   </div>
                 </div>
@@ -342,7 +342,7 @@ export default function IOSGuidePage() {
                   Gerekli İzinleri Verin
                 </h2>
                 <p className="text-base md:text-lg text-neutral-600">
-                  Safari ve iOS sistem izinlerini yapılandırın
+                  Passgage uygulamasının iOS sistem izinlerini yapılandırın
                 </p>
               </div>
             </div>
@@ -350,25 +350,25 @@ export default function IOSGuidePage() {
             <div className="space-y-8 md:space-y-10">
               <InfoBox
                 icon="fas fa-shield-alt"
-                title="Safari İzinleri"
+                title="Uygulama İzinleri"
                 variant="gradient"
               >
                 <p className="mb-4">
-                  Passgage'in düzgün çalışması için Safari tarayıcısının belirli izinlere ihtiyacı vardır.
-                  İlk kullanımda Safari otomatik olarak bu izinleri isteyecektir.
+                  Passgage uygulamasının düzgün çalışması için kamera, konum ve bildirim izinlerine ihtiyaç vardır.
+                  İlk kullanımda iOS otomatik olarak bu izinleri isteyecektir.
                 </p>
                 <p className="font-semibold">
                   Tüm izin isteklerine <strong>"İzin Ver"</strong> butonuna tıklayın.
                 </p>
               </InfoBox>
 
-              {/* Safari Permissions Accordion */}
+              {/* App Permissions Accordion */}
               <div>
                 <h3 className="text-xl md:text-2xl font-bold text-neutral-900 mb-4">
-                  Safari İzin Detayları
+                  Uygulama İzin Detayları
                 </h3>
                 <Accordion
-                  items={safariPermissionsItems}
+                  items={appPermissionsItems}
                   platform="ios"
                   defaultOpenIndex={0}
                 />
@@ -381,7 +381,7 @@ export default function IOSGuidePage() {
                     <h4 className="text-lg md:text-xl font-bold text-amber-900 mb-2">Önemli Not</h4>
                     <p className="text-sm md:text-base text-amber-800 leading-relaxed">
                       Eğer herhangi bir izni yanlışlıkla <strong>"İzin Verme"</strong> olarak seçtiyseniz,
-                      Ayarlar → Safari bölümünden bu izinleri manuel olarak değiştirebilirsiniz.
+                      Ayarlar → Passgage bölümünden bu izinleri manuel olarak değiştirebilirsiniz.
                     </p>
                   </div>
                 </div>
