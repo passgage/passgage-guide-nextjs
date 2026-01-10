@@ -12,10 +12,10 @@ export default function IOSGuidePage() {
   const iosSteps = [
     { id: 'step1', number: 1, label: 'Uygulamayı indirin' },
     { id: 'step2', number: 2, label: 'Gerekli izinleri verin' },
-    { id: 'step3', number: 3, label: 'Giriş yapın' },
-    { id: 'step4', number: 4, label: 'NFC ayarlarını yapın' },
-    { id: 'step5', number: 5, label: 'Bildirim ayarları' },
-    { id: 'step6', number: 6, label: 'Konum servisleri' },
+    { id: 'step3', number: 3, label: 'Giriş yapın ve şifre oluşturun' },
+    { id: 'step4', number: 4, label: 'Cihaz eşleştirme' },
+    { id: 'step5', number: 5, label: 'NFC kurulumu' },
+    { id: 'step6', number: 6, label: 'Sorun giderme' },
   ];
 
   // iOS App Permissions Accordion
@@ -405,88 +405,291 @@ export default function IOSGuidePage() {
             </div>
           </section>
 
-          {/* Step 3: Giriş Yapın */}
+          {/* Step 3: Giriş Yapın ve Şifre Oluşturun */}
           <section id="step3" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
             <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
-                className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-2xl sm:text-3xl font-bold shadow-medium"
+                className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
                 style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
               >
                 3
               </div>
               <div className="flex-1">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
-                  Giriş Yapın
+                  Giriş Yapın ve{' '}
+                  <span
+                    style={{
+                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    Şifre
+                  </span>{' '}
+                  Oluşturun
                 </h2>
-                <p className="text-base md:text-lg text-neutral-600">
-                  Kurumsal hesabınızla Passgage'e giriş yapın
+                <p className="text-base sm:text-lg md:text-xl text-neutral-600">
+                  OTP doğrulama ile güvenli giriş yapın
                 </p>
               </div>
             </div>
 
-            <div className="space-y-8 md:space-y-10">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                {/* Phone Mockup - iPhone */}
-                <div className="order-2 lg:order-1">
-                  <PhoneMockup
-                    type="iphone"
-                    screenshotPlaceholder="ios-login-screen.png"
-                  />
-                  <p className="text-center text-sm text-neutral-500 mt-4">
-                    Görsel: ios-login-screen.png
-                  </p>
+            {/* Substep 3.1: Şifre Al Butonu */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/ios/step3-1-login-screen.jpg"
+                alt="Giriş ekranı"
+                platform="ios"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-ios-black rounded-xl flex items-center justify-center">
+                    <i className="fas fa-key text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">1. Şifre Al Butonuna Tıklayın</h4>
                 </div>
+                <p className="text-neutral-700 mb-4 text-lg leading-relaxed">
+                  Uygulamayı açtığınızda karşınıza gelen giriş ekranında{' '}
+                  <strong className="text-passgage-blue">&quot;Şifre Al&quot;</strong> butonuna
+                  tıklayın.
+                </p>
+                <p className="text-neutral-600 text-sm bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                  💡 İlk giriş için şifre oluşturmanız gerekir. Sonraki girişlerde bu şifreyi
+                  kullanacaksınız.
+                </p>
+              </div>
+            </div>
 
-                {/* Instructions */}
-                <div className="order-1 lg:order-2 space-y-6">
-                  <InfoBox
-                    icon="fas fa-user-lock"
-                    title="Kullanıcı Bilgileri"
-                    variant="info"
-                  >
-                    <p className="mb-4">
-                      Sistem yöneticiniz tarafından sağlanan kullanıcı adı ve şifrenizi girin.
-                    </p>
-                    <ul className="space-y-2 text-neutral-700">
-                      <li className="flex items-start gap-2">
-                        <i className="fas fa-check-circle text-sky-600 mt-1 flex-shrink-0"></i>
-                        <span><strong>Kullanıcı Adı:</strong> Genellikle email adresiniz</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <i className="fas fa-check-circle text-sky-600 mt-1 flex-shrink-0"></i>
-                        <span><strong>Şifre:</strong> İlk giriş için geçici şifrenizi kullanın</span>
-                      </li>
-                    </ul>
-                  </InfoBox>
-
-                  <div className="p-4 bg-blue-50 border border-blue-200 rounded-xl">
-                    <p className="text-sm text-blue-900">
-                      <i className="fas fa-info-circle mr-2"></i>
-                      <strong>İpucu:</strong> İlk giriş sonrası şifrenizi değiştirmeniz istenecektir.
-                      Güçlü bir şifre seçtiğinizden emin olun.
-                    </p>
+            {/* Substep 3.2: E-posta/Telefon Girişi */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/ios/step3-2-account-verification.jpg"
+                alt="Hesap doğrulama ekranı"
+                platform="ios"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-ios-black rounded-xl flex items-center justify-center">
+                    <i className="fas fa-envelope text-white text-xl"></i>
                   </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">
+                    2. E-posta veya Telefon Numarası Girin
+                  </h4>
+                </div>
+                <p className="text-neutral-700 mb-4 text-lg leading-relaxed">
+                  Şirket e-posta adresinizi veya telefon numaranızı girin. Sistem size bir{' '}
+                  <strong className="text-passgage-blue">6 haneli OTP kodu</strong> gönderecektir.
+                </p>
+                <p className="text-neutral-600 text-sm bg-amber-50 border-l-4 border-amber-500 p-4 rounded">
+                  ⚠️ <strong>Önemli:</strong> Şirket yöneticiniz tarafından sisteme tanımlanan
+                  e-posta veya telefon numarasını kullanın.
+                </p>
+              </div>
+            </div>
 
-                  <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl">
-                    <p className="text-sm text-amber-900">
-                      <i className="fas fa-key mr-2"></i>
-                      <strong>Şifrenizi mi unuttunuz?</strong> Giriş ekranındaki "Şifremi Unuttum" linkine
-                      tıklayın veya sistem yöneticinizle iletişime geçin.
-                    </p>
+            {/* Substep 3.3: OTP Kodu Girişi */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/ios/step3-3-otp-entry.jpg"
+                alt="OTP kod girişi ekranı"
+                platform="ios"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-ios-black rounded-xl flex items-center justify-center">
+                    <i className="fas fa-mobile-alt text-white text-xl"></i>
                   </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">3. OTP Kodunu Girin</h4>
+                </div>
+                <p className="text-neutral-700 mb-4 text-lg leading-relaxed">
+                  E-posta veya SMS ile gelen <strong className="text-passgage-blue">6 haneli kodu</strong>{' '}
+                  uygulama ekranına girin.
+                </p>
+                <p className="text-neutral-600 text-sm bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                  💡 Kod gelmedi mi? &quot;Tekrar Gönder&quot; butonuna tıklayarak yeni kod
+                  talep edebilirsiniz.
+                </p>
+              </div>
+            </div>
+
+            {/* Substep 3.4: Şifre Oluşturma */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/ios/step3-4-set-password.jpg"
+                alt="Şifre oluşturma ekranı"
+                platform="ios"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-ios-black rounded-xl flex items-center justify-center">
+                    <i className="fas fa-lock text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">4. Güçlü Bir Şifre Belirleyin</h4>
+                </div>
+                <p className="text-neutral-700 mb-4 text-lg leading-relaxed">
+                  OTP doğrulaması başarılı olduktan sonra, hesabınız için güvenli bir şifre
+                  oluşturun.
+                </p>
+                <div className="bg-neutral-50 border border-neutral-200 rounded-lg p-4 mb-4">
+                  <p className="text-sm font-semibold text-neutral-900 mb-2">
+                    Şifre Gereksinimleri:
+                  </p>
+                  <ul className="text-sm text-neutral-700 space-y-1 ml-4">
+                    <li className="flex items-center gap-2">
+                      <span className="text-passgage-blue">✓</span> Minimum 8 karakter
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-passgage-blue">✓</span> En az 1 büyük harf
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-passgage-blue">✓</span> En az 1 küçük harf
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-passgage-blue">✓</span> En az 1 rakam
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
+
+            {/* Info Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+              <InfoBox variant="info" icon="fas fa-user-shield" title="Güvenli Giriş">
+                OTP (One-Time Password) sistemi, ilk girişinizde hesabınızın size ait olduğunu
+                doğrular. Bu sayede yetkisiz erişimler engellenir.
+              </InfoBox>
+              <InfoBox variant="info" icon="fas fa-shield-alt" title="Şifre Güvenliği">
+                Şifrenizi kimseyle paylaşmayın ve düzenli olarak değiştirin. Passgage şifrenizi
+                asla size sormaz veya talep etmez.
+              </InfoBox>
+            </div>
           </section>
 
-          {/* Step 4: NFC Ayarlarını Yapın */}
+          {/* Step 4: Cihaz Eşleştirme */}
           <section id="step4" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
             <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
-                className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-2xl sm:text-3xl font-bold shadow-medium"
+                className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
                 style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
               >
                 4
+              </div>
+              <div className="flex-1">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
+                  Cihaz{' '}
+                  <span
+                    style={{
+                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    Eşleştirme
+                  </span>
+                </h2>
+                <p className="text-base sm:text-lg md:text-xl text-neutral-600">
+                  iPhone'unuzu hesabınızla eşleştirin
+                </p>
+              </div>
+            </div>
+
+            {/* Substep 4.1: Eşleştirme İsteği */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/ios/step4-device-pairing.jpg"
+                alt="Cihaz eşleştirme ekranı"
+                platform="ios"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-ios-black rounded-xl flex items-center justify-center">
+                    <i className="fas fa-mobile-alt text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">1. Eşleştirme İsteği Gönderin</h4>
+                </div>
+                <p className="text-neutral-700 mb-4 text-lg leading-relaxed">
+                  Giriş yaptıktan sonra sistem otomatik olarak cihazınızı eşleştirmek için bir
+                  istek gönderir. <strong className="text-passgage-blue">&quot;Eşleştir&quot;</strong>{' '}
+                  butonuna tıklayın.
+                </p>
+                <p className="text-neutral-600 text-sm bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                  💡 Her kullanıcı aynı anda sadece bir cihazla eşleştirilebilir. Yeni cihaz
+                  eklediğinizde eski cihazınız otomatik olarak kaldırılır.
+                </p>
+              </div>
+            </div>
+
+            {/* Substep 4.2: SMS Doğrulama */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/ios/step4-add-device.jpg"
+                alt="SMS doğrulama ekranı"
+                platform="ios"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-ios-black rounded-xl flex items-center justify-center">
+                    <i className="fas fa-sms text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">2. SMS ile Doğrulama Yapın</h4>
+                </div>
+                <p className="text-neutral-700 mb-4 text-lg leading-relaxed">
+                  iPhone'unuza gelen{' '}
+                  <strong className="text-passgage-blue">doğrulama kodunu</strong> girerek
+                  eşleştirme işlemini onaylayın.
+                </p>
+                <p className="text-neutral-600 text-sm bg-amber-50 border-l-4 border-amber-500 p-4 rounded">
+                  ⚠️ SMS gelmediyse, telefon numaranızın sistemde doğru kayıtlı olduğundan emin
+                  olun ve &quot;Tekrar Gönder&quot; butonunu deneyin.
+                </p>
+              </div>
+            </div>
+
+            {/* Substep 4.3: Eşleştirme Tamamlandı */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/ios/step4-connected-devices.jpg"
+                alt="Eşleştirilmiş cihazlar ekranı"
+                platform="ios"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-ios-black rounded-xl flex items-center justify-center">
+                    <i className="fas fa-check-circle text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">3. Eşleştirme Tamamlandı!</h4>
+                </div>
+                <p className="text-neutral-700 mb-4 text-lg leading-relaxed">
+                  Tebrikler! iPhone'unuz başarıyla eşleştirildi. Artık Passgage&apos;ı kullanmaya
+                  başlayabilirsiniz.
+                </p>
+                <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                  <p className="text-sm text-green-800">
+                    <i className="fas fa-info-circle mr-2"></i>
+                    <strong>Bilgi:</strong> Eşleştirilmiş cihazlarınızı ayarlar menüsünden
+                    kontrol edebilir ve yönetebilirsiniz.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Security Info Box */}
+            <InfoBox variant="info" icon="fas fa-shield-alt" title="Güvenlik">
+              💡 Yeni bir cihaz eşleştirdiğinizde, önceki cihazınızın erişimi otomatik olarak iptal
+              edilir. Bu, hesabınızın güvenliğini sağlar.
+            </InfoBox>
+          </section>
+
+          {/* Step 5: NFC Kurulumu */}
+          <section id="step5" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
+              <div
+                className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
+                style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
+              >
+                5
               </div>
               <div className="flex-1">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
