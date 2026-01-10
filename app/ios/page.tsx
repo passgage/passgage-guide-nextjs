@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Hero from '@/components/layout/Hero';
 import Footer from '@/components/layout/Footer';
 import ProgressNav from '@/components/layout/ProgressNav';
 import { PhoneMockup, InfoBox, Accordion } from '@/components/guide';
@@ -217,56 +218,17 @@ export default function IOSGuidePage() {
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 px-4 sm:px-6 md:px-8 overflow-hidden" style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #252542 100%)' }}>
-          {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-              backgroundSize: '40px 40px'
-            }}></div>
-          </div>
-
-          {/* Content */}
-          <div className="relative z-10 max-w-4xl mx-auto text-center">
-            {/* Icon */}
-            <div
-              className="w-20 h-20 md:w-24 md:h-24 rounded-2xl md:rounded-3xl flex items-center justify-center mx-auto mb-6 md:mb-8 shadow-strong"
-              style={{ background: 'linear-gradient(135deg, #1d1d1f 0%, #3a3a3c 100%)' }}
-            >
-              <i className="fab fa-apple text-white text-4xl md:text-5xl"></i>
-            </div>
-
-            {/* Title */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 md:mb-6 leading-tight">
-              iOS Kurulum Rehberi
-            </h1>
-
-            {/* Description */}
-            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 md:mb-10 leading-relaxed max-w-2xl mx-auto">
-              iPhone ve iPad için Passgage kurulum adımları. Safari ayarları, izinler ve sorun giderme rehberi.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="#step1"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-bold text-base sm:text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto justify-center"
-                style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
-              >
-                <i className="fas fa-play"></i>
-                Başlayalım
-              </a>
-
-              <a
-                href="#step6"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white/10 backdrop-blur-sm text-white font-bold text-base sm:text-lg border-2 border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300 w-full sm:w-auto justify-center"
-              >
-                <i className="fas fa-life-ring"></i>
-                Sorun Giderme
-              </a>
-            </div>
-          </div>
-        </section>
+        <Hero
+          icon={<i className="fab fa-apple"></i>}
+          titleBefore="Passgage"
+          titleHighlight="iOS"
+          titleAfter="Kurulumu"
+          description="iPhone ve iPad için detaylı kurulum adımları, Safari ayarları ve sorun giderme rehberi."
+          primaryButtonText="Başlayalım"
+          primaryButtonHref="#step1"
+          secondaryButtonText="Sorun Giderme"
+          secondaryButtonHref="#step6"
+        />
 
         {/* Main Content */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16 md:py-20 lg:py-24">
