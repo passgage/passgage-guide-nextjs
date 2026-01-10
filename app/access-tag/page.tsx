@@ -120,65 +120,6 @@ export default function AccessTagPage() {
               </tbody>
             </table>
           </div>
-
-          {/* Required Tools */}
-          <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Gerekli Araçlar</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-passgage-blue hover:shadow-card transition-all duration-300">
-              <h4 className="flex items-center gap-3 text-xl font-bold text-gray-900 mb-6">
-                <i className="fas fa-tools text-passgage-blue" /> Zorunlu Araçlar
-              </h4>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-check text-passgage-blue" />
-                  <span>Matkap (vida montajı için)</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-check text-passgage-blue" />
-                  <span>Seviye ölçer (düz montaj için)</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-check text-passgage-blue" />
-                  <span>Metre/mezura (yükseklik ölçümü)</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-check text-passgage-blue" />
-                  <span>Temizlik malzemeleri (yüzey temizliği)</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-check text-passgage-blue" />
-                  <span>Kalem/işaretleyici</span>
-                </li>
-              </ul>
-            </div>
-            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-passgage-blue hover:shadow-card transition-all duration-300">
-              <h4 className="flex items-center gap-3 text-xl font-bold text-gray-900 mb-6">
-                <i className="fas fa-plus-circle text-passgage-blue" /> Opsiyonel Araçlar
-              </h4>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-circle text-passgage-blue text-sm" />
-                  <span>Duvar dedektörü (kablo/boru kontrolü)</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-circle text-passgage-blue text-sm" />
-                  <span>Sıcak hava tabancası (yapışkan aktivasyonu)</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-circle text-passgage-blue text-sm" />
-                  <span>Tork tornavidası (hassas sıkma)</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-circle text-passgage-blue text-sm" />
-                  <span>Koruyucu eldiven</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-circle text-passgage-blue text-sm" />
-                  <span>Güvenlik gözlüğü</span>
-                </li>
-              </ul>
-            </div>
-          </div>
         </section>
 
         {/* Step 2: Location Planning */}
