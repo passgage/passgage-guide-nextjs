@@ -233,13 +233,34 @@ export default function AndroidGuidePage() {
       answer: (
         <div className="space-y-4">
           <p>Google Play Services uygulamanın çalışması için gereklidir. Güncelleme için:</p>
-          <ol className="list-decimal list-inside space-y-2 ml-4">
-            <li>Google Play Store uygulamasını açın</li>
-            <li>Üst menüden "Uygulamalarım ve oyunlarım" seçeneğine gidin</li>
-            <li>"Google Play Services" uygulamasını bulun</li>
-            <li>"Güncelle" butonuna tıklayın</li>
-            <li>Güncelleme tamamlandıktan sonra cihazınızı yeniden başlatın</li>
-          </ol>
+
+          <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-xl">
+            <h5 className="font-bold text-green-900 mb-3">Yöntem 1: Ayarlar Uygulaması (Önerilen - Android 12+)</h5>
+            <ol className="list-decimal list-inside space-y-2 ml-4 text-sm text-green-800">
+              <li>Ayarlar → Profil simgesi → Tüm servisler</li>
+              <li>Gizlilik ve Güvenlik → Sistem servisleri</li>
+              <li>Google Play Services → <strong>Güncelle</strong> veya <strong>Yükle</strong></li>
+              <li>Cihazınızı yeniden başlatın</li>
+            </ol>
+            <p className="text-xs text-neutral-600 mt-3">
+              📖 Kaynak: <a href="https://support.google.com/googleplay/answer/9037938?hl=tr" target="_blank" rel="noopener" className="underline">Google Play Yardım</a>
+            </p>
+          </div>
+
+          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-xl">
+            <h5 className="font-bold text-blue-900 mb-3">Yöntem 2: Play Store</h5>
+            <ol className="list-decimal list-inside space-y-2 ml-4 text-sm text-blue-800">
+              <li>Google Play Store uygulamasını açın</li>
+              <li>Üst menüden "Uygulamalarım ve oyunlarım" seçeneğine gidin</li>
+              <li>"Google Play Services" uygulamasını bulun</li>
+              <li>"Güncelle" butonuna tıklayın</li>
+              <li>Güncelleme tamamlandıktan sonra cihazınızı yeniden başlatın</li>
+            </ol>
+          </div>
+
+          <p className="text-xs text-neutral-500 italic mt-2">
+            💡 Android 6.0 ve üzeri cihazlarda Google Play Services otomatik güncellenir. Manuel güncelleme sadece sorun yaşanması durumunda gereklidir.
+          </p>
         </div>
       ),
     },
@@ -251,14 +272,36 @@ export default function AndroidGuidePage() {
           <p>Bazı üreticiler ek izin gerektiriyor. Marka bazında çözümler:</p>
 
           <div className="mt-4 p-4 bg-orange-50 border-l-4 border-orange-500 rounded-r-xl">
-            <h5 className="font-bold text-orange-900 mb-2">Xiaomi (MIUI)</h5>
+            <h5 className="font-bold text-orange-900 mb-2">Xiaomi (MIUI 14 / HyperOS)</h5>
             <p className="text-sm text-orange-800 mb-2">Ayarlar → Uygulamalar → Passgage → Otomatik başlatma → <strong>Açık</strong></p>
-            <p className="text-sm text-orange-800">Ayarlar → Pil ve performans → Uygulama pil tasarrufu → Passgage → <strong>Kısıtlama yok</strong></p>
+            <p className="text-sm text-orange-800 mb-2">Ayarlar → Pil ve performans → Uygulama pil tasarrufu → Passgage → <strong>Kısıtlama yok</strong></p>
+            <p className="text-sm text-orange-800 mb-2">Ayarlar → Uygulamalar → Passgage → Uygulama izinleri → <strong>Arka plan otomatik başlatma</strong> → Açık</p>
+            <div className="mt-3 p-3 bg-red-100 rounded border border-red-300">
+              <p className="text-xs text-red-900 font-semibold mb-1">
+                ⚠️ UYARI: MIUI sistem güncellemelerinden sonra bu ayarları sıfırlayabilir. Uygulama düzgün çalışmıyorsa bu ayarları tekrar kontrol edin.
+              </p>
+              <p className="text-xs text-neutral-600 mt-2">
+                📖 Kaynak: <a href="https://dontkillmyapp.com/xiaomi" target="_blank" rel="noopener" className="underline">dontkillmyapp.com/xiaomi</a>
+              </p>
+            </div>
           </div>
 
           <div className="mt-4 p-4 bg-blue-50 border-l-4 border-blue-500 rounded-r-xl">
             <h5 className="font-bold text-blue-900 mb-2">Samsung (One UI)</h5>
-            <p className="text-sm text-blue-800">Ayarlar → Cihaz bakımı → Pil → Uygulama güç yönetimi → Passgage → <strong>Optimize edilmemiş</strong></p>
+            <p className="text-sm text-blue-800 mb-3">Ayarlar → Cihaz bakımı → Pil → Uygulama güç yönetimi → Passgage → <strong>Optimize edilmemiş</strong></p>
+
+            <div className="mt-3 p-3 bg-red-100 rounded border border-red-300">
+              <p className="text-xs text-red-900 font-semibold mb-2">🚨 KRİTİK: Uykuda Olmayan Uygulamalar Listesine Ekleyin</p>
+              <p className="text-xs text-red-800 mb-2">
+                Ayarlar → Cihaz bakımı → Pil → Arka plan kullanım limitleri → <strong>Asla uyumayan uygulamalar</strong> → Passgage ekleyin
+              </p>
+              <p className="text-xs text-red-800 mb-2">
+                <strong>"Kullanılmayan uygulamaları uykuya al"</strong> seçeneğini KAPATIN (yoksa sistem 3 gün sonra Passgage'ı otomatik uykuya alır)
+              </p>
+              <p className="text-xs text-neutral-600 mt-2">
+                📖 Kaynak: <a href="https://dontkillmyapp.com/samsung" target="_blank" rel="noopener" className="underline">dontkillmyapp.com/samsung</a>
+              </p>
+            </div>
           </div>
         </div>
       ),
@@ -306,7 +349,7 @@ export default function AndroidGuidePage() {
       answer: (
         <div className="space-y-6">
           <div>
-            <h5 className="font-bold text-neutral-900 mb-3">Yüksek Doğruluk Modu</h5>
+            <h5 className="font-bold text-neutral-900 mb-3">Google Konum Doğruluğu (Location Accuracy)</h5>
             <div
               className="inline-block px-4 py-2 rounded-lg font-mono text-sm my-2 border-l-4"
               style={{
@@ -315,8 +358,14 @@ export default function AndroidGuidePage() {
                 borderColor: '#3ddc84'
               }}
             >
-              Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> Konum <span className="text-green-700 mx-2 font-bold">→</span> Konum Servisleri <span className="text-green-700 mx-2 font-bold">→</span> Konum Modu <span className="text-green-700 mx-2 font-bold">→</span> "Yüksek doğruluk"
+              Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> Konum <span className="text-green-700 mx-2 font-bold">→</span> Gelişmiş <span className="text-green-700 mx-2 font-bold">→</span> <strong>Google Konum Doğruluğu</strong> <span className="text-green-700 mx-2 font-bold">→</span> Açık
             </div>
+            <p className="text-xs text-neutral-600 mt-2">
+              📖 Kaynak: <a href="https://support.google.com/android/answer/15157297" target="_blank" rel="noopener" className="underline">Google Location Accuracy Help</a>
+            </p>
+            <p className="text-xs text-neutral-500 mt-2 italic">
+              Not: Eski Android sürümlerinde "Yüksek Doğruluk Modu" olarak geçiyordu. Güncel adı "Google Location Accuracy" şeklindedir.
+            </p>
           </div>
           <div>
             <h5 className="font-bold text-neutral-900 mb-3">Wi-Fi ve Bluetooth Taraması</h5>
@@ -328,8 +377,11 @@ export default function AndroidGuidePage() {
                 borderColor: '#3ddc84'
               }}
             >
-              Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> Konum <span className="text-green-700 mx-2 font-bold">→</span> Wi-Fi and Bluetooth scanning <span className="text-green-700 mx-2 font-bold">→</span> ON
+              Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> Konum <span className="text-green-700 mx-2 font-bold">→</span> Konum Servisleri <span className="text-green-700 mx-2 font-bold">→</span> Wi-Fi taraması / Bluetooth taraması <span className="text-green-700 mx-2 font-bold">→</span> Açık
             </div>
+            <p className="text-xs text-neutral-600 mt-2">
+              💡 Bu özellik GPS sinyalininضعیف olduğu durumlarda konum doğruluğunu artırır (kapalı alanlarda, binalar arasında).
+            </p>
           </div>
           <div>
             <h5 className="font-bold text-neutral-900 mb-3">GPS'i Yenile</h5>
