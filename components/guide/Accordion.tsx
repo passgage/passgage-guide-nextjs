@@ -71,9 +71,6 @@ export default function Accordion({
           >
             <button
               className="w-full flex items-center justify-between gap-4 p-5 md:p-6 text-left group focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all min-h-[64px]"
-              style={{
-                focusRingColor: accentColor
-              }}
               onClick={() => toggleItem(item.id)}
               aria-expanded={isOpen}
               aria-controls={`accordion-content-${item.id}`}
