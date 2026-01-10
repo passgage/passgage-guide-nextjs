@@ -243,52 +243,88 @@ export default function IOSGuidePage() {
               </div>
               <div className="flex-1">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
-                  Uygulamayı İndirin
+                  Uygulamayı{' '}
+                  <span
+                    style={{
+                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text'
+                    }}
+                  >
+                    İndirin
+                  </span>
                 </h2>
-                <p className="text-base md:text-lg text-neutral-600">
-                  Safari tarayıcınızdan Passgage uygulamasına erişin
-                </p>
+                <p className="text-base sm:text-lg md:text-xl text-neutral-600">App Store'dan ücretsiz indirin</p>
               </div>
+            </div>
+
+            <div className="max-w-xl mx-auto mb-12">
+              {/* App Store */}
+              <a
+                href="https://apps.apple.com/tr/app/passgage/id6738549848"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).gtag) {
+                    (window as any).gtag('event', 'download_click', {
+                      event_category: 'engagement',
+                      event_label: 'iOS - App Store',
+                      platform: 'ios'
+                    });
+                  }
+                }}
+                className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-all duration-300 p-8 hover:-translate-y-2 no-underline block group"
+              >
+                <div
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-white text-3xl mb-6"
+                  style={{ background: 'linear-gradient(to bottom right, #1d1d1f, #3a3a3c)' }}
+                >
+                  <i className="fab fa-apple" />
+                </div>
+                <h3 className="text-2xl font-bold text-neutral-900 mb-3">Apple App Store</h3>
+                <p className="text-neutral-600 mb-4">iPhone ve iPad için resmi mağaza</p>
+                <div className="flex items-center gap-2 text-ios-black font-semibold group-hover:gap-3 transition-all">
+                  <span>Ücretsiz İndir</span>
+                  <i className="fas fa-arrow-right" />
+                </div>
+              </a>
             </div>
 
             <div className="space-y-8 md:space-y-10">
               <InfoBox
-                icon="fas fa-compass"
-                title="Safari Tarayıcısını Açın"
+                icon="fas fa-info-circle"
+                title="Sistem Gereksinimleri"
                 variant="info"
               >
-                <p className="mb-4">
-                  iPhone veya iPad'inizde <strong>Safari</strong> tarayıcısını açın. Passgage bir web uygulaması olduğu için
-                  App Store'dan indirmeye gerek yoktur.
-                </p>
-                <div className="p-4 bg-white rounded-xl border border-sky-200">
-                  <p className="text-sm text-neutral-700 mb-2">
-                    <i className="fas fa-link text-sky-600 mr-2"></i>
-                    <strong>Passgage URL:</strong>
-                  </p>
-                  <code className="block bg-neutral-50 px-4 py-3 rounded-lg text-sm font-mono text-neutral-900">
-                    https://app.passgage.com
-                  </code>
-                </div>
+                <ul className="space-y-2 text-neutral-700">
+                  <li className="flex items-start gap-2">
+                    <i className="fas fa-check-circle text-sky-600 mt-1 flex-shrink-0"></i>
+                    <span><strong>iOS Sürümü:</strong> iOS 13.0 veya üstü</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <i className="fas fa-check-circle text-sky-600 mt-1 flex-shrink-0"></i>
+                    <span><strong>Desteklenen Cihazlar:</strong> iPhone 7 ve üstü, iPad Pro, iPad Air, iPad mini</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <i className="fas fa-check-circle text-sky-600 mt-1 flex-shrink-0"></i>
+                    <span><strong>Gerekli Alan:</strong> Yaklaşık 50 MB</span>
+                  </li>
+                </ul>
               </InfoBox>
 
-              <InfoBox
-                icon="fas fa-bookmark"
-                title="Ana Ekrana Ekleyin (Opsiyonel)"
-                variant="default"
-              >
-                <p className="mb-4">
-                  Hızlı erişim için Passgage'i ana ekranınıza ekleyebilirsiniz:
-                </p>
-                <ol className="list-decimal list-inside space-y-2 text-neutral-700">
-                  <li>Safari'de Passgage açıkken, <strong>Paylaş</strong> butonuna (aşağı ok) dokunun</li>
-                  <li><strong>Ana Ekrana Ekle</strong> seçeneğine tıklayın</li>
-                  <li><strong>Ekle</strong> butonuna dokunun</li>
-                </ol>
-                <p className="text-sm text-neutral-600 mt-3">
-                  Artık Passgage ana ekranınızda bir uygulama gibi görünecektir.
-                </p>
-              </InfoBox>
+              <div className="p-6 md:p-8 bg-amber-50 border-l-4 border-amber-500 rounded-r-xl">
+                <div className="flex gap-4 items-start">
+                  <i className="fas fa-exclamation-triangle text-2xl md:text-3xl text-amber-600 flex-shrink-0 mt-1"></i>
+                  <div>
+                    <h4 className="text-lg md:text-xl font-bold text-amber-900 mb-2">Önemli Not</h4>
+                    <p className="text-sm md:text-base text-amber-800 leading-relaxed">
+                      Uygulama yalnızca <strong>App Store</strong> üzerinden indirilebilir.
+                      Kurumsal hesabınızla giriş yapmak için sistem yöneticinizden kullanıcı bilgilerinizi alın.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 
