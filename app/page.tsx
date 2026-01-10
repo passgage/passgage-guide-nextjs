@@ -58,7 +58,7 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-[140px] md:pt-[180px] pb-[80px] md:pb-[100px] px-6 md:px-8">
+        <section className="relative overflow-hidden pt-[140px] md:pt-[180px] pb-[80px] md:pb-[100px] px-6 md:px-8" style={{ background: '#1a1a2e' }}>
           {/* Background Gradient */}
           <div className="hero-bg" />
 
@@ -104,7 +104,10 @@ export default function Home() {
               {/* Primary Button */}
               <a
                 href="#platforms"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-passgage-red to-passgage-gold text-white font-bold text-base sm:text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto justify-center"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-bold text-base sm:text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto justify-center"
+                style={{
+                  background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
+                }}
                 onClick={() => {
                   if (typeof window !== 'undefined' && (window as any).gtag) {
                     (window as any).gtag('event', 'cta_click', {

@@ -162,19 +162,20 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #2d2b3a 0%, #1a1926 100%);
-    z-index: 0;
+    opacity: 0.15;
+    background-image:
+      radial-gradient(circle at 20% 50%, #FF501D 0%, transparent 50%),
+      radial-gradient(circle at 80% 50%, #FFD700 0%, transparent 50%),
+      radial-gradient(circle at 50% 80%, #2872fa 0%, transparent 50%);
   }
 
   .hero-grid {
     position: absolute;
     inset: 0;
-    z-index: 1;
-    opacity: 0.15;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 50px 50px;
+      linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 60px 60px;
     animation: gridMove 20s linear infinite;
   }
 }
