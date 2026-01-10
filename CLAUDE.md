@@ -63,13 +63,14 @@ npm run seed-qdrant
    <div style={{ animation: 'float 3s ease-in-out infinite' }}>
    ```
 
-4. **globals.css contains ONLY** (STRICTLY ENFORCED - NO EXCEPTIONS):
+4. **globals.css contains ONLY**:
    - `@import "tailwindcss"` - Tailwind 4 import
    - Base styles (`body` only - minimal)
-   - `@keyframes` animations (fadeIn, slideUp, slideDown, pulseGlow, scaleIn, blob)
-   - Animation utility classes (`.animate-fade-in`, `.animate-slide-up`, etc.)
+   - `@keyframes` animations (fadeIn, slideUp, slideDown, pulseGlow, scaleIn, blob, float, gridMove)
+   - Animation utility classes (`.animate-fade-in`, `.animate-slide-up`, `.animate-float`, etc.)
    - `.visually-hidden` - Accessibility-only class
    - `.custom-scrollbar` - Custom scrollbar styling
+   - `.hero-bg` & `.hero-grid` - Landing page hero background (complex pseudo-elements, can't be Tailwinded)
    - Print media queries (hide navigation on print)
 
 5. **ABSOLUTE PROHIBITIONS**:
@@ -169,42 +170,51 @@ const iosSteps = [
 - Automatically tracks Google Analytics navigation events
 - Supports keyboard navigation (Arrow keys, Enter/Space)
 
-### 4. Hero Sections - Dark Gradient Pattern
+### 4. Hero Sections - Pattern Guidelines
 
-All pages use a consistent hero pattern with dark gradient background:
+**Landing Page** (`/`) uses a unique hero with animated grid background:
+
+```tsx
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-[140px] md:pt-[180px] pb-[80px] md:pb-[100px] px-6 md:px-8">
+  {/* Background gradient (globals.css: .hero-bg) */}
+  <div className="hero-bg" />
+
+  {/* Animated grid pattern (globals.css: .hero-grid) */}
+  <div className="hero-grid" />
+
+  {/* Floating icon with orange gradient */}
+  <div
+    className="w-[100px] h-[100px] mx-auto mb-8 rounded-[28px] flex items-center justify-center text-white text-6xl shadow-strong animate-float"
+    style={{
+      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
+    }}
+  >
+    <i className="fas fa-rocket"></i>
+  </div>
+
+  {/* Hero content */}
+  <div className="relative z-10 max-w-[800px] mx-auto text-center">
+    <h1 className="text-[clamp(2.5rem,6vw,3.5rem)] font-extrabold leading-tight text-white mb-6">
+      {/* Title with gradient "Kurulum" text */}
+    </h1>
+    {/* ... */}
+  </div>
+</section>
+```
+
+**Guide Pages** (`/ios`, `/android`, `/access-tag`) use platform-specific hero sections with solid gradients (no animated grid):
 
 ```tsx
 <section className="relative pt-32 pb-20 px-8 overflow-hidden">
-  {/* Dark gradient background */}
+  {/* Platform-specific gradient background */}
   <div
     className="absolute inset-0 z-0"
     style={{
-      background: 'linear-gradient(135deg, #1a1a2e 0%, #252542 100%)'
+      background: 'linear-gradient(135deg, #1a1a2e 0%, #252542 100%)' // iOS/Android/Tag specific
     }}
   />
 
-  {/* Grid pattern overlay */}
-  <div
-    className="absolute inset-0 z-0 opacity-10"
-    style={{
-      backgroundImage: `
-        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)
-      `,
-      backgroundSize: '50px 50px'
-    }}
-  />
-
-  {/* Floating icon with platform-specific gradient */}
-  <div className="w-24 h-24 mx-auto mb-10 rounded-[28px] flex items-center justify-center text-white text-5xl shadow-glow-lg animate-float"
-    style={{
-      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' // or platform-specific
-    }}
-  >
-    <i className="fas fa-rocket" />
-  </div>
-
-  {/* Content with relative z-10 */}
+  {/* Content */}
   <div className="relative z-10 max-w-4xl mx-auto text-center">
     {/* ... */}
   </div>

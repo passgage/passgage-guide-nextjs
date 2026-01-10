@@ -58,23 +58,27 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section
-          className="relative min-h-screen flex items-center justify-center overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, #2d2b3a 0%, #1a1926 100%)' }}
-        >
-          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-20 text-center">
-            {/* Icon */}
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-[140px] md:pt-[180px] pb-[80px] md:pb-[100px] px-6 md:px-8">
+          {/* Background Gradient */}
+          <div className="hero-bg" />
+
+          {/* Grid Pattern */}
+          <div className="hero-grid" />
+
+          {/* Hero Content */}
+          <div className="relative z-10 max-w-[800px] mx-auto text-center">
+            {/* Floating Icon */}
             <div
-              className="w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-12 rounded-3xl flex items-center justify-center shadow-xl"
+              className="w-[100px] h-[100px] mx-auto mb-8 rounded-[28px] flex items-center justify-center text-white text-6xl shadow-strong animate-float"
               style={{
                 background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
               }}
             >
-              <i className="fas fa-rocket text-4xl sm:text-5xl text-white"></i>
+              <i className="fas fa-rocket"></i>
             </div>
 
             {/* Heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 sm:mb-8">
+            <h1 className="text-[clamp(2.5rem,6vw,3.5rem)] font-extrabold leading-tight text-white mb-6">
               Passgage{' '}
               <span
                 className="inline-block"
@@ -91,14 +95,12 @@ export default function Home() {
             </h1>
 
             {/* Description */}
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-10 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-4">
-              Birkaç dakikada uygulamayı kurun ve kullanmaya başlayın. Size
-              <br className="hidden sm:block" />
-              adım adım, görsel ve interaktif olarak rehberlik ediyoruz.
+            <p className="text-[clamp(1rem,2vw,1.2rem)] text-white/90 mb-12 max-w-[600px] mx-auto leading-relaxed">
+              Birkaç dakikada uygulamayı kurun ve kullanmaya başlayın. Size adım adım, görsel ve interaktif olarak rehberlik ediyoruz.
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               {/* Primary Button */}
               <a
                 href="#platforms"
@@ -112,7 +114,7 @@ export default function Home() {
                   }
                 }}
               >
-                <i className="fas fa-play text-sm"></i>
+                <i className="fas fa-play"></i>
                 Başlayalım
               </a>
 
@@ -132,7 +134,7 @@ export default function Home() {
                   }
                 }}
               >
-                <i className="fas fa-question-circle text-sm"></i>
+                <i className="fas fa-question-circle"></i>
                 Sorun mu Var?
               </button>
             </div>
