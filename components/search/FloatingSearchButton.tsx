@@ -8,7 +8,7 @@ export default function FloatingSearchButton() {
   return (
     <button
       onClick={openModal}
-      className="fixed bottom-6 right-6 z-40 w-16 h-16 bg-gradient-to-br from-passgage-blue to-blue-600 text-white rounded-full shadow-2xl hover:shadow-hover hover:scale-110 transition-all duration-300 flex items-center justify-center group md:hidden"
+      className="fixed bottom-6 right-6 z-40 w-16 h-16 bg-gradient-to-br from-passgage-red to-passgage-gold text-white rounded-full shadow-2xl hover:shadow-hover hover:scale-110 transition-all duration-300 flex items-center justify-center group md:hidden"
       aria-label="FAQ Ara"
     >
       <svg
@@ -26,7 +26,7 @@ export default function FloatingSearchButton() {
       </svg>
 
       {/* Pulse animation ring */}
-      <span className="absolute inset-0 rounded-full bg-passgage-blue opacity-75 animate-ping" />
+      <span className="absolute inset-0 rounded-full bg-passgage-red opacity-75 animate-ping" />
     </button>
   );
 }

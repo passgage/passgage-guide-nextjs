@@ -55,7 +55,7 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-passgage-blue via-blue-600 to-blue-700">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900">
           {/* Grid Overlay */}
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
 
@@ -87,7 +87,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in animation-delay-400">
               <a
                 href="#platforms"
-                className="group px-8 py-4 bg-white text-passgage-blue rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                className="group px-8 py-4 bg-white text-passgage-red rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
                 onClick={() => {
                   if (typeof window !== 'undefined' && (window as any).gtag) {
                     (window as any).gtag('event', 'cta_click', {
@@ -154,10 +154,10 @@ export default function Home() {
         <section id="platforms" className="py-20 px-6 bg-neutral-50">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-passgage-dark mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
                 Platformunuzu Seçin
               </h2>
-              <p className="text-xl text-passgage-gray max-w-2xl mx-auto">
+              <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
                 Kurulum yapmak istediğiniz platformu seçerek adım adım rehbere ulaşın
               </p>
             </div>
@@ -216,10 +216,10 @@ export default function Home() {
         <section className="py-20 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-passgage-dark mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
                 Neden Passgage?
               </h2>
-              <p className="text-xl text-passgage-gray max-w-2xl mx-auto">
+              <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
                 Güvenli, hızlı ve kullanıcı dostu giriş sistemi
               </p>
             </div>
@@ -227,13 +227,13 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Feature 1 */}
               <div className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-shadow duration-300 p-8 text-center hover:-translate-y-2 group">
-                <div className="w-16 h-16 bg-gradient-to-br from-passgage-blue to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-16 h-16 bg-gradient-to-br from-passgage-red to-passgage-gold rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-passgage-dark mb-3">Güvenli</h3>
-                <p className="text-passgage-gray">
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">Güvenli</h3>
+                <p className="text-neutral-600">
                   Şifresiz giriş ile maksimum güvenlik
                 </p>
               </div>
@@ -245,8 +245,8 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z"/>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-passgage-dark mb-3">Hızlı</h3>
-                <p className="text-passgage-gray">
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">Hızlı</h3>
+                <p className="text-neutral-600">
                   Saniyeler içinde giriş yapın
                 </p>
               </div>
@@ -258,8 +258,8 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-passgage-dark mb-3">Kolay</h3>
-                <p className="text-passgage-gray">
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">Kolay</h3>
+                <p className="text-neutral-600">
                   Kullanıcı dostu arayüz ve kurulum
                 </p>
               </div>
@@ -271,8 +271,8 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-passgage-dark mb-3">Güvenilir</h3>
-                <p className="text-passgage-gray">
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">Güvenilir</h3>
+                <p className="text-neutral-600">
                   7/24 kesintisiz hizmet
                 </p>
               </div>
@@ -281,7 +281,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section className="py-20 px-6 bg-gradient-to-br from-passgage-blue to-blue-600">
+        <section className="py-20 px-6 bg-gradient-to-br from-passgage-red to-passgage-gold">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Yardıma mı İhtiyacınız Var?
@@ -294,7 +294,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
                 href="mailto:support@passgage.com"
-                className="group px-8 py-4 bg-white text-passgage-blue rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                className="group px-8 py-4 bg-white text-passgage-red rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
                 onClick={() => {
                   if (typeof window !== 'undefined' && (window as any).gtag) {
                     (window as any).gtag('event', 'contact_click', {

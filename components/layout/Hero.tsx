@@ -26,8 +26,8 @@ export default function Hero({
   const bgClass = gradient && platform
     ? `bg-gradient-to-br ${gradients[platform]}`
     : gradient
-    ? 'bg-gradient-to-br from-passgage-blue to-blue-600'
-    : 'bg-passgage-dark';
+    ? 'bg-gradient-to-br from-passgage-red to-passgage-gold'
+    : 'bg-neutral-900';
 
   return (
     <section className={`relative py-20 md:py-32 px-6 overflow-hidden ${bgClass} ${className}`}>

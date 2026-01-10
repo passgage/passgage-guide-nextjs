@@ -10,21 +10,22 @@ const config: Config = {
     extend: {
       colors: {
         // Passgage Corporate Colors
-        'passgage-blue': '#007AFF',
-        'passgage-dark': '#1A1A1A',
-        'passgage-gray': '#8E8E93',
+        'passgage-red': '#FF501D',
+        'passgage-gold': '#FFD700',
+        'passgage-blue': '#2872fa',
 
         // iOS Colors
         'ios-blue': '#007AFF',
-        'ios-black': '#000000',
+        'ios-black': '#1d1d1f',
+        'ios-gray': '#86868b',
 
         // Android Colors
         'android-green': '#3DDC84',
         'android-blue': '#4285F4',
 
         // Access Tag Colors
-        'tag-blue': '#2196F3',
-        'tag-navy': '#1565C0',
+        'tag-blue': '#2872fa',
+        'tag-navy': '#1a5490',
 
         // Neutral Colors
         neutral: {
@@ -45,6 +46,8 @@ const config: Config = {
         'soft': '0 2px 15px rgba(0, 0, 0, 0.08)',
         'card': '0 4px 20px rgba(0, 0, 0, 0.1)',
         'hover': '0 8px 30px rgba(0, 0, 0, 0.12)',
+        'medium': '0 4px 30px rgba(0, 0, 0, 0.12)',
+        'strong': '0 10px 60px rgba(0, 0, 0, 0.15)',
       },
       borderRadius: {
         'xl': '1rem',

@@ -99,12 +99,12 @@ export default function IOSGuidePage() {
           {/* Step 1: Download */}
           <section id="step1" className="mb-24 scroll-mt-24">
             <div className="flex items-start gap-6 mb-12">
-              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-passgage-blue to-blue-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-lg">
+              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-passgage-red to-passgage-gold text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-lg">
                 1
               </div>
               <div className="flex-1">
                 <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-3">
-                  Uygulamayı <span className="text-passgage-blue">İndirin</span>
+                  Uygulamayı <span className="bg-gradient-to-r from-passgage-red to-passgage-gold bg-clip-text text-transparent">İndirin</span>
                 </h2>
                 <p className="text-xl text-neutral-600">App Store'dan ücretsiz indirin</p>
               </div>
@@ -126,7 +126,7 @@ export default function IOSGuidePage() {
                     <p className="text-neutral-600">iPhone & iPad için</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 text-passgage-blue font-bold group-hover:gap-4 transition-all">
+                <div className="flex items-center gap-3 text-ios-blue font-bold group-hover:gap-4 transition-all">
                   <span>Ücretsiz İndir</span>
                   <i className="fas fa-arrow-right" />
                 </div>
@@ -135,8 +135,8 @@ export default function IOSGuidePage() {
 
             <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
               <div className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-shadow duration-300 p-6 text-center">
-                <div className="w-12 h-12 bg-passgage-blue/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <i className="fas fa-mobile-alt text-2xl text-passgage-blue" />
+                <div className="w-12 h-12 bg-ios-blue/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <i className="fas fa-mobile-alt text-2xl text-ios-blue" />
                 </div>
                 <h4 className="font-bold text-neutral-900 mb-2">iOS 13 ve Üzeri</h4>
                 <p className="text-neutral-600 text-sm">
@@ -145,8 +145,8 @@ export default function IOSGuidePage() {
               </div>
 
               <div className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-shadow duration-300 p-6 text-center">
-                <div className="w-12 h-12 bg-passgage-blue/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <i className="fas fa-wifi text-2xl text-passgage-blue" />
+                <div className="w-12 h-12 bg-ios-blue/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <i className="fas fa-wifi text-2xl text-ios-blue" />
                 </div>
                 <h4 className="font-bold text-neutral-900 mb-2">NFC Uyumluluğu</h4>
                 <p className="text-neutral-600 text-sm">

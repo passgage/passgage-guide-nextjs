@@ -119,7 +119,7 @@ export default function ProgressNav({ steps, className = '' }: ProgressNavProps)
                 {index < steps.length - 1 && (
                   <div className="flex-1 h-0.5 bg-neutral-200 mx-2 relative overflow-hidden">
                     <div
-                      className={`absolute top-0 left-0 h-full bg-passgage-blue transition-all duration-600 ${
+                      className={`absolute top-0 left-0 h-full bg-gradient-to-r from-passgage-red to-passgage-gold transition-all duration-600 ${
                         isCompleted ? 'w-full' : 'w-0'
                       }`}
                     />

@@ -26,7 +26,7 @@ export default function AccessTagPage() {
       >
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-3.5">
-            <Link href="/" className="flex items-center gap-2 text-gray-700 hover:text-primary-blue transition-colors font-semibold text-sm">
+            <Link href="/" className="flex items-center gap-2 text-gray-700 hover:text-passgage-blue transition-colors font-semibold text-sm">
               <i className="fas fa-arrow-left" />
               <span className="hidden sm:inline">Ana Sayfa</span>
             </Link>
@@ -99,10 +99,7 @@ export default function AccessTagPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#step1"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-bold text-base transition-all duration-300 hover:scale-105 shadow-lg"
-              style={{
-                background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
-              }}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-br from-passgage-red to-passgage-gold text-white font-bold text-base transition-all duration-300 hover:scale-105 shadow-lg"
             >
               <i className="fas fa-play" />
               Başlayalım
@@ -124,10 +121,7 @@ export default function AccessTagPage() {
         <section className="mb-24" id="step1">
           <div className="flex items-start gap-6 mb-12">
             <div
-              className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
-              style={{
-                background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
-              }}
+              className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-passgage-red to-passgage-gold text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
             >
               1
             </div>
@@ -135,13 +129,7 @@ export default function AccessTagPage() {
               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
                 Paket İçeriği ve{' '}
                 <span
-                  className="inline-block"
-                  style={{
-                    background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  }}
+                  className="inline-block bg-gradient-to-r from-passgage-red to-passgage-gold bg-clip-text text-transparent"
                 >
                   Hazırlık
                 </span>
@@ -153,24 +141,24 @@ export default function AccessTagPage() {
           {/* Package Contents */}
           <h3 className="text-2xl font-bold text-gray-900 mb-6">Paket İçeriği</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            <div className="flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-primary-blue hover:shadow-soft transition-all duration-300">
-              <i className="fas fa-qrcode text-3xl text-primary-blue" />
+            <div className="flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-passgage-blue hover:shadow-soft transition-all duration-300">
+              <i className="fas fa-qrcode text-3xl text-passgage-blue" />
               <span className="text-gray-700 font-semibold">Access Tag (QR kod etiketi)</span>
             </div>
-            <div className="flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-primary-blue hover:shadow-soft transition-all duration-300">
-              <i className="fas fa-screwdriver text-3xl text-primary-blue" />
+            <div className="flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-passgage-blue hover:shadow-soft transition-all duration-300">
+              <i className="fas fa-screwdriver text-3xl text-passgage-blue" />
               <span className="text-gray-700 font-semibold">Montaj donanımı (vida, dübel)</span>
             </div>
-            <div className="flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-primary-blue hover:shadow-soft transition-all duration-300">
-              <i className="fas fa-sticky-note text-3xl text-primary-blue" />
+            <div className="flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-passgage-blue hover:shadow-soft transition-all duration-300">
+              <i className="fas fa-sticky-note text-3xl text-passgage-blue" />
               <span className="text-gray-700 font-semibold">Yapışkan pad</span>
             </div>
-            <div className="flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-primary-blue hover:shadow-soft transition-all duration-300">
-              <i className="fas fa-book text-3xl text-primary-blue" />
+            <div className="flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-passgage-blue hover:shadow-soft transition-all duration-300">
+              <i className="fas fa-book text-3xl text-passgage-blue" />
               <span className="text-gray-700 font-semibold">Kullanım kılavuzu</span>
             </div>
-            <div className="flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-primary-blue hover:shadow-soft transition-all duration-300">
-              <i className="fas fa-tag text-3xl text-primary-blue" />
+            <div className="flex items-center gap-4 p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-passgage-blue hover:shadow-soft transition-all duration-300">
+              <i className="fas fa-tag text-3xl text-passgage-blue" />
               <span className="text-gray-700 font-semibold">Passgage logosu ve markalama</span>
             </div>
           </div>
@@ -180,7 +168,7 @@ export default function AccessTagPage() {
           <div className="bg-white rounded-3xl overflow-hidden shadow-card">
             <table className="w-full">
               <thead>
-                <tr style={{ background: 'linear-gradient(135deg, #2872fa 0%, #1a5fd9 100%)' }}>
+                <tr className="bg-gradient-to-br from-passgage-blue to-tag-navy">
                   <th className="text-left text-white font-bold p-5">Özellik</th>
                   <th className="text-left text-white font-bold p-5">Değer</th>
                 </tr>
@@ -220,56 +208,56 @@ export default function AccessTagPage() {
           {/* Required Tools */}
           <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Gerekli Araçlar</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-primary-blue hover:shadow-card transition-all duration-300">
+            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-passgage-blue hover:shadow-card transition-all duration-300">
               <h4 className="flex items-center gap-3 text-xl font-bold text-gray-900 mb-6">
-                <i className="fas fa-tools text-primary-blue" /> Zorunlu Araçlar
+                <i className="fas fa-tools text-passgage-blue" /> Zorunlu Araçlar
               </h4>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-check text-primary-blue" />
+                  <i className="fas fa-check text-passgage-blue" />
                   <span>Matkap (vida montajı için)</span>
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-check text-primary-blue" />
+                  <i className="fas fa-check text-passgage-blue" />
                   <span>Seviye ölçer (düz montaj için)</span>
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-check text-primary-blue" />
+                  <i className="fas fa-check text-passgage-blue" />
                   <span>Metre/mezura (yükseklik ölçümü)</span>
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-check text-primary-blue" />
+                  <i className="fas fa-check text-passgage-blue" />
                   <span>Temizlik malzemeleri (yüzey temizliği)</span>
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-check text-primary-blue" />
+                  <i className="fas fa-check text-passgage-blue" />
                   <span>Kalem/işaretleyici</span>
                 </li>
               </ul>
             </div>
-            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-primary-blue hover:shadow-card transition-all duration-300">
+            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-passgage-blue hover:shadow-card transition-all duration-300">
               <h4 className="flex items-center gap-3 text-xl font-bold text-gray-900 mb-6">
-                <i className="fas fa-plus-circle text-primary-blue" /> Opsiyonel Araçlar
+                <i className="fas fa-plus-circle text-passgage-blue" /> Opsiyonel Araçlar
               </h4>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-circle text-primary-blue text-sm" />
+                  <i className="fas fa-circle text-passgage-blue text-sm" />
                   <span>Duvar dedektörü (kablo/boru kontrolü)</span>
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-circle text-primary-blue text-sm" />
+                  <i className="fas fa-circle text-passgage-blue text-sm" />
                   <span>Sıcak hava tabancası (yapışkan aktivasyonu)</span>
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-circle text-primary-blue text-sm" />
+                  <i className="fas fa-circle text-passgage-blue text-sm" />
                   <span>Tork tornavidası (hassas sıkma)</span>
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-circle text-primary-blue text-sm" />
+                  <i className="fas fa-circle text-passgage-blue text-sm" />
                   <span>Koruyucu eldiven</span>
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
-                  <i className="fas fa-circle text-primary-blue text-sm" />
+                  <i className="fas fa-circle text-passgage-blue text-sm" />
                   <span>Güvenlik gözlüğü</span>
                 </li>
               </ul>
@@ -281,10 +269,7 @@ export default function AccessTagPage() {
         <section className="mb-24" id="step2">
           <div className="flex items-start gap-6 mb-12">
             <div
-              className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
-              style={{
-                background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
-              }}
+              className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-passgage-red to-passgage-gold text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
             >
               2
             </div>
@@ -292,13 +277,7 @@ export default function AccessTagPage() {
               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
                 Kurulum Lokasyonunu{' '}
                 <span
-                  className="inline-block"
-                  style={{
-                    background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  }}
+                  className="inline-block bg-gradient-to-r from-passgage-red to-passgage-gold bg-clip-text text-transparent"
                 >
                   Planlayın
                 </span>
@@ -319,7 +298,7 @@ export default function AccessTagPage() {
               >
                 <i className="fas fa-arrows-alt-v" />
               </div>
-              <div className="text-4xl font-extrabold text-primary-blue">1.2m - 1.5m</div>
+              <div className="text-4xl font-extrabold text-passgage-blue">1.2m - 1.5m</div>
               <p className="text-gray-600 text-lg max-w-md">
                 Göz hizası yüksekliği, kolay tarama ve erişim için optimal
               </p>
@@ -329,7 +308,7 @@ export default function AccessTagPage() {
           {/* Site Survey Checklist */}
           <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-6">Lokasyon Kontrol Listesi</h3>
           <div className="flex flex-col gap-4">
-            <div className="flex items-start gap-4 p-5 bg-white rounded-xl border-2 border-gray-200 hover:border-primary-blue hover:bg-primary-blue/5 transition-all">
+            <div className="flex items-start gap-4 p-5 bg-white rounded-xl border-2 border-gray-200 hover:border-passgage-blue hover:bg-primary-blue/5 transition-all">
               <input
                 type="checkbox"
                 id="check1"
@@ -340,7 +319,7 @@ export default function AccessTagPage() {
                 <strong>Yüksek trafik alanı:</strong> Çalışanların sık kullandığı giriş-çıkış noktaları
               </label>
             </div>
-            <div className="flex items-start gap-4 p-5 bg-white rounded-xl border-2 border-gray-200 hover:border-primary-blue hover:bg-primary-blue/5 transition-all">
+            <div className="flex items-start gap-4 p-5 bg-white rounded-xl border-2 border-gray-200 hover:border-passgage-blue hover:bg-primary-blue/5 transition-all">
               <input
                 type="checkbox"
                 id="check2"
@@ -351,7 +330,7 @@ export default function AccessTagPage() {
                 <strong>İyi aydınlatma:</strong> Doğal veya yapay ışık ile QR kod net görünür
               </label>
             </div>
-            <div className="flex items-start gap-4 p-5 bg-white rounded-xl border-2 border-gray-200 hover:border-primary-blue hover:bg-primary-blue/5 transition-all">
+            <div className="flex items-start gap-4 p-5 bg-white rounded-xl border-2 border-gray-200 hover:border-passgage-blue hover:bg-primary-blue/5 transition-all">
               <input
                 type="checkbox"
                 id="check3"
@@ -362,7 +341,7 @@ export default function AccessTagPage() {
                 <strong>Hava koşullarından korunma:</strong> Dış mekanda saçak veya koruma altında
               </label>
             </div>
-            <div className="flex items-start gap-4 p-5 bg-white rounded-xl border-2 border-gray-200 hover:border-primary-blue hover:bg-primary-blue/5 transition-all">
+            <div className="flex items-start gap-4 p-5 bg-white rounded-xl border-2 border-gray-200 hover:border-passgage-blue hover:bg-primary-blue/5 transition-all">
               <input
                 type="checkbox"
                 id="check4"
@@ -373,7 +352,7 @@ export default function AccessTagPage() {
                 <strong>Wi-Fi/cellular erişimi:</strong> Doğrulama için internet bağlantısı (mobil cihaz)
               </label>
             </div>
-            <div className="flex items-start gap-4 p-5 bg-white rounded-xl border-2 border-gray-200 hover:border-primary-blue hover:bg-primary-blue/5 transition-all">
+            <div className="flex items-start gap-4 p-5 bg-white rounded-xl border-2 border-gray-200 hover:border-passgage-blue hover:bg-primary-blue/5 transition-all">
               <input
                 type="checkbox"
                 id="check5"
@@ -384,7 +363,7 @@ export default function AccessTagPage() {
                 <strong>Temiz, düz yüzey:</strong> Montaj için uygun, düzgün yüzey
               </label>
             </div>
-            <div className="flex items-start gap-4 p-5 bg-white rounded-xl border-2 border-gray-200 hover:border-primary-blue hover:bg-primary-blue/5 transition-all">
+            <div className="flex items-start gap-4 p-5 bg-white rounded-xl border-2 border-gray-200 hover:border-passgage-blue hover:bg-primary-blue/5 transition-all">
               <input
                 type="checkbox"
                 id="check6"
@@ -405,9 +384,9 @@ export default function AccessTagPage() {
               borderColor: '#2872fa'
             }}
           >
-            <i className="fas fa-eye text-primary-blue text-3xl flex-shrink-0" />
+            <i className="fas fa-eye text-passgage-blue text-3xl flex-shrink-0" />
             <div>
-              <h4 className="text-primary-blue font-extrabold text-xl mb-4">Görünürlük İpuçları</h4>
+              <h4 className="text-passgage-blue font-extrabold text-xl mb-4">Görünürlük İpuçları</h4>
               <p className="text-gray-800 leading-relaxed">
                 <strong>Yaklaşma yönü:</strong> Kullanıcıların tag&apos;e hangi yönden yaklaştığını düşünün. Doğal
                 yürüme yolu üzerinde olmalı.
@@ -428,10 +407,7 @@ export default function AccessTagPage() {
         <section className="mb-24" id="step3">
           <div className="flex items-start gap-6 mb-12">
             <div
-              className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
-              style={{
-                background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
-              }}
+              className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-passgage-red to-passgage-gold text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
             >
               3
             </div>
@@ -439,13 +415,7 @@ export default function AccessTagPage() {
               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
                 Access Tag&apos;i{' '}
                 <span
-                  className="inline-block"
-                  style={{
-                    background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  }}
+                  className="inline-block bg-gradient-to-r from-passgage-red to-passgage-gold bg-clip-text text-transparent"
                 >
                   Monte Edin
                 </span>
@@ -458,7 +428,7 @@ export default function AccessTagPage() {
           <h3 className="text-2xl font-bold text-gray-900 mb-6">Montaj Yöntemleri</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Adhesive Mounting */}
-            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-primary-blue hover:shadow-strong hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
+            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-passgage-blue hover:shadow-strong hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
               <div
                 className="absolute top-0 left-0 right-0 h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
                 style={{
@@ -469,12 +439,11 @@ export default function AccessTagPage() {
                 className="w-18 h-18 rounded-2xl flex items-center justify-center mb-6"
                 style={{ background: 'rgba(40, 114, 250, 0.1)' }}
               >
-                <i className="fas fa-sticky-note text-3xl text-primary-blue" />
+                <i className="fas fa-sticky-note text-3xl text-passgage-blue" />
               </div>
               <h4 className="text-2xl font-extrabold text-gray-900 mb-4">Yapışkan Montaj</h4>
               <span
-                className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-5"
-                style={{ background: 'rgba(40, 114, 250, 0.1)', color: '#2872fa' }}
+                className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-5 bg-passgage-blue/10 text-passgage-blue"
               >
                 En Kolay - Hızlı Kurulum
               </span>
@@ -518,7 +487,7 @@ export default function AccessTagPage() {
             </div>
 
             {/* Screw Mounting */}
-            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-primary-blue hover:shadow-strong hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
+            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-passgage-blue hover:shadow-strong hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
               <div
                 className="absolute top-0 left-0 right-0 h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
                 style={{
@@ -529,12 +498,11 @@ export default function AccessTagPage() {
                 className="w-18 h-18 rounded-2xl flex items-center justify-center mb-6"
                 style={{ background: 'rgba(40, 114, 250, 0.1)' }}
               >
-                <i className="fas fa-screwdriver text-3xl text-primary-blue" />
+                <i className="fas fa-screwdriver text-3xl text-passgage-blue" />
               </div>
               <h4 className="text-2xl font-extrabold text-gray-900 mb-4">Vida Montaj</h4>
               <span
-                className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-5"
-                style={{ background: 'rgba(40, 114, 250, 0.1)', color: '#2872fa' }}
+                className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-5 bg-passgage-blue/10 text-passgage-blue"
               >
                 En Güvenli - Kalıcı Kurulum
               </span>
@@ -578,7 +546,7 @@ export default function AccessTagPage() {
             </div>
 
             {/* Magnetic Mounting */}
-            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-primary-blue hover:shadow-strong hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
+            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-passgage-blue hover:shadow-strong hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group">
               <div
                 className="absolute top-0 left-0 right-0 h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
                 style={{
@@ -589,12 +557,11 @@ export default function AccessTagPage() {
                 className="w-18 h-18 rounded-2xl flex items-center justify-center mb-6"
                 style={{ background: 'rgba(40, 114, 250, 0.1)' }}
               >
-                <i className="fas fa-magnet text-3xl text-primary-blue" />
+                <i className="fas fa-magnet text-3xl text-passgage-blue" />
               </div>
               <h4 className="text-2xl font-extrabold text-gray-900 mb-4">Manyetik Montaj</h4>
               <span
-                className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-5"
-                style={{ background: 'rgba(40, 114, 250, 0.1)', color: '#2872fa' }}
+                className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-5 bg-passgage-blue/10 text-passgage-blue"
               >
                 En Esnek - Kolay Pozisyon Değişimi
               </span>
@@ -635,10 +602,7 @@ export default function AccessTagPage() {
         <section className="mb-24" id="step4">
           <div className="flex items-start gap-6 mb-12">
             <div
-              className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
-              style={{
-                background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
-              }}
+              className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-passgage-red to-passgage-gold text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
             >
               4
             </div>
@@ -646,13 +610,7 @@ export default function AccessTagPage() {
               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
                 Dijital{' '}
                 <span
-                  className="inline-block"
-                  style={{
-                    background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  }}
+                  className="inline-block bg-gradient-to-r from-passgage-red to-passgage-gold bg-clip-text text-transparent"
                 >
                   Yapılandırma
                 </span>
@@ -663,7 +621,7 @@ export default function AccessTagPage() {
 
           {/* QR Code Placeholder */}
           <div className="bg-white rounded-3xl p-12 text-center border-2 border-dashed border-gray-300 mb-8">
-            <i className="fas fa-qrcode text-6xl text-primary-blue mb-4" />
+            <i className="fas fa-qrcode text-6xl text-passgage-blue mb-4" />
             <h4 className="text-xl font-bold text-gray-900 mb-2">QR Kod Örneği</h4>
             <p className="text-gray-600">
               Her Access Tag benzersiz bir QR kod ile dijital lokasyon kaydına bağlanır
@@ -678,9 +636,9 @@ export default function AccessTagPage() {
               borderColor: '#2872fa'
             }}
           >
-            <i className="fas fa-link text-primary-blue text-3xl flex-shrink-0" />
+            <i className="fas fa-link text-passgage-blue text-3xl flex-shrink-0" />
             <div>
-              <h4 className="text-primary-blue font-extrabold text-xl mb-4">Fiziksel ve Dijital Eşleştirme</h4>
+              <h4 className="text-passgage-blue font-extrabold text-xl mb-4">Fiziksel ve Dijital Eşleştirme</h4>
               <p className="text-gray-800 leading-relaxed">
                 <strong>Tag ID kontrolü:</strong> Fiziksel tag&apos;in üzerindeki seri numarası ile dijital kayıttaki
                 ID&apos;nin eşleştiğinden emin olun.
@@ -701,10 +659,7 @@ export default function AccessTagPage() {
         <section className="mb-24" id="step5">
           <div className="flex items-start gap-6 mb-12">
             <div
-              className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
-              style={{
-                background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
-              }}
+              className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-passgage-red to-passgage-gold text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
             >
               5
             </div>
@@ -712,13 +667,7 @@ export default function AccessTagPage() {
               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
                 Bakım ve{' '}
                 <span
-                  className="inline-block"
-                  style={{
-                    background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  }}
+                  className="inline-block bg-gradient-to-r from-passgage-red to-passgage-gold bg-clip-text text-transparent"
                 >
                   Uzun Vadeli Yönetim
                 </span>
@@ -731,7 +680,7 @@ export default function AccessTagPage() {
           <h3 className="text-2xl font-bold text-gray-900 mb-6">Bakım Takvimi</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Weekly */}
-            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-primary-blue hover:shadow-card hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-passgage-blue hover:shadow-card hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center gap-4 mb-6">
                 <div
                   className="w-14 h-14 rounded-xl flex items-center justify-center text-white text-2xl"
@@ -745,22 +694,22 @@ export default function AccessTagPage() {
               </div>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-                  <i className="fas fa-eye text-primary-blue mt-1 flex-shrink-0" />
+                  <i className="fas fa-eye text-passgage-blue mt-1 flex-shrink-0" />
                   <span>Görsel kontrol (hasar, kir, konum)</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-                  <i className="fas fa-broom text-primary-blue mt-1 flex-shrink-0" />
+                  <i className="fas fa-broom text-passgage-blue mt-1 flex-shrink-0" />
                   <span>Yüzey temizliği (toz ve kir)</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-                  <i className="fas fa-qrcode text-primary-blue mt-1 flex-shrink-0" />
+                  <i className="fas fa-qrcode text-passgage-blue mt-1 flex-shrink-0" />
                   <span>Hızlı QR kod tarama testi</span>
                 </li>
               </ul>
             </div>
 
             {/* Monthly */}
-            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-primary-blue hover:shadow-card hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-passgage-blue hover:shadow-card hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center gap-4 mb-6">
                 <div
                   className="w-14 h-14 rounded-xl flex items-center justify-center text-white text-2xl"
@@ -774,26 +723,26 @@ export default function AccessTagPage() {
               </div>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-                  <i className="fas fa-spray-can text-primary-blue mt-1 flex-shrink-0" />
+                  <i className="fas fa-spray-can text-passgage-blue mt-1 flex-shrink-0" />
                   <span>Detaylı temizlik (dezenfektan ile)</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-                  <i className="fas fa-mobile-alt text-primary-blue mt-1 flex-shrink-0" />
+                  <i className="fas fa-mobile-alt text-passgage-blue mt-1 flex-shrink-0" />
                   <span>QR kod okunabilirlik testi (farklı cihazlar)</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-                  <i className="fas fa-screwdriver text-primary-blue mt-1 flex-shrink-0" />
+                  <i className="fas fa-screwdriver text-passgage-blue mt-1 flex-shrink-0" />
                   <span>Montaj sağlamlığı kontrolü</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-                  <i className="fas fa-chart-line text-primary-blue mt-1 flex-shrink-0" />
+                  <i className="fas fa-chart-line text-passgage-blue mt-1 flex-shrink-0" />
                   <span>Kullanım istatistiklerini inceleme</span>
                 </li>
               </ul>
             </div>
 
             {/* Quarterly */}
-            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-primary-blue hover:shadow-card hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-passgage-blue hover:shadow-card hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-center gap-4 mb-6">
                 <div
                   className="w-14 h-14 rounded-xl flex items-center justify-center text-white text-2xl"
@@ -807,19 +756,19 @@ export default function AccessTagPage() {
               </div>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-                  <i className="fas fa-cloud-rain text-primary-blue mt-1 flex-shrink-0" />
+                  <i className="fas fa-cloud-rain text-passgage-blue mt-1 flex-shrink-0" />
                   <span>Hava hasarı değerlendirmesi (dış mekan)</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-                  <i className="fas fa-sun text-primary-blue mt-1 flex-shrink-0" />
+                  <i className="fas fa-sun text-passgage-blue mt-1 flex-shrink-0" />
                   <span>UV solması kontrolü</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-                  <i className="fas fa-box text-primary-blue mt-1 flex-shrink-0" />
+                  <i className="fas fa-box text-passgage-blue mt-1 flex-shrink-0" />
                   <span>Yedek tag ihtiyacı analizi</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-700 text-sm leading-relaxed">
-                  <i className="fas fa-cogs text-primary-blue mt-1 flex-shrink-0" />
+                  <i className="fas fa-cogs text-passgage-blue mt-1 flex-shrink-0" />
                   <span>Sistem entegrasyon testi</span>
                 </li>
               </ul>
@@ -832,19 +781,19 @@ export default function AccessTagPage() {
             <h4 className="text-xl font-bold text-gray-900 mb-6">Doğru Temizlik Yöntemleri</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl hover:bg-primary-blue/5 transition-colors">
-                <i className="fas fa-check-circle text-primary-blue text-2xl" />
+                <i className="fas fa-check-circle text-passgage-blue text-2xl" />
                 <span className="text-gray-700 text-sm leading-relaxed">
                   <strong>Yumuşak bez ve ılık su</strong> kullanın
                 </span>
               </div>
               <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl hover:bg-primary-blue/5 transition-colors">
-                <i className="fas fa-check-circle text-primary-blue text-2xl" />
+                <i className="fas fa-check-circle text-passgage-blue text-2xl" />
                 <span className="text-gray-700 text-sm leading-relaxed">
                   <strong>Hafif sabunlu su</strong> yağlı kirler için
                 </span>
               </div>
               <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl hover:bg-primary-blue/5 transition-colors">
-                <i className="fas fa-check-circle text-primary-blue text-2xl" />
+                <i className="fas fa-check-circle text-passgage-blue text-2xl" />
                 <span className="text-gray-700 text-sm leading-relaxed">
                   <strong>Microfiber bez</strong> çizilme riski azaltır
                 </span>

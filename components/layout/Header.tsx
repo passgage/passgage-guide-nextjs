@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useSearchStore } from '@/store/searchStore';
 
 export interface HeaderProps {
@@ -20,25 +21,14 @@ export default function Header({ showSearch = false, className = '' }: HeaderPro
             href="/"
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-passgage-blue to-blue-600 rounded-xl flex items-center justify-center">
-              <svg
-                className="w-6 h-6 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-passgage-dark">Passgage</h1>
-              <p className="text-xs text-passgage-gray">Kurulum Kılavuzu</p>
-            </div>
+            <Image
+              src="/logo.png"
+              alt="Passgage"
+              width={140}
+              height={35}
+              priority
+              className="h-auto"
+            />
           </Link>
 
           {/* Search Bar */}

@@ -92,38 +92,48 @@ npm run seed-qdrant
    style={{ padding: '20px', borderRadius: '10px' }} // Use p-5 rounded-xl
    ```
 
-### 1. Design System - Original Passgage Colors
+### 1. Design System - Passgage Kurumsal Renkleri
 
-The project uses the **original production color palette** - never change these values:
+The project uses **Passgage.com kurumsal renk paleti** - defined in `tailwind.config.ts`:
 
 ```typescript
-// Primary brand colors
-'primary-red': '#FF501D'      // Orange gradient start
-'primary-gold': '#FFD700'     // Orange gradient end
-'primary-blue': '#2872fa'     // Access Tag blue
-
-// Orange gradient (universal across all pages)
-background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
+// Primary Brand Colors (UNIVERSAL)
+'passgage-red': '#FF501D'      // Turuncu-kırmızı (gradient start)
+'passgage-gold': '#FFD700'     // Altın-sarı (gradient end)
+'passgage-blue': '#2872fa'     // Passgage mavi
 ```
 
 **Platform-specific accents**:
-- iOS guide: Black gradient (`#1d1d1f`)
-- Android guide: Green gradient (`#3ddc84`)
-- Access Tag guide: Blue gradient (`#2872fa → #1a5fd9`)
+- iOS guide: `#1d1d1f` (ios-black), `#86868b` (ios-gray)
+- Android guide: `#3ddc84` (android-green)
+- Access Tag guide: `#2872fa` (tag-blue), `#1a5490` (tag-navy)
 
-**Gradient text technique**: Use inline styles with WebkitBackgroundClip for maximum browser compatibility:
+**Gradient Kullanımı (Tailwind CSS):**
 
 ```tsx
-<span
-  style={{
-    background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text'
-  }}
->
+// ✅ CORRECT - Step badges, buttons, icons (Tailwind)
+<div className="bg-gradient-to-br from-passgage-red to-passgage-gold">
+
+// ✅ CORRECT - Gradient text (Tailwind)
+<span className="bg-gradient-to-r from-passgage-red to-passgage-gold bg-clip-text text-transparent">
   Gradient Text
 </span>
+
+// ❌ ONLY for complex multi-color gradients (rare)
+<div style={{ background: 'linear-gradient(135deg, rgba(...), rgba(...))' }}>
+```
+
+**Logo Usage:**
+```tsx
+import Image from 'next/image'
+
+<Image
+  src="/logo.png"
+  alt="Passgage"
+  width={160}
+  height={40}
+  priority
+/>
 ```
 
 ### 2. Page Structure - Custom Headers for Guide Pages

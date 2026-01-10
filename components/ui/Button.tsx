@@ -24,9 +24,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const baseStyles = 'inline-flex items-center justify-center font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
 
     const variants = {
-      primary: 'bg-passgage-blue text-white hover:bg-blue-600 focus:ring-passgage-blue shadow-sm hover:shadow-md',
+      primary: 'bg-gradient-to-r from-passgage-red to-passgage-gold text-white hover:scale-105 focus:ring-passgage-red shadow-sm hover:shadow-md transition-transform',
       secondary: 'bg-neutral-100 text-neutral-900 hover:bg-neutral-200 focus:ring-neutral-500',
-      outline: 'border-2 border-passgage-blue text-passgage-blue hover:bg-passgage-blue hover:text-white focus:ring-passgage-blue',
+      outline: 'border-2 border-passgage-red text-passgage-red hover:bg-gradient-to-r hover:from-passgage-red hover:to-passgage-gold hover:text-white focus:ring-passgage-red',
       ghost: 'text-neutral-700 hover:bg-neutral-100 focus:ring-neutral-500',
     };
 
