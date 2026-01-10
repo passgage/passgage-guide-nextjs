@@ -31,11 +31,11 @@ export default function Header({ showSearch = false, className = '' }: HeaderPro
             />
           </Link>
 
-          {/* Search Bar */}
+          {/* Search Bar - Centered */}
           {showSearch && (
-            <div className="hidden md:flex items-center flex-1 max-w-md mx-8">
+            <div className="hidden md:flex items-center justify-center flex-1">
               <button
-                className="w-full px-4 py-2 bg-neutral-50 hover:bg-neutral-100 text-neutral-500 text-left rounded-xl border border-neutral-200 transition-colors flex items-center justify-between"
+                className="w-full max-w-md px-4 py-2 bg-neutral-50 hover:bg-neutral-100 text-neutral-500 text-left rounded-xl border border-neutral-200 transition-colors flex items-center justify-between"
                 onClick={openModal}
               >
                 <div className="flex items-center gap-2">
@@ -61,27 +61,8 @@ export default function Header({ showSearch = false, className = '' }: HeaderPro
             </div>
           )}
 
-          {/* Navigation Links */}
-          <nav className="flex items-center gap-4">
-            <Link
-              href="/ios"
-              className="text-neutral-700 hover:text-passgage-blue font-medium transition-colors"
-            >
-              iOS
-            </Link>
-            <Link
-              href="/android"
-              className="text-neutral-700 hover:text-passgage-blue font-medium transition-colors"
-            >
-              Android
-            </Link>
-            <Link
-              href="/access-tag"
-              className="text-neutral-700 hover:text-passgage-blue font-medium transition-colors"
-            >
-              Access Tag
-            </Link>
-          </nav>
+          {/* Empty spacer for balance */}
+          <div className="w-[140px]"></div>
         </div>
       </div>
     </header>
