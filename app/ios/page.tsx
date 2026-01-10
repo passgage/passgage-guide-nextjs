@@ -1,15 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import Header from '@/components/layout/Header';
 import Hero from '@/components/layout/Hero';
 import Footer from '@/components/layout/Footer';
-import ProgressNav from '@/components/layout/ProgressNav';
 import { PhoneMockup, InfoBox, Accordion } from '@/components/guide';
 import type { AccordionItem } from '@/components/guide';
 
 export default function IOSGuidePage() {
-  const [activeStep, setActiveStep] = useState(1);
 
   // Progress navigation steps
   const iosSteps = [
@@ -175,49 +172,13 @@ export default function IOSGuidePage() {
 
   return (
     <>
-      {/* Custom Header with Back Button, Logo, and Badge */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-neutral-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-          {/* Left: Back Button */}
-          <a
-            href="/"
-            className="flex items-center gap-2 text-neutral-600 hover:text-neutral-900 transition-colors group"
-          >
-            <svg
-              className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            <span className="font-medium hidden sm:inline">Ana Sayfa</span>
-          </a>
+      {/* Standard Header Component */}
+      <Header
+        isGuide={true}
+        progressSteps={iosSteps}
+      />
 
-          {/* Center: Logo */}
-          <div className="absolute left-1/2 transform -translate-x-1/2">
-            <Image
-              src="/logo.png"
-              alt="Passgage"
-              width={120}
-              height={30}
-              priority
-              className="h-8 w-auto"
-            />
-          </div>
-
-          {/* Right: iOS Badge */}
-          <div className="flex items-center gap-2 px-3 py-1.5 bg-neutral-900 rounded-full">
-            <i className="fab fa-apple text-white text-sm"></i>
-            <span className="text-white text-sm font-semibold">iOS Kurulumu</span>
-          </div>
-        </div>
-      </header>
-
-      {/* Progress Navigation */}
-      <ProgressNav steps={iosSteps} />
-
-      <main className="pt-20">
+      <main>
         {/* Hero Section */}
         <Hero
           icon={<i className="fab fa-apple"></i>}
