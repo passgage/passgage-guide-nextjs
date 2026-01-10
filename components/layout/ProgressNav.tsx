@@ -19,28 +19,34 @@ export default function ProgressNav({ steps, className = '' }: ProgressNavProps)
   useEffect(() => {
     // IntersectionObserver for automatic step tracking
     const observerOptions = {
-      threshold: 0.15,
-      rootMargin: '-100px 0px -60% 0px',
+      threshold: [0, 0.25, 0.5, 0.75, 1.0],  // Multiple thresholds for precise tracking
+      rootMargin: '0px 0px -50% 0px',         // Reduced margin for accurate viewport detection
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const stepNum = parseInt(entry.target.id.replace('step', ''));
-          if (!isNaN(stepNum) && stepNum !== activeStep) {
-            setActiveStep(stepNum);
+      // Filter only visible entries
+      const visibleEntries = entries.filter(entry => entry.isIntersecting);
 
-            // Analytics tracking
-            if (typeof window !== 'undefined' && (window as any).gtag) {
-              (window as any).gtag('event', 'navigation_scroll', {
-                event_category: 'navigation',
-                event_label: `Step ${stepNum}`,
-                value: stepNum,
-              });
-            }
-          }
-        }
+      if (visibleEntries.length === 0) return;
+
+      // Find the most visible entry (highest intersectionRatio)
+      const mostVisible = visibleEntries.reduce((prev, current) => {
+        return current.intersectionRatio > prev.intersectionRatio ? current : prev;
       });
+
+      const stepNum = parseInt(mostVisible.target.id.replace('step', ''));
+      if (!isNaN(stepNum) && stepNum !== activeStep) {
+        setActiveStep(stepNum);
+
+        // Analytics tracking
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'navigation_scroll', {
+            event_category: 'navigation',
+            event_label: `Step ${stepNum}`,
+            value: stepNum,
+          });
+        }
+      }
     }, observerOptions);
 
     // Observe all step sections
@@ -52,7 +58,7 @@ export default function ProgressNav({ steps, className = '' }: ProgressNavProps)
     });
 
     return () => observer.disconnect();
-  }, [steps, activeStep]);
+  }, [steps]);
 
   const scrollToStep = (stepId: string, stepNumber: number) => {
     const element = document.getElementById(stepId);
@@ -91,10 +97,60 @@ export default function ProgressNav({ steps, className = '' }: ProgressNavProps)
     }
   };
 
+  // Get current step label for mobile display
+  const currentStepLabel = steps.find(s => s.number === activeStep)?.label || '';
+
   return (
-    <nav className={`progress-nav ${className}`} aria-label="Progress Navigation">
-      <div className="max-w-7xl mx-auto px-4 py-4">
-        <div className="flex items-center justify-between gap-2">
+    <nav className={`bg-white border-b border-neutral-200 ${className}`} aria-label="Progress Navigation">
+      <div className="max-w-7xl mx-auto px-6 py-4">
+
+        {/* MOBILE: Step header + Dots (< 768px) */}
+        <div className="md:hidden">
+          {/* Current step indicator */}
+          <div className="text-sm text-neutral-600 mb-3 flex items-center justify-between">
+            <span className="font-medium">
+              Adım {activeStep}: <span className="text-neutral-900">{currentStepLabel}</span>
+            </span>
+            <span className="text-xs bg-neutral-100 px-2 py-1 rounded">
+              {activeStep}/{steps.length}
+            </span>
+          </div>
+
+          {/* Progress dots */}
+          <div className="flex items-center justify-center gap-3">
+            {steps.map((step) => {
+              const isActive = step.number === activeStep;
+              const isCompleted = step.number < activeStep;
+
+              return (
+                <button
+                  key={step.id}
+                  className={`rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-passgage-red focus:ring-offset-2 ${
+                    isActive
+                      ? 'w-8 h-3'  // Active: pill shape
+                      : 'w-3 h-3'  // Inactive/completed: circle
+                  } ${
+                    !isActive && !isCompleted ? 'bg-neutral-300' : ''
+                  }`}
+                  style={
+                    isActive || isCompleted
+                      ? { background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }
+                      : undefined
+                  }
+                  onClick={() => scrollToStep(step.id, step.number)}
+                  aria-label={`${step.label} - Adım ${step.number}`}
+                  aria-current={isActive ? 'step' : undefined}
+                  tabIndex={0}
+                >
+                  <span className="sr-only">{step.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* DESKTOP: Full step buttons with progress lines (≥ 768px) */}
+        <div className="hidden md:flex items-center justify-between gap-2">
           {steps.map((step, index) => {
             const isActive = step.number === activeStep;
             const isCompleted = step.number < activeStep;
@@ -102,26 +158,43 @@ export default function ProgressNav({ steps, className = '' }: ProgressNavProps)
             return (
               <div key={step.id} className="flex items-center flex-1">
                 <button
-                  className={`progress-step ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}`}
+                  className={`group relative w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-passgage-red focus:ring-offset-2 ${
+                    isActive
+                      ? 'text-white shadow-md scale-110'
+                      : isCompleted
+                      ? 'text-white'
+                      : 'bg-neutral-200 text-neutral-500'
+                  }`}
+                  style={
+                    isActive || isCompleted
+                      ? { background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }
+                      : undefined
+                  }
                   onClick={() => scrollToStep(step.id, step.number)}
                   onKeyDown={(e) => handleKeyDown(e, step.id, step.number, index)}
                   aria-label={`${step.label} - Adım ${step.number}`}
                   aria-current={isActive ? 'step' : undefined}
                   tabIndex={0}
                 >
-                  <div className="step-num">
-                    <span>{step.number}</span>
-                  </div>
-                  <span className="visually-hidden">{step.label}</span>
+                  {/* Hover gradient overlay for inactive steps */}
+                  {!isActive && !isCompleted && (
+                    <div
+                      className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
+                    />
+                  )}
+                  <span className="relative z-10 group-hover:text-white transition-colors duration-300">{step.number}</span>
+                  <span className="sr-only">{step.label}</span>
                 </button>
 
                 {/* Progress line between steps */}
                 {index < steps.length - 1 && (
                   <div className="flex-1 h-0.5 bg-neutral-200 mx-2 relative overflow-hidden">
                     <div
-                      className={`absolute top-0 left-0 h-full bg-gradient-to-r from-passgage-red to-passgage-gold transition-all duration-600 ${
+                      className={`absolute top-0 left-0 h-full transition-all duration-500 ${
                         isCompleted ? 'w-full' : 'w-0'
                       }`}
+                      style={{ background: 'linear-gradient(90deg, #FF501D 0%, #FFD700 100%)' }}
                     />
                   </div>
                 )}
@@ -129,17 +202,17 @@ export default function ProgressNav({ steps, className = '' }: ProgressNavProps)
             );
           })}
         </div>
-      </div>
 
-      {/* Screen reader announcements */}
-      <div
-        id="step-announcer"
-        className="visually-hidden"
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
-      >
-        {steps.find((s) => s.number === activeStep)?.label}. {activeStep} / {steps.length} adım.
+        {/* Screen reader announcements */}
+        <div
+          id="step-announcer"
+          className="sr-only"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          {currentStepLabel}. {activeStep} / {steps.length} adım.
+        </div>
       </div>
     </nav>
   );

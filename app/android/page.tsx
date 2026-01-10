@@ -2,12 +2,230 @@
 
 import { useState } from 'react';
 import Header from '@/components/layout/Header';
+import Hero from '@/components/layout/Hero';
 import Footer from '@/components/layout/Footer';
 import { PhoneMockup, Accordion, InfoBox } from '@/components/guide';
 import type { AccordionItem } from '@/components/guide';
 
 export default function AndroidGuidePage() {
-  // Troubleshooting FAQ data - 7 comprehensive items
+  // Android Steps for ProgressNav
+  const androidSteps = [
+    { id: 'step1', number: 1, label: 'Uygulamayı indirin' },
+    { id: 'step2', number: 2, label: 'Gerekli izinleri verin' },
+    { id: 'step3', number: 3, label: 'Giriş yapın ve şifre oluşturun' },
+    { id: 'step4', number: 4, label: 'Cihaz eşleştirme' },
+    { id: 'step5', number: 5, label: 'NFC kurulumu' },
+    { id: 'step6', number: 6, label: 'Sorun giderme' }
+  ];
+
+  // NFC Manufacturer Accordion Data
+  const nfcManufacturerSteps: AccordionItem[] = [
+    {
+      id: 'samsung',
+      question: 'Samsung (One UI)',
+      badge: 'SAMSUNG',
+      badgeStyle: { background: 'linear-gradient(135deg, #1428a0 0%, #0c52ff 100%)' },
+      answer: (
+        <div className="space-y-6">
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3 text-lg">Adım 1: Ayarları Açın</h5>
+            <div
+              className="inline-block px-4 py-2 rounded-lg font-mono text-sm my-2 border-l-4"
+              style={{
+                background: '#f1f5f9',
+                color: '#1f2937',
+                borderColor: '#3ddc84'
+              }}
+            >
+              Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> Bağlantılar (Connections)
+            </div>
+          </div>
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3 text-lg">Adım 2: NFC ve Temassız Ödemeler</h5>
+            <div
+              className="inline-block px-4 py-2 rounded-lg font-mono text-sm my-2 border-l-4"
+              style={{
+                background: '#f1f5f9',
+                color: '#1f2937',
+                borderColor: '#3ddc84'
+              }}
+            >
+              NFC and contactless payments <span className="text-green-700 mx-2 font-bold">→</span> NFC <span className="text-green-700 mx-2 font-bold">→</span> Toggle ON
+            </div>
+          </div>
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3 text-lg">Adım 3: Doğrulama</h5>
+            <p className="text-neutral-700">
+              Quick Settings panelinde (üstten aşağı kaydırın) NFC simgesi <strong className="text-blue-600">mavi</strong> olmalıdır.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 'huawei',
+      question: 'Huawei (EMUI / HarmonyOS)',
+      badge: 'HUAWEI',
+      badgeStyle: { background: 'linear-gradient(135deg, #c7112b 0%, #fa1a3c 100%)' },
+      answer: (
+        <div className="space-y-6">
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3 text-lg">Adım 1: Ayarları Açın</h5>
+            <div
+              className="inline-block px-4 py-2 rounded-lg font-mono text-sm my-2 border-l-4"
+              style={{
+                background: '#f1f5f9',
+                color: '#1f2937',
+                borderColor: '#3ddc84'
+              }}
+            >
+              Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> Cihaz bağlantısı (Device connectivity)
+            </div>
+          </div>
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3 text-lg">Adım 2: NFC Bölümü</h5>
+            <div
+              className="inline-block px-4 py-2 rounded-lg font-mono text-sm my-2 border-l-4"
+              style={{
+                background: '#f1f5f9',
+                color: '#1f2937',
+                borderColor: '#3ddc84'
+              }}
+            >
+              NFC <span className="text-green-700 mx-2 font-bold">→</span> Toggle ON
+            </div>
+          </div>
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3 text-lg">Adım 3: Huawei Wallet (Opsiyonel)</h5>
+            <p className="text-neutral-700">
+              Varsayılan ödeme uygulaması olarak <strong>Huawei Wallet</strong> kullanıyorsanız, NFC ayarlarını buradan da yapabilirsiniz.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 'xiaomi',
+      question: 'Xiaomi (MIUI)',
+      badge: 'XIAOMI',
+      badgeStyle: { background: 'linear-gradient(135deg, #ff6700 0%, #ff8533 100%)' },
+      answer: (
+        <div className="space-y-6">
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3 text-lg">Yöntem 1 (MIUI 12+)</h5>
+            <div
+              className="inline-block px-4 py-2 rounded-lg font-mono text-sm my-2 border-l-4"
+              style={{
+                background: '#f1f5f9',
+                color: '#1f2937',
+                borderColor: '#3ddc84'
+              }}
+            >
+              Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> Connection & sharing <span className="text-green-700 mx-2 font-bold">→</span> NFC <span className="text-green-700 mx-2 font-bold">→</span> Toggle ON
+            </div>
+          </div>
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3 text-lg">Yöntem 2 (Eski MIUI)</h5>
+            <div
+              className="inline-block px-4 py-2 rounded-lg font-mono text-sm my-2 border-l-4"
+              style={{
+                background: '#f1f5f9',
+                color: '#1f2937',
+                borderColor: '#3ddc84'
+              }}
+            >
+              Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> More connectivity options <span className="text-green-700 mx-2 font-bold">→</span> NFC <span className="text-green-700 mx-2 font-bold">→</span> Toggle ON
+            </div>
+          </div>
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3 text-lg">Adım 3: Android Beam (Opsiyonel)</h5>
+            <p className="text-neutral-700">
+              Android Beam kullanmıyorsanız, sadece NFC'yi açık bırakmanız yeterlidir.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 'stock-android',
+      question: 'Stock Android (Google Pixel vb.)',
+      badge: 'GOOGLE',
+      badgeStyle: { background: 'linear-gradient(135deg, #4285f4 0%, #34a853 100%)' },
+      answer: (
+        <div className="space-y-6">
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3 text-lg">Adım 1: Bağlı Cihazlar</h5>
+            <div
+              className="inline-block px-4 py-2 rounded-lg font-mono text-sm my-2 border-l-4"
+              style={{
+                background: '#f1f5f9',
+                color: '#1f2937',
+                borderColor: '#3ddc84'
+              }}
+            >
+              Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> Connected devices <span className="text-green-700 mx-2 font-bold">→</span> Connection preferences
+            </div>
+          </div>
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3 text-lg">Adım 2: NFC Aktivasyonu</h5>
+            <div
+              className="inline-block px-4 py-2 rounded-lg font-mono text-sm my-2 border-l-4"
+              style={{
+                background: '#f1f5f9',
+                color: '#1f2937',
+                borderColor: '#3ddc84'
+              }}
+            >
+              NFC <span className="text-green-700 mx-2 font-bold">→</span> Toggle ON
+            </div>
+          </div>
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3 text-lg">Adım 3: Doğrulama</h5>
+            <p className="text-neutral-700">
+              Quick Settings panelinde NFC simgesini kontrol edin.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 'other-manufacturers',
+      question: 'Diğer Üreticiler (Oppo, Vivo, Realme, OnePlus vb.)',
+      badge: 'DİĞER',
+      badgeStyle: { background: '#6b7280' },
+      answer: (
+        <div className="space-y-6">
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3 text-lg">Yöntem 1: Ayarlar Arama</h5>
+            <p className="text-neutral-700 mb-3">
+              Ayarlar uygulamasını açın ve üst kısımdaki arama çubuğuna <strong>"NFC"</strong> yazın.
+            </p>
+          </div>
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3 text-lg">Yöntem 2: Bağlantılar Menüsü</h5>
+            <div
+              className="inline-block px-4 py-2 rounded-lg font-mono text-sm my-2 border-l-4"
+              style={{
+                background: '#f1f5f9',
+                color: '#1f2937',
+                borderColor: '#3ddc84'
+              }}
+            >
+              Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> Bağlantılar / Wireless & Networks <span className="text-green-700 mx-2 font-bold">→</span> NFC
+            </div>
+          </div>
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3 text-lg">Yöntem 3: Quick Settings</h5>
+            <p className="text-neutral-700">
+              Ekranın üst kısmından aşağı kaydırıp Quick Settings'i açın. NFC simgesine dokunun.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+  ];
+
+  // Troubleshooting FAQ data - 6 comprehensive items
   const troubleshootingItems: AccordionItem[] = [
     {
       id: 'google-play-services',
@@ -31,7 +249,7 @@ export default function AndroidGuidePage() {
       answer: (
         <div className="space-y-4">
           <p>Bazı üreticiler ek izin gerektiriyor. Marka bazında çözümler:</p>
-          
+
           <div className="mt-4 p-4 bg-orange-50 border-l-4 border-orange-500 rounded-r-xl">
             <h5 className="font-bold text-orange-900 mb-2">Xiaomi (MIUI)</h5>
             <p className="text-sm text-orange-800 mb-2">Ayarlar → Uygulamalar → Passgage → Otomatik başlatma → <strong>Açık</strong></p>
@@ -69,14 +287,93 @@ export default function AndroidGuidePage() {
           <p>NFC sorunları için şu adımları deneyin:</p>
           <ol className="list-decimal list-inside space-y-2 ml-4">
             <li>NFC özelliğinin açık olduğundan emin olun (Ayarlar → Bağlı cihazlar → NFC)</li>
-            <li>Telefonunuzun arkasını QR koda yaklaştırın (1-2 saniye bekleyin)</li>
+            <li>Telefonunuzun arkasını okuyucuya yaklaştırın (1-2 saniye bekleyin)</li>
             <li>Kalın veya metal kılıfları çıkarın</li>
             <li>Cihazınızı yeniden başlatın</li>
           </ol>
           <div className="mt-4 p-4 bg-blue-50 border-l-4 border-blue-500 rounded-r-xl">
             <p className="text-sm text-blue-800">
-              <strong>İpucu:</strong> NFC sensörü genellikle telefonun arka tarafında, kameranın yakınındadır. 
+              <strong>İpucu:</strong> NFC sensörü genellikle telefonun arka tarafında, kameranın yakınındadır.
               1-2 cm mesafeden okutmayı deneyin.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 'location-accuracy',
+      question: 'Konum Doğruluğu Sorunları',
+      answer: (
+        <div className="space-y-6">
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3">Yüksek Doğruluk Modu</h5>
+            <div
+              className="inline-block px-4 py-2 rounded-lg font-mono text-sm my-2 border-l-4"
+              style={{
+                background: '#f1f5f9',
+                color: '#1f2937',
+                borderColor: '#3ddc84'
+              }}
+            >
+              Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> Konum <span className="text-green-700 mx-2 font-bold">→</span> Konum Servisleri <span className="text-green-700 mx-2 font-bold">→</span> Konum Modu <span className="text-green-700 mx-2 font-bold">→</span> "Yüksek doğruluk"
+            </div>
+          </div>
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3">Wi-Fi ve Bluetooth Taraması</h5>
+            <div
+              className="inline-block px-4 py-2 rounded-lg font-mono text-sm my-2 border-l-4"
+              style={{
+                background: '#f1f5f9',
+                color: '#1f2937',
+                borderColor: '#3ddc84'
+              }}
+            >
+              Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> Konum <span className="text-green-700 mx-2 font-bold">→</span> Wi-Fi and Bluetooth scanning <span className="text-green-700 mx-2 font-bold">→</span> ON
+            </div>
+          </div>
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3">GPS'i Yenile</h5>
+            <p className="text-neutral-700">
+              Uçak modunu 10 saniye açıp kapatarak GPS'i yenileyebilirsiniz.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 'background-restrictions',
+      question: 'Arka Plan Uygulama Kısıtlamaları',
+      answer: (
+        <div className="space-y-6">
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3">Arka Plan Veri Kullanımı</h5>
+            <div
+              className="inline-block px-4 py-2 rounded-lg font-mono text-sm my-2 border-l-4"
+              style={{
+                background: '#f1f5f9',
+                color: '#1f2937',
+                borderColor: '#3ddc84'
+              }}
+            >
+              Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> Uygulamalar <span className="text-green-700 mx-2 font-bold">→</span> Passgage <span className="text-green-700 mx-2 font-bold">→</span> Mobil veri ve Wi-Fi <span className="text-green-700 mx-2 font-bold">→</span> ON
+            </div>
+          </div>
+          <div>
+            <h5 className="font-bold text-neutral-900 mb-3">Arka Plan Etkinliği</h5>
+            <div
+              className="inline-block px-4 py-2 rounded-lg font-mono text-sm my-2 border-l-4"
+              style={{
+                background: '#f1f5f9',
+                color: '#1f2937',
+                borderColor: '#3ddc84'
+              }}
+            >
+              Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> Uygulamalar <span className="text-green-700 mx-2 font-bold">→</span> Passgage <span className="text-green-700 mx-2 font-bold">→</span> Pil <span className="text-green-700 mx-2 font-bold">→</span> Arka plan kısıtlaması <span className="text-green-700 mx-2 font-bold">→</span> OFF
+            </div>
+          </div>
+          <div className="mt-4 p-4 bg-amber-50 border-l-4 border-amber-500 rounded-r-xl">
+            <p className="text-sm text-amber-800">
+              <strong>Not:</strong> Bazı cihazlarda arka plan kısıtlamaları "Pil optimizasyonu" altında bulunabilir.
             </p>
           </div>
         </div>
@@ -86,87 +383,46 @@ export default function AndroidGuidePage() {
 
   return (
     <>
-      <Header showSearch={true} />
+      {/* Standard Header Component */}
+      <Header
+        isGuide={true}
+        progressSteps={androidSteps}
+      />
 
       <main>
-        {/* Hero Section */}
-        <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-android-green via-green-600 to-green-700">
-          {/* Background Grid */}
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
-
-          {/* Animated Blobs */}
-          <div className="absolute top-20 right-20 w-72 h-72 bg-white/10 rounded-full blur-3xl animate-blob" />
-          <div className="absolute bottom-20 left-20 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
-
-          <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-20">
-            {/* Android Icon */}
-            <div className="w-20 h-20 mx-auto mb-6 bg-white/10 backdrop-blur-sm rounded-3xl flex items-center justify-center">
-              <i className="fab fa-android text-4xl text-white" />
-            </div>
-
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-              Passgage
-              <br />
-              <span className="bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-                Android Kurulumu
-              </span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed">
-              Android telefonlar için kapsamlı kurulum rehberi.
-              <br />
-              Android 7.0 ve üzeri cihazlar için optimize edilmiştir.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#step1"
-                className="px-8 py-4 bg-white text-android-green rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                <i className="fas fa-play" />
-                Başlayalım
-              </a>
-              <a
-                href="#step6"
-                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-2xl font-bold text-lg hover:bg-white/20 hover:border-white/50 transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                <i className="fas fa-question-circle" />
-                Sorun mu Var?
-              </a>
-            </div>
-          </div>
-        </section>
+        {/* Hero Section - Standard Component */}
+        <Hero
+          icon={<i className="fab fa-android" />}
+          titleBefore="Passgage"
+          titleHighlight="Android"
+          titleAfter="Kurulumu"
+          description="Android telefon ve tabletler için özel hazırlanmış kurulum rehberi. Android 7.0 ve üzeri cihazlar için optimize edilmiştir."
+        />
 
         {/* Main Content */}
         <div className="max-w-7xl mx-auto px-6 py-20">
-          {/* Battery Optimization Warning */}
-          <div className="mb-16 p-8 bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-500 rounded-r-2xl shadow-lg">
-            <div className="flex items-start gap-6">
-              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center">
-                <i className="fas fa-exclamation-triangle text-2xl text-white animate-pulse" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-amber-900 mb-3">Önemli: Pil Optimizasyonu</h3>
-                <p className="text-amber-800 leading-relaxed mb-4">
-                  Android telefonlarda pil tasarrufu özellikleri uygulamanın arka planda çalışmasını engelleyebilir. 
-                  Passgage'in düzgün çalışması için <strong>pil optimizasyonunu kapatmanız</strong> gerekiyor.
-                </p>
-                <p className="text-amber-800 leading-relaxed">
-                  Kurulum adımlarında bu ayarların nasıl yapılandırılacağı detaylı olarak açıklanmıştır.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Step 1: Download */}
+          {/* STEP 1: Download App */}
           <section id="step1" className="mb-24 scroll-mt-24">
             <div className="flex items-start gap-6 mb-12">
-              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-android-green to-green-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-lg">
+              <div
+                className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
+                style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
+              >
                 1
               </div>
               <div className="flex-1">
                 <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-3">
-                  Uygulamayı <span className="text-android-green">İndirin</span>
+                  Uygulamayı{' '}
+                  <span
+                    style={{
+                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text'
+                    }}
+                  >
+                    İndirin
+                  </span>
                 </h2>
                 <p className="text-xl text-neutral-600">Google Play Store veya Huawei AppGallery'den ücretsiz indirin</p>
               </div>
@@ -175,16 +431,28 @@ export default function AndroidGuidePage() {
             <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-12">
               {/* Google Play Store */}
               <a
-                href="https://play.google.com/store/apps/details?id=com.passgage.app"
+                href="https://play.google.com/store/apps/details?id=com.passgage"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-shadow duration-300 p-6 hover:-translate-y-2 no-underline block group"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).gtag) {
+                    (window as any).gtag('event', 'download_click', {
+                      event_category: 'engagement',
+                      event_label: 'Android - Google Play',
+                      platform: 'android'
+                    });
+                  }
+                }}
+                className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-all duration-300 p-8 hover:-translate-y-2 no-underline block group"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-android-green to-green-600 rounded-2xl flex items-center justify-center text-white text-3xl mb-4">
+                <div
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-white text-3xl mb-6"
+                  style={{ background: 'linear-gradient(to bottom right, #22c55e, #16a34a)' }}
+                >
                   <i className="fab fa-google-play" />
                 </div>
-                <h3 className="text-xl font-bold text-neutral-900 mb-2">Google Play Store</h3>
-                <p className="text-neutral-600 mb-4">Android cihazlar için</p>
+                <h3 className="text-2xl font-bold text-neutral-900 mb-3">Google Play Store</h3>
+                <p className="text-neutral-600 mb-4">Android cihazlar için resmi mağaza</p>
                 <div className="flex items-center gap-2 text-android-green font-semibold group-hover:gap-3 transition-all">
                   <span>Ücretsiz İndir</span>
                   <i className="fas fa-arrow-right" />
@@ -193,16 +461,28 @@ export default function AndroidGuidePage() {
 
               {/* Huawei AppGallery */}
               <a
-                href="https://appgallery.huawei.com/app/C104521415"
+                href="https://appgallery.huawei.com/app/C106558653"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-shadow duration-300 p-6 hover:-translate-y-2 no-underline block group"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).gtag) {
+                    (window as any).gtag('event', 'download_click', {
+                      event_category: 'engagement',
+                      event_label: 'Android - Huawei AppGallery',
+                      platform: 'android'
+                    });
+                  }
+                }}
+                className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-all duration-300 p-8 hover:-translate-y-2 no-underline block group"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center text-white text-3xl mb-4">
-                  <i className="fas fa-store" />
+                <div
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-white text-3xl mb-6"
+                  style={{ background: 'linear-gradient(to bottom right, #dc2626, #b91c1c)' }}
+                >
+                  <i className="fas fa-mobile-alt" />
                 </div>
-                <h3 className="text-xl font-bold text-neutral-900 mb-2">Huawei AppGallery</h3>
-                <p className="text-neutral-600 mb-4">Huawei cihazlar için</p>
+                <h3 className="text-2xl font-bold text-neutral-900 mb-3">Huawei AppGallery</h3>
+                <p className="text-neutral-600 mb-4">Huawei cihazlar için alternatif indirme</p>
                 <div className="flex items-center gap-2 text-red-600 font-semibold group-hover:gap-3 transition-all">
                   <span>Ücretsiz İndir</span>
                   <i className="fas fa-arrow-right" />
@@ -210,63 +490,634 @@ export default function AndroidGuidePage() {
               </a>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-              <div className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-shadow duration-300 p-6 text-center">
-                <div className="w-12 h-12 bg-android-green/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <i className="fas fa-mobile-alt text-2xl text-android-green" />
-                </div>
-                <h4 className="font-bold text-neutral-900 mb-2">Android 7.0 ve Üzeri</h4>
-                <p className="text-neutral-600 text-sm">
-                  Nougat ve sonrası tüm Android cihazlar desteklenir
-                </p>
-              </div>
+            {/* Google Play Store Screenshot */}
+            <div className="max-w-md mx-auto mb-12">
+              <PhoneMockup
+                imageSrc="/screenshots/android/step1-google-play.jpg"
+                alt="Google Play Store'da Passgage uygulaması"
+                platform="android"
+              />
+            </div>
 
-              <div className="bg-white rounded-3xl shadow-card hover:shadow-hover transition-shadow duration-300 p-6 text-center">
-                <div className="w-12 h-12 bg-android-green/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <i className="fas fa-cog text-2xl text-android-green" />
-                </div>
-                <h4 className="font-bold text-neutral-900 mb-2">Google Play Services</h4>
-                <p className="text-neutral-600 text-sm">
-                  Google Play Services gereklidir
-                </p>
-              </div>
+            <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+              <InfoBox variant="info" icon="fas fa-mobile-alt" title="Android 7.0 ve Üzeri">
+                Nougat ve sonrası tüm Android cihazlar desteklenir. Ayarlar → Telefon Hakkında → Android Sürümü'nden kontrol edebilirsiniz.
+              </InfoBox>
+
+              <InfoBox variant="info" icon="fas fa-cog" title="Google Play Services Gereklidir">
+                Google Play Services uygulamanın çalışması için gereklidir. Huawei cihazlarda HMS Core kullanılır.
+              </InfoBox>
             </div>
           </section>
 
-          {/* Step 6: Troubleshooting */}
+          {/* STEP 2: Gerekli İzinleri Verin */}
+          <section id="step2" className="mb-24 scroll-mt-24">
+            <div className="flex items-start gap-6 mb-12">
+              <div
+                className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
+                style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
+              >
+                2
+              </div>
+              <div className="flex-1">
+                <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-3">
+                  Gerekli{' '}
+                  <span
+                    style={{
+                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    İzinleri
+                  </span>{' '}
+                  Verin
+                </h2>
+                <p className="text-lg md:text-xl text-neutral-600">
+                  Android ayarlarından izinleri aktifleştirin
+                </p>
+              </div>
+            </div>
+
+            {/* Substep 2.1: Konum İzni */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/android/step2-location-permission.jpg"
+                alt="Konum izni ekranı"
+                platform="android"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-android-green rounded-xl flex items-center justify-center">
+                    <i className="fas fa-map-marker-alt text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">1. Konum İzni</h4>
+                </div>
+                <p className="text-neutral-700 mb-6 text-lg leading-relaxed">
+                  Giriş-çıkış kayıtlarını doğru konumda yapmak için konum iznini vermeniz gerekir.
+                </p>
+                <div
+                  className="inline-block px-4 py-3 rounded-lg font-mono text-sm my-2 border-l-4"
+                  style={{
+                    background: '#f1f5f9',
+                    color: '#1f2937',
+                    borderColor: '#3ddc84',
+                  }}
+                >
+                  Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> Uygulamalar{' '}
+                  <span className="text-green-700 mx-2 font-bold">→</span> Passgage{' '}
+                  <span className="text-green-700 mx-2 font-bold">→</span> İzinler{' '}
+                  <span className="text-green-700 mx-2 font-bold">→</span> Konum
+                </div>
+                <p className="text-neutral-600 text-sm mt-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                  💡 <strong>Önemli:</strong> &quot;Her zaman izin ver&quot; seçeneğini işaretleyin. Bu,
+                  uygulamanın arka planda da konum bilgisi alabilmesini sağlar.
+                </p>
+              </div>
+            </div>
+
+            {/* Substep 2.2: Kamera İzni */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/android/step2-camera-permission.jpg"
+                alt="Kamera izni ekranı"
+                platform="android"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-android-green rounded-xl flex items-center justify-center">
+                    <i className="fas fa-camera text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">2. Kamera İzni</h4>
+                </div>
+                <p className="text-neutral-700 mb-6 text-lg leading-relaxed">
+                  QR kod okutmak ve fotoğraf çekmek için kamera iznine ihtiyaç vardır.
+                </p>
+                <div
+                  className="inline-block px-4 py-3 rounded-lg font-mono text-sm my-2 border-l-4"
+                  style={{
+                    background: '#f1f5f9',
+                    color: '#1f2937',
+                    borderColor: '#3ddc84',
+                  }}
+                >
+                  Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> Uygulamalar{' '}
+                  <span className="text-green-700 mx-2 font-bold">→</span> Passgage{' '}
+                  <span className="text-green-700 mx-2 font-bold">→</span> İzinler{' '}
+                  <span className="text-green-700 mx-2 font-bold">→</span> Kamera
+                </div>
+                <p className="text-neutral-600 text-sm mt-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                  💡 <strong>Öneri:</strong> Kamera izni sadece QR kod okutma sırasında kullanılır.
+                </p>
+              </div>
+            </div>
+
+            {/* Substep 2.3: Bildirim İzni */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/android/step2-notification-permission.jpg"
+                alt="Bildirim izni ekranı"
+                platform="android"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-android-green rounded-xl flex items-center justify-center">
+                    <i className="fas fa-bell text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">3. Bildirim İzni</h4>
+                </div>
+                <p className="text-neutral-700 mb-6 text-lg leading-relaxed">
+                  Önemli güncellemeler ve hatırlatmalar için bildirim iznine ihtiyaç vardır.
+                </p>
+                <div
+                  className="inline-block px-4 py-3 rounded-lg font-mono text-sm my-2 border-l-4"
+                  style={{
+                    background: '#f1f5f9',
+                    color: '#1f2937',
+                    borderColor: '#3ddc84',
+                  }}
+                >
+                  Ayarlar <span className="text-green-700 mx-2 font-bold">→</span> Uygulamalar{' '}
+                  <span className="text-green-700 mx-2 font-bold">→</span> Passgage{' '}
+                  <span className="text-green-700 mx-2 font-bold">→</span> Bildirimler
+                </div>
+                <p className="text-neutral-600 text-sm mt-4 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                  💡 <strong>Bilgi:</strong> Bildirimler mesai saati içinde ve dışında farklı
+                  seslerde çalabilir.
+                </p>
+              </div>
+            </div>
+
+            {/* Info Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+              <InfoBox variant="info" icon="fas fa-shield-alt" title="Gizlilik Güvencesi">
+                Konum bilgisi sadece giriş-çıkış anlarında kullanılır ve hiçbir üçüncü tarafla
+                paylaşılmaz. Verileriniz Passgage sunucularında güvenle saklanır.
+              </InfoBox>
+              <InfoBox variant="info" icon="fas fa-mobile-alt" title="Otomatik İzin İstekleri">
+                Uygulama ilk açılışta gerekli izinleri otomatik olarak talep eder. İzinleri daha
+                sonra ayarlardan manuel olarak da değiştirebilirsiniz.
+              </InfoBox>
+            </div>
+          </section>
+
+          {/* STEP 3: Giriş Yapın ve Şifre Oluşturun */}
+          <section id="step3" className="mb-24 scroll-mt-24">
+            <div className="flex items-start gap-6 mb-12">
+              <div
+                className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
+                style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
+              >
+                3
+              </div>
+              <div className="flex-1">
+                <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-3">
+                  Giriş Yapın ve{' '}
+                  <span
+                    style={{
+                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    Şifre
+                  </span>{' '}
+                  Oluşturun
+                </h2>
+                <p className="text-lg md:text-xl text-neutral-600">
+                  OTP doğrulama ile güvenli giriş yapın
+                </p>
+              </div>
+            </div>
+
+            {/* Substep 3.1: Şifre Al Butonu */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/android/step3-1-login-screen.jpg"
+                alt="Giriş ekranı"
+                platform="android"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-android-green rounded-xl flex items-center justify-center">
+                    <i className="fas fa-key text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">1. Şifre Al Butonuna Tıklayın</h4>
+                </div>
+                <p className="text-neutral-700 mb-4 text-lg leading-relaxed">
+                  Uygulamayı açtığınızda karşınıza gelen giriş ekranında{' '}
+                  <strong className="text-android-green">&quot;Şifre Al&quot;</strong> butonuna
+                  tıklayın.
+                </p>
+                <p className="text-neutral-600 text-sm bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                  💡 İlk giriş için şifre oluşturmanız gerekir. Sonraki girişlerde bu şifreyi
+                  kullanacaksınız.
+                </p>
+              </div>
+            </div>
+
+            {/* Substep 3.2: E-posta/Telefon Girişi */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/android/step3-2-account-verification.jpg"
+                alt="Hesap doğrulama ekranı"
+                platform="android"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-android-green rounded-xl flex items-center justify-center">
+                    <i className="fas fa-envelope text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">
+                    2. E-posta veya Telefon Numarası Girin
+                  </h4>
+                </div>
+                <p className="text-neutral-700 mb-4 text-lg leading-relaxed">
+                  Şirket e-posta adresinizi veya telefon numaranızı girin. Sistem size bir{' '}
+                  <strong className="text-android-green">6 haneli OTP kodu</strong> gönderecektir.
+                </p>
+                <p className="text-neutral-600 text-sm bg-amber-50 border-l-4 border-amber-500 p-4 rounded">
+                  ⚠️ <strong>Önemli:</strong> Şirket yöneticiniz tarafından sisteme tanımlanan
+                  e-posta veya telefon numarasını kullanın.
+                </p>
+              </div>
+            </div>
+
+            {/* Substep 3.3: OTP Kodu Girişi */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/android/step3-3-otp-entry.jpg"
+                alt="OTP kod girişi ekranı"
+                platform="android"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-android-green rounded-xl flex items-center justify-center">
+                    <i className="fas fa-mobile-alt text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">3. OTP Kodunu Girin</h4>
+                </div>
+                <p className="text-neutral-700 mb-4 text-lg leading-relaxed">
+                  E-posta veya SMS ile gelen <strong className="text-android-green">6 haneli kodu</strong>{' '}
+                  uygulama ekranına girin.
+                </p>
+                <p className="text-neutral-600 text-sm bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                  💡 Kod gelmedi mi? &quot;Tekrar Gönder&quot; butonuna tıklayarak yeni kod
+                  talep edebilirsiniz.
+                </p>
+              </div>
+            </div>
+
+            {/* Substep 3.4: Şifre Oluşturma */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/android/step3-4-set-password.jpg"
+                alt="Şifre oluşturma ekranı"
+                platform="android"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-android-green rounded-xl flex items-center justify-center">
+                    <i className="fas fa-lock text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">4. Güçlü Bir Şifre Belirleyin</h4>
+                </div>
+                <p className="text-neutral-700 mb-4 text-lg leading-relaxed">
+                  OTP doğrulaması başarılı olduktan sonra, hesabınız için güvenli bir şifre
+                  oluşturun.
+                </p>
+                <div className="bg-neutral-50 border border-neutral-200 rounded-lg p-4 mb-4">
+                  <p className="text-sm font-semibold text-neutral-900 mb-2">
+                    Şifre Gereksinimleri:
+                  </p>
+                  <ul className="text-sm text-neutral-700 space-y-1 ml-4">
+                    <li className="flex items-center gap-2">
+                      <span className="text-android-green">✓</span> Minimum 8 karakter
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-android-green">✓</span> En az 1 büyük harf
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-android-green">✓</span> En az 1 küçük harf
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-android-green">✓</span> En az 1 rakam
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Info Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+              <InfoBox variant="info" icon="fas fa-user-shield" title="Güvenli Giriş">
+                OTP (One-Time Password) sistemi, ilk girişinizde hesabınızın size ait olduğunu
+                doğrular. Bu sayede yetkisiz erişimler engellenir.
+              </InfoBox>
+              <InfoBox variant="info" icon="fas fa-shield-alt" title="Şifre Güvenliği">
+                Şifrenizi kimseyle paylaşmayın ve düzenli olarak değiştirin. Passgage şifrenizi
+                asla size sormaz veya talep etmez.
+              </InfoBox>
+            </div>
+          </section>
+
+          {/* STEP 4: Cihaz Eşleştirme */}
+          <section id="step4" className="mb-24 scroll-mt-24">
+            <div className="flex items-start gap-6 mb-12">
+              <div
+                className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
+                style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
+              >
+                4
+              </div>
+              <div className="flex-1">
+                <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-3">
+                  Cihaz{' '}
+                  <span
+                    style={{
+                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    Eşleştirme
+                  </span>
+                </h2>
+                <p className="text-lg md:text-xl text-neutral-600">
+                  Telefonunuzu hesabınızla eşleştirin
+                </p>
+              </div>
+            </div>
+
+            {/* Substep 4.1: Eşleştirme İsteği */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/android/step4-device-pairing.jpg"
+                alt="Cihaz eşleştirme ekranı"
+                platform="android"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-android-green rounded-xl flex items-center justify-center">
+                    <i className="fas fa-mobile-alt text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">1. Eşleştirme İsteği Gönderin</h4>
+                </div>
+                <p className="text-neutral-700 mb-4 text-lg leading-relaxed">
+                  Giriş yaptıktan sonra sistem otomatik olarak cihazınızı eşleştirmek için bir
+                  istek gönderir. <strong className="text-android-green">&quot;Eşleştir&quot;</strong>{' '}
+                  butonuna tıklayın.
+                </p>
+                <p className="text-neutral-600 text-sm bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                  💡 Her kullanıcı aynı anda sadece bir cihazla eşleştirilebilir. Yeni cihaz
+                  eklediğinizde eski cihazınız otomatik olarak kaldırılır.
+                </p>
+              </div>
+            </div>
+
+            {/* Substep 4.2: SMS Doğrulama */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/android/step4-add-device.jpg"
+                alt="SMS doğrulama ekranı"
+                platform="android"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-android-green rounded-xl flex items-center justify-center">
+                    <i className="fas fa-sms text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">2. SMS ile Doğrulama Yapın</h4>
+                </div>
+                <p className="text-neutral-700 mb-4 text-lg leading-relaxed">
+                  Telefonunuza gelen{' '}
+                  <strong className="text-android-green">doğrulama kodunu</strong> girerek
+                  eşleştirme işlemini onaylayın.
+                </p>
+                <p className="text-neutral-600 text-sm bg-amber-50 border-l-4 border-amber-500 p-4 rounded">
+                  ⚠️ SMS gelmediyse, telefon numaranızın sistemde doğru kayıtlı olduğundan emin
+                  olun ve &quot;Tekrar Gönder&quot; butonunu deneyin.
+                </p>
+              </div>
+            </div>
+
+            {/* Substep 4.3: Eşleştirme Tamamlandı */}
+            <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
+              <PhoneMockup
+                imageSrc="/screenshots/android/step4-connected-devices.jpg"
+                alt="Eşleştirilmiş cihazlar ekranı"
+                platform="android"
+              />
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-android-green rounded-xl flex items-center justify-center">
+                    <i className="fas fa-check-circle text-white text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-neutral-900">3. Eşleştirme Tamamlandı!</h4>
+                </div>
+                <p className="text-neutral-700 mb-4 text-lg leading-relaxed">
+                  Tebrikler! Cihazınız başarıyla eşleştirildi. Artık Passgage&apos;ı kullanmaya
+                  başlayabilirsiniz.
+                </p>
+                <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                  <p className="text-sm text-green-800">
+                    <i className="fas fa-info-circle mr-2"></i>
+                    <strong>Bilgi:</strong> Eşleştirilmiş cihazlarınızı ayarlar menüsünden
+                    kontrol edebilir ve yönetebilirsiniz.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Security Info Box */}
+            <InfoBox variant="info" icon="fas fa-shield-alt" title="Güvenlik">
+              💡 Yeni bir cihaz eşleştirdiğinizde, önceki cihazınızın erişimi otomatik olarak iptal
+              edilir. Bu, hesabınızın güvenliğini sağlar.
+            </InfoBox>
+          </section>
+
+          {/* STEP 5: NFC Kurulumu */}
+          <section id="step5" className="mb-24 scroll-mt-24">
+            <div className="flex items-start gap-6 mb-12">
+              <div
+                className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
+                style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
+              >
+                5
+              </div>
+              <div className="flex-1">
+                <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-3">
+                  NFC{' '}
+                  <span
+                    style={{
+                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    Kurulumu
+                  </span>
+                </h2>
+                <p className="text-lg md:text-xl text-neutral-600">
+                  Üretici bazlı NFC aktivasyon talimatları
+                </p>
+              </div>
+            </div>
+
+            {/* Green Message Box */}
+            <div
+              className="relative rounded-3xl p-12 mb-12 text-center overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, #3DDC84 0%, #34a853 100%)',
+                color: 'white',
+              }}
+            >
+              {/* Radial gradient overlay */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.15), transparent 60%)',
+                  pointerEvents: 'none',
+                }}
+              />
+
+              <div className="relative z-10">
+                <i className="fab fa-android text-6xl mb-6 opacity-90"></i>
+                <h3 className="text-3xl font-bold mb-4">
+                  Android&apos;de NFC Manuel Aktivasyon Gerektirir
+                </h3>
+                <p className="text-lg text-white/95 max-w-3xl mx-auto leading-relaxed">
+                  iOS&apos;tan farklı olarak Android cihazlarda NFC özelliğini manuel olarak açmanız
+                  gerekmektedir. Aşağıdaki üretici özel talimatları takip ederek NFC&apos;yi aktif
+                  hale getirebilirsiniz.
+                </p>
+              </div>
+            </div>
+
+            {/* Manufacturer Accordion */}
+            <Accordion
+              items={nfcManufacturerSteps}
+              allowMultiple={false}
+              defaultOpenIndex={0}
+              platform="android"
+            />
+
+            {/* NFC Info Box */}
+            <div className="mt-12">
+              <InfoBox variant="info" icon="fas fa-info-circle" title="NFC Sensör Konumu">
+                NFC sensörü genellikle telefonun arka kısmının üst veya orta bölümünde bulunur.
+                Okuyucuya 1-2 cm mesafede tutmanız yeterlidir. Telefon kılıfınız metal ise NFC
+                sinyalini engelleyebilir.
+              </InfoBox>
+            </div>
+          </section>
+
+          {/* STEP 6: Troubleshooting (Existing but updated) */}
           <section id="step6" className="mb-24 scroll-mt-24">
             <div className="flex items-start gap-6 mb-12">
-              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-lg">
+              <div
+                className="flex-shrink-0 w-16 h-16 text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
+                style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
+              >
                 6
               </div>
               <div className="flex-1">
                 <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-3">
-                  Sorun <span className="text-amber-500">Giderme</span>
+                  Sorun{' '}
+                  <span
+                    style={{
+                      background: 'linear-gradient(135deg, #f59e0b 0%, #fb923c 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text'
+                    }}
+                  >
+                    Giderme
+                  </span>
                 </h2>
-                <p className="text-xl text-neutral-600">Android cihazlarda sık karşılaşılan sorunlar ve çözümleri</p>
+                <p className="text-xl text-neutral-600">Android'e özel sorunlar ve çözümleri</p>
               </div>
             </div>
 
             <Accordion items={troubleshootingItems} />
 
-            {/* Support Fallback */}
-            <div className="mt-8 p-6 bg-yellow-50 border-l-4 border-yellow-500 rounded-r-xl">
+            {/* Yellow Warning Box - Sorun Devam Ediyorsa */}
+            <div
+              className="rounded-3xl p-8 mt-12"
+              style={{
+                background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(251, 191, 36, 0.1) 100%)',
+                borderLeft: '6px solid #f59e0b'
+              }}
+            >
               <div className="flex items-start gap-4">
-                <i className="fas fa-info-circle text-2xl text-yellow-600 flex-shrink-0 mt-1" />
+                <i className="fas fa-lightbulb text-amber-600 text-3xl"></i>
                 <div>
-                  <h4 className="font-bold text-yellow-900 mb-2">Sorun Devam Ediyorsa</h4>
-                  <p className="text-yellow-800 leading-relaxed">
-                    Yukarıdaki adımları denedikten sonra hala sorun yaşıyorsanız, lütfen 
-                    <a href="mailto:support@passgage.com" className="font-semibold underline ml-1">
-                      support@passgage.com
-                    </a> 
-                    {' '}adresinden bizimle iletişime geçin.
+                  <h5 className="text-xl font-bold text-amber-900 mb-2">
+                    Sorun Devam Ediyorsa
+                  </h5>
+                  <p className="text-neutral-700 mb-4">
+                    Uygulamayı kapatıp tekrar açın, telefonu yeniden başlatın,
+                    uygulamayı yeniden yükleyin veya destek ekibiyle iletişime geçin.
                   </p>
+                  <a
+                    href="mailto:deneyim@passgage.com"
+                    className="text-passgage-red font-semibold hover:underline"
+                  >
+                    deneyim@passgage.com
+                  </a>
                 </div>
               </div>
             </div>
           </section>
         </div>
+
+        {/* Contact Section (Before Footer) */}
+        <section className="py-20 px-6 bg-neutral-50">
+          <div className="max-w-4xl mx-auto text-center">
+            <div
+              className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6"
+              style={{ background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)' }}
+            >
+              <i className="fas fa-headset text-white text-3xl"></i>
+            </div>
+            <h2 className="text-4xl font-bold text-neutral-900 mb-4">
+              Yardıma mı{' '}
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+              >
+                İhtiyacınız Var?
+              </span>
+            </h2>
+            <p className="text-lg text-neutral-600 mb-8 leading-relaxed">
+              Sorularınız, geri bildirimleriniz veya önerileriniz için bizimle iletişime geçebilirsiniz
+            </p>
+            <a
+              href="mailto:deneyim@passgage.com"
+              onClick={() => {
+                if (typeof window !== 'undefined' && (window as any).gtag) {
+                  (window as any).gtag('event', 'contact_click', {
+                    event_category: 'engagement',
+                    event_label: 'Android Guide - Email Contact',
+                  });
+                }
+              }}
+              className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-br from-passgage-red to-passgage-gold text-white rounded-2xl font-bold text-lg shadow-strong hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            >
+              <i className="fas fa-envelope"></i>
+              deneyim@passgage.com
+            </a>
+          </div>
+        </section>
       </main>
 
       <Footer />

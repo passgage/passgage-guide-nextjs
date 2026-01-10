@@ -1,6 +1,7 @@
 'use client';
 
 import Header from '@/components/layout/Header';
+import Hero from '@/components/layout/Hero';
 import Footer from '@/components/layout/Footer';
 import { PlatformCard } from '@/components/landing';
 import { useSearchStore } from '@/store/searchStore';
@@ -54,95 +55,32 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <Header showSearch={true} />
+      <Header />
 
       <main>
-        {/* Hero Section */}
-        <section className="relative overflow-hidden pt-[140px] md:pt-[180px] pb-[80px] md:pb-[100px] px-6 md:px-8" style={{ background: '#1a1a2e' }}>
-          {/* Background Gradient */}
-          <div className="hero-bg" />
+        {/* Hero Section - Standard Component */}
+        <Hero
+          icon={<i className="fas fa-rocket"></i>}
+          titleBefore="Passgage"
+          titleHighlight="Kurulum"
+          titleAfter="Rehberi"
+          description="Birkaç dakikada uygulamayı kurun ve kullanmaya başlayın. Size adım adım, görsel ve interaktif olarak rehberlik ediyoruz."
+          primaryButtonText="Başlayalım"
+          primaryButtonHref="#guides"
+          secondaryButtonText="Sorun mu Var?"
+          onSecondaryClick={() => {
+            // Open search modal
+            openModal();
 
-          {/* Grid Pattern */}
-          <div className="hero-grid" />
-
-          {/* Hero Content */}
-          <div className="relative z-10 max-w-[800px] mx-auto text-center">
-            {/* Floating Icon */}
-            <div
-              className="w-[100px] h-[100px] mx-auto mb-8 rounded-[28px] flex items-center justify-center text-white text-6xl shadow-strong animate-float"
-              style={{
-                background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
-              }}
-            >
-              <i className="fas fa-rocket"></i>
-            </div>
-
-            {/* Heading */}
-            <h1 className="text-[clamp(2.5rem,6vw,3.5rem)] font-extrabold leading-tight text-white mb-6">
-              Passgage{' '}
-              <span
-                className="inline-block"
-                style={{
-                  background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}
-              >
-                Kurulum
-              </span>{' '}
-              Rehberi
-            </h1>
-
-            {/* Description */}
-            <p className="text-[clamp(1rem,2vw,1.2rem)] text-white/90 mb-12 max-w-[600px] mx-auto leading-relaxed">
-              Birkaç dakikada uygulamayı kurun ve kullanmaya başlayın. Size adım adım, görsel ve interaktif olarak rehberlik ediyoruz.
-            </p>
-
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              {/* Primary Button */}
-              <a
-                href="#guides"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-bold text-base sm:text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto justify-center"
-                style={{
-                  background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
-                }}
-                onClick={() => {
-                  if (typeof window !== 'undefined' && (window as any).gtag) {
-                    (window as any).gtag('event', 'cta_click', {
-                      event_category: 'engagement',
-                      event_label: 'hero_get_started',
-                    });
-                  }
-                }}
-              >
-                <i className="fas fa-play"></i>
-                Başlayalım
-              </a>
-
-              {/* Secondary Button */}
-              <button
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-transparent text-white font-bold text-base sm:text-lg border-2 border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-300 w-full sm:w-auto justify-center"
-                onClick={() => {
-                  // Open search modal
-                  openModal();
-
-                  // Analytics tracking
-                  if (typeof window !== 'undefined' && (window as any).gtag) {
-                    (window as any).gtag('event', 'search_open', {
-                      event_category: 'engagement',
-                      event_label: 'hero_trouble_button',
-                    });
-                  }
-                }}
-              >
-                <i className="fas fa-question-circle"></i>
-                Sorun mu Var?
-              </button>
-            </div>
-          </div>
-        </section>
+            // Analytics tracking
+            if (typeof window !== 'undefined' && (window as any).gtag) {
+              (window as any).gtag('event', 'search_open', {
+                event_category: 'engagement',
+                event_label: 'hero_trouble_button',
+              });
+            }
+          }}
+        />
 
         {/* Guide Selection Section */}
         <section id="guides" className="py-20 px-6 bg-neutral-50">

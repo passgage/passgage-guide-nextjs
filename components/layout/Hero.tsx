@@ -1,57 +1,135 @@
+/**
+ * Hero Component - Standard Passgage Hero Section
+ *
+ * CRITICAL: This component uses the SAME design for ALL pages (landing, iOS, Android, Access Tag)
+ * Only content changes (icon, title, description, buttons) - background and layout are IDENTICAL
+ *
+ * Background: #1a1a2e + hero-bg + hero-grid (from globals.css)
+ * Layout: Consistent padding, spacing, typography
+ * Brand: Passgage gradient (orange-gold) for icon and highlighted text
+ */
+
 import { ReactNode } from 'react';
 
 export interface HeroProps {
-  title: string;
-  subtitle?: string;
-  platform?: 'ios' | 'android' | 'access-tag';
-  gradient?: boolean;
-  children?: ReactNode;
-  className?: string;
+  /** Icon element (e.g., <i className="fas fa-rocket" />) */
+  icon: ReactNode;
+
+  /** Main title before highlighted text (e.g., "Passgage") */
+  titleBefore: string;
+
+  /** Highlighted text with gradient (e.g., "Kurulum", "Android", "iOS") */
+  titleHighlight: string;
+
+  /** Main title after highlighted text (e.g., "Rehberi", "Kurulumu") */
+  titleAfter?: string;
+
+  /** Description text below title */
+  description: string;
+
+  /** Primary button text (default: "Başlayalım") */
+  primaryButtonText?: string;
+
+  /** Primary button href (default: "#step1") */
+  primaryButtonHref?: string;
+
+  /** Secondary button text (default: "Sorun mu Var?") */
+  secondaryButtonText?: string;
+
+  /** Secondary button href (default: "#step6") */
+  secondaryButtonHref?: string;
+
+  /** Secondary button click handler (e.g., for opening search modal) */
+  onSecondaryClick?: () => void;
 }
 
 export default function Hero({
-  title,
-  subtitle,
-  platform,
-  gradient = true,
-  children,
-  className = '',
+  icon,
+  titleBefore,
+  titleHighlight,
+  titleAfter,
+  description,
+  primaryButtonText = 'Başlayalım',
+  primaryButtonHref = '#step1',
+  secondaryButtonText = 'Sorun mu Var?',
+  secondaryButtonHref = '#step6',
+  onSecondaryClick,
 }: HeroProps) {
-  const gradients = {
-    ios: 'from-ios-blue to-blue-600',
-    android: 'from-android-green to-green-600',
-    'access-tag': 'from-tag-blue to-tag-navy',
-  };
-
-  const bgClass = gradient && platform
-    ? `bg-gradient-to-br ${gradients[platform]}`
-    : gradient
-    ? 'bg-gradient-to-br from-passgage-red to-passgage-gold'
-    : 'bg-neutral-900';
-
   return (
-    <section className={`relative py-20 md:py-32 px-6 overflow-hidden ${bgClass} ${className}`}>
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] bg-repeat"></div>
-      </div>
+    <section className="relative overflow-hidden pt-[140px] md:pt-[180px] pb-[80px] md:pb-[100px] px-6 md:px-8" style={{ background: '#1a1a2e' }}>
+      {/* Background Gradient (globals.css: hero-bg) */}
+      <div className="hero-bg" />
 
-      <div className="relative max-w-7xl mx-auto text-center">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-slide-up">
-          {title}
+      {/* Grid Pattern (globals.css: hero-grid) */}
+      <div className="hero-grid" />
+
+      {/* Hero Content */}
+      <div className="relative z-10 max-w-[800px] mx-auto text-center">
+        {/* Floating Icon */}
+        <div
+          className="w-[100px] h-[100px] mx-auto mb-8 rounded-[28px] flex items-center justify-center text-white text-6xl shadow-strong animate-float"
+          style={{
+            background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
+          }}
+        >
+          {icon}
+        </div>
+
+        {/* Heading */}
+        <h1 className="text-[clamp(2.5rem,6vw,3.5rem)] font-extrabold leading-tight text-white mb-6">
+          {titleBefore}{' '}
+          <span
+            className="inline-block"
+            style={{
+              background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}
+          >
+            {titleHighlight}
+          </span>
+          {titleAfter && ` ${titleAfter}`}
         </h1>
 
-        {subtitle && (
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto animate-fade-in">
-            {subtitle}
-          </p>
-        )}
+        {/* Description */}
+        <p className="text-[clamp(1rem,2vw,1.2rem)] text-white/90 mb-12 max-w-[600px] mx-auto leading-relaxed">
+          {description}
+        </p>
 
-        {children && (
-          <div className="animate-scale-in">
-            {children}
-          </div>
-        )}
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          {/* Primary Button */}
+          <a
+            href={primaryButtonHref}
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-bold text-base sm:text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto justify-center"
+            style={{
+              background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
+            }}
+          >
+            <i className="fas fa-play"></i>
+            {primaryButtonText}
+          </a>
+
+          {/* Secondary Button */}
+          {onSecondaryClick ? (
+            <button
+              onClick={onSecondaryClick}
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-transparent text-white font-bold text-base sm:text-lg border-2 border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-300 w-full sm:w-auto justify-center"
+            >
+              <i className="fas fa-question-circle"></i>
+              {secondaryButtonText}
+            </button>
+          ) : (
+            <a
+              href={secondaryButtonHref}
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-transparent text-white font-bold text-base sm:text-lg border-2 border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-300 w-full sm:w-auto justify-center"
+            >
+              <i className="fas fa-question-circle"></i>
+              {secondaryButtonText}
+            </a>
+          )}
+        </div>
       </div>
     </section>
   );
