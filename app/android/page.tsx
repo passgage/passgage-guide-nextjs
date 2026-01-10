@@ -1163,7 +1163,10 @@ export default function AndroidGuidePage() {
                   });
                 }
               }}
-              className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-br from-passgage-red to-passgage-gold text-white rounded-2xl font-bold text-lg shadow-strong hover:shadow-2xl hover:scale-105 transition-all duration-300"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-bold text-base sm:text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto justify-center"
+              style={{
+                background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
+              }}
             >
               <i className="fas fa-envelope"></i>
               deneyim@passgage.com
