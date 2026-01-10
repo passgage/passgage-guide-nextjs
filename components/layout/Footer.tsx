@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -6,33 +7,34 @@ export default function Footer() {
   return (
     <footer className="bg-neutral-900 text-white py-12 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-passgage-red to-passgage-gold rounded-xl flex items-center justify-center">
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h2 className="text-lg font-bold">Passgage</h2>
-                <p className="text-xs text-white/70">Kurulum Kılavuzu</p>
-              </div>
+          <div>
+            <Link href="/" className="inline-block mb-6 hover:opacity-80 transition-opacity">
+              <Image
+                src="/logo.png"
+                alt="Passgage"
+                width={140}
+                height={35}
+                className="h-auto brightness-0 invert"
+              />
+            </Link>
+            <div className="space-y-2 text-sm">
+              <a
+                href="https://passgage.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-white transition-colors block"
+              >
+                passgage.com
+              </a>
+              <a
+                href="mailto:deneyim@passgage.com"
+                className="text-white/70 hover:text-white transition-colors block"
+              >
+                deneyim@passgage.com
+              </a>
             </div>
-            <p className="text-white/70 text-sm">
-              iOS, Android ve Access Tag için detaylı kurulum rehberi.
-            </p>
           </div>
 
           {/* Platform Links */}
@@ -53,43 +55,6 @@ export default function Footer() {
                 <Link href="/access-tag" className="hover:text-white transition-colors">
                   Access Tag Kurulumu
                 </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Help Links */}
-          <div>
-            <h3 className="font-bold mb-4">Yardım</h3>
-            <ul className="space-y-2 text-white/70 text-sm">
-              <li>
-                <a
-                  href="https://passgage.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
-                >
-                  Ana Sayfa
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://passgage.com/support"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
-                >
-                  Destek
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://passgage.com/contact"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
-                >
-                  İletişim
-                </a>
               </li>
             </ul>
           </div>
@@ -132,18 +97,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/70">
-            <p>© {currentYear} Passgage. Tüm hakları saklıdır.</p>
-            <div className="flex gap-4">
-              <Link href="/privacy" className="hover:text-white transition-colors">
-                Gizlilik Politikası
-              </Link>
-              <Link href="/terms" className="hover:text-white transition-colors">
-                Kullanım Koşulları
-              </Link>
-            </div>
-          </div>
+        <div className="pt-8 border-t border-white/10 text-center md:text-left">
+          <p className="text-sm text-white/70">© {currentYear} Passgage. Tüm hakları saklıdır.</p>
         </div>
       </div>
     </footer>

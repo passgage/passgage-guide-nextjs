@@ -30,6 +30,7 @@ export interface FAQSearchResult extends FAQEntry {
     question?: string;
     answer?: string;
   };
+  guideLink?: string; // Link to specific guide page section
 }
 
 export interface SearchFilters {
