@@ -63,9 +63,18 @@ export const metadata: Metadata = {
     images: ["/logo.png"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon16.svg", type: "image/svg+xml", sizes: "16x16" },
+      { url: "/favicon32.svg", type: "image/svg+xml", sizes: "32x32" },
+      { url: "/favicon64.svg", type: "image/svg+xml", sizes: "64x64" },
+    ],
     shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    apple: [
+      { url: "/favicon64.png", sizes: "64x64", type: "image/png" },
+      { url: "/favicon32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon16.png", sizes: "16x16", type: "image/png" },
+    ],
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
