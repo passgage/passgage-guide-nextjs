@@ -97,12 +97,39 @@ export default function AccessTagPage() {
       }
     ]
   };
+
+  // BreadcrumbList Schema for navigation
+  const accessTagBreadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Ana Sayfa',
+        'item': 'https://kilavuz.passgage.com'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Access Tag Kurulum Rehberi',
+        'item': 'https://kilavuz.passgage.com/access-tag'
+      }
+    ]
+  };
+
   return (
     <>
       {/* HowTo Schema JSON-LD for SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(accessTagHowToSchema) }}
+      />
+
+      {/* BreadcrumbList Schema JSON-LD for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(accessTagBreadcrumbSchema) }}
       />
 
       {/* Standard Header Component */}

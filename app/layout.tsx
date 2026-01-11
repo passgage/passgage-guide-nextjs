@@ -107,6 +107,33 @@ export default function RootLayout({
             `,
           }}
         />
+
+        {/* Organization Schema for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              'name': 'Passgage',
+              'url': 'https://passgage.com',
+              'logo': 'https://passgage.com/wp-content/uploads/2024/02/passgage-logo.png',
+              'description': 'Şifresiz güvenli giriş sistemi. NFC ve QR kod teknolojisi ile çalışan modern personel takip çözümü.',
+              'sameAs': [
+                'https://www.linkedin.com/company/passgage',
+                'https://twitter.com/passgage',
+                'https://www.facebook.com/passgage',
+                'https://www.instagram.com/passgage'
+              ],
+              'contactPoint': {
+                '@type': 'ContactPoint',
+                'email': 'deneyim@passgage.com',
+                'contactType': 'customer support',
+                'availableLanguage': ['tr', 'en']
+              }
+            }),
+          }}
+        />
       </head>
       <body className={inter.className}>
         {children}

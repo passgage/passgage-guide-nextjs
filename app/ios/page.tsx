@@ -201,6 +201,26 @@ export default function IOSGuidePage() {
     'https://kilavuz.passgage.com/ios'
   );
 
+  // BreadcrumbList Schema for navigation
+  const iosBreadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Ana Sayfa',
+        'item': 'https://kilavuz.passgage.com'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'iOS Kurulum Rehberi',
+        'item': 'https://kilavuz.passgage.com/ios'
+      }
+    ]
+  };
+
   return (
     <>
       {/* HowTo Schema JSON-LD for SEO */}
@@ -213,6 +233,12 @@ export default function IOSGuidePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(iosFAQSchema) }}
+      />
+
+      {/* BreadcrumbList Schema JSON-LD for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(iosBreadcrumbSchema) }}
       />
 
       {/* Standard Header Component */}

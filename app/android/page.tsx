@@ -526,6 +526,26 @@ export default function AndroidGuidePage() {
     'https://kilavuz.passgage.com/android'
   );
 
+  // BreadcrumbList Schema for navigation
+  const androidBreadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Ana Sayfa',
+        'item': 'https://kilavuz.passgage.com'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Android Kurulum Rehberi',
+        'item': 'https://kilavuz.passgage.com/android'
+      }
+    ]
+  };
+
   return (
     <>
       {/* HowTo Schema JSON-LD for SEO */}
@@ -538,6 +558,12 @@ export default function AndroidGuidePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(androidFAQSchema) }}
+      />
+
+      {/* BreadcrumbList Schema JSON-LD for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(androidBreadcrumbSchema) }}
       />
 
       {/* Standard Header Component */}
