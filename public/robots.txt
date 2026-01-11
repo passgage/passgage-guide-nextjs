@@ -1,0 +1,24 @@
+# *
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://kilavuz.passgage.com/sitemap.xml
+
+# Disallow admin/api routes
+User-agent: *
+Disallow: /api/
+
+# Allow Google bots full access
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Allow social media bots for OpenGraph
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /

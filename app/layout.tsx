@@ -47,11 +47,24 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     url: "https://kilavuz.passgage.com",
     siteName: "Passgage Kurulum Kılavuzu",
+    images: [
+      {
+        url: "/logo.png",
+        width: 800,
+        height: 600,
+        alt: "Passgage Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Passgage Kurulum Kılavuzu",
     description: "iOS, Android ve Access Tag için adım adım kurulum rehberi",
+    images: ["/logo.png"],
+  },
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
