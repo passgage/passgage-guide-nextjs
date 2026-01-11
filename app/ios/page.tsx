@@ -306,7 +306,7 @@ export default function IOSGuidePage() {
             <div className="max-w-xl mx-auto mb-12">
               {/* App Store */}
               <a
-                href="https://apps.apple.com/tr/app/passgage/id6738549848"
+                href="https://apps.apple.com/tr/app/passgage/id1603629297"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => {

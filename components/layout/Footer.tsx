@@ -64,7 +64,7 @@ export default function Footer() {
             <h3 className="font-bold mb-4">Uygulamayı İndir</h3>
             <div className="space-y-3">
               <a
-                href="https://apps.apple.com/app/passgage/id6477761817"
+                href="https://apps.apple.com/tr/app/passgage/id1603629297"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-xl transition-colors"
@@ -79,7 +79,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://play.google.com/store/apps/details?id=com.passgage.app"
+                href="https://play.google.com/store/apps/details?id=com.passgage"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-xl transition-colors"
