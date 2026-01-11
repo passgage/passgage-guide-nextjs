@@ -95,7 +95,7 @@ export async function POST(request: NextRequest) {
       platform: 'general',
       category: category as any, // Cloudflare uses different categories
       question: data.matchedQuestion || body.query,
-      answer: data.answer,
+      answer: data.answer || '',
       keywords: [],
       pageUrl: guideLink || '/',
       metadata: {
@@ -115,8 +115,8 @@ export async function POST(request: NextRequest) {
           id: `cloudflare-suggestion-${index}`,
           platform: 'general',
           category: suggestion.category as any,
-          question: suggestion.question,
-          answer: suggestion.answer,
+          question: suggestion.question || 'Soru bulunamadı',
+          answer: suggestion.answer || '',
           keywords: [],
           pageUrl: suggestionGuideLink || '/',
           metadata: {

@@ -259,7 +259,7 @@ export default function SearchModal() {
                         {result.question}
                       </h3>
                       <p className="text-sm text-neutral-600 line-clamp-2">
-                        {result.answer.substring(0, 150)}...
+                        {result.answer ? result.answer.substring(0, 150) : 'Cevap bulunamadı'}...
                       </p>
                       {result.guideLink && (
                         <Link
