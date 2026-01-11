@@ -128,7 +128,7 @@ export async function GET() {
         'issues': [
           {
             'problem': 'Battery optimization blocking app',
-            'solution': 'Settings → Apps → Passgage → Battery → Battery optimization → All → Passgage → Don\\'t optimize. For MIUI: Enable auto-start and set battery saver to unlimited. For One UI: Add to Never sleeping apps.'
+            'solution': `Settings → Apps → Passgage → Battery → Battery optimization → All → Passgage → Don't optimize. For MIUI: Enable auto-start and set battery saver to unlimited. For One UI: Add to Never sleeping apps.`
           },
           {
             'problem': 'App not working in background',

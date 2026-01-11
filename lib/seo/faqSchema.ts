@@ -36,8 +36,8 @@ function extractTextFromJSX(node: ReactNode): string {
     const element = node as ReactElement;
 
     // Extract text from children
-    if (element.props && element.props.children) {
-      return extractTextFromJSX(element.props.children);
+    if (element.props && typeof element.props === 'object' && element.props !== null && 'children' in element.props) {
+      return extractTextFromJSX(element.props.children as ReactNode);
     }
   }
 
