@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Header from '@/components/layout/Header';
 import Hero from '@/components/layout/Hero';
 import Footer from '@/components/layout/Footer';
-import { PhoneMockup, Accordion, InfoBox } from '@/components/guide';
+import { PhoneMockup, Accordion, InfoBox, CrossLinks } from '@/components/guide';
 import type { AccordionItem } from '@/components/guide';
 import { generateFAQSchema } from '@/lib/seo';
 
@@ -26,6 +26,8 @@ export default function AndroidGuidePage() {
     'name': 'Passgage Android Kurulum Rehberi',
     'description': 'Samsung, Xiaomi, Huawei ve tüm Android telefonlar için Passgage şifresiz giriş uygulamasını adım adım kurma kılavuzu. NFC ayarları, pil optimizasyonu, izinler ve marka-spesifik sorun giderme rehberi.',
     'image': 'https://kilavuz.passgage.com/logo.png',
+    'datePublished': '2025-01-10T00:00:00Z',
+    'dateModified': '2025-01-11T00:00:00Z',
     'estimatedCost': {
       '@type': 'MonetaryAmount',
       'currency': 'TRY',
@@ -1279,6 +1281,9 @@ export default function AndroidGuidePage() {
             </div>
           </section>
         </div>
+
+        {/* Cross-Links to Other Guides */}
+        <CrossLinks currentPlatform="android" />
 
         {/* Contact Section (Before Footer) */}
         <section className="py-20 px-6 bg-neutral-50">

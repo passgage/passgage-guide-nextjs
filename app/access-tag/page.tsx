@@ -3,6 +3,7 @@
 import Header from '@/components/layout/Header';
 import Hero from '@/components/layout/Hero';
 import Footer from '@/components/layout/Footer';
+import { CrossLinks } from '@/components/guide';
 
 const accessTagSteps = [
   { id: 'technical-specs', number: 1, label: 'Teknik özellikler' },
@@ -20,6 +21,8 @@ export default function AccessTagPage() {
     'name': 'Passgage Access Tag Kurulum Rehberi',
     'description': 'NFC tabanlı Passgage Access Tag fiziksel kurulum, montaj, yapılandırma ve bakım kılavuzu. QR kod tabanlı şifresiz giriş sistemi için detaylı yönerge.',
     'image': 'https://kilavuz.passgage.com/logo.png',
+    'datePublished': '2025-01-10T00:00:00Z',
+    'dateModified': '2025-01-11T00:00:00Z',
     'estimatedCost': {
       '@type': 'MonetaryAmount',
       'currency': 'TRY',
@@ -650,8 +653,11 @@ export default function AccessTagPage() {
           </div>
         </section>
 
+        {/* Cross-Links to Other Guides */}
+        <CrossLinks currentPlatform="access-tag" />
+
         {/* Contact Section */}
-        <section className="text-center py-16 px-8">
+        <section className="text-center py-16 px-8 bg-neutral-50">
           <h2 className="text-4xl font-extrabold text-gray-900 mb-4">Destek mi Gerekiyor?</h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Kurulum sırasında veya sonrasında herhangi bir sorun yaşarsanız, teknik destek ekibimizle iletişime geçin.

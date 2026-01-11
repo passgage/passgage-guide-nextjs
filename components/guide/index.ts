@@ -6,3 +6,5 @@ export type { PhoneMockupProps } from './PhoneMockup';
 
 export { default as InfoBox } from './InfoBox';
 export type { InfoBoxProps } from './InfoBox';
+
+export { default as CrossLinks } from './CrossLinks';

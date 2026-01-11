@@ -3,7 +3,7 @@
 import Header from '@/components/layout/Header';
 import Hero from '@/components/layout/Hero';
 import Footer from '@/components/layout/Footer';
-import { PhoneMockup, InfoBox, Accordion } from '@/components/guide';
+import { PhoneMockup, InfoBox, Accordion, CrossLinks } from '@/components/guide';
 import type { AccordionItem } from '@/components/guide';
 import { generateCombinedFAQSchema } from '@/lib/seo';
 
@@ -26,6 +26,8 @@ export default function IOSGuidePage() {
     'name': 'Passgage iOS Kurulum Rehberi',
     'description': 'iPhone ve iPad için Passgage şifresiz giriş uygulamasını adım adım kurma kılavuzu. NFC ayarları, izinler, cihaz eşleştirme ve sorun giderme rehberi.',
     'image': 'https://kilavuz.passgage.com/logo.png',
+    'datePublished': '2025-01-10T00:00:00Z',
+    'dateModified': '2025-01-11T00:00:00Z',
     'estimatedCost': {
       '@type': 'MonetaryAmount',
       'currency': 'TRY',
@@ -914,6 +916,8 @@ export default function IOSGuidePage() {
           </section>
         </div>
 
+        {/* Cross-Links to Other Guides */}
+        <CrossLinks currentPlatform="ios" />
 
         {/* Contact Section (Before Footer) */}
         <section className="py-20 px-6 bg-neutral-50">
