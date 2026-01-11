@@ -572,7 +572,16 @@ export default function AndroidGuidePage() {
         progressSteps={androidSteps}
       />
 
-      <main>
+      <main itemScope itemType="https://schema.org/HowTo">
+        {/* AI-readable semantic metadata */}
+        <meta itemProp="name" content="Passgage Android Installation Guide" />
+        <meta itemProp="inLanguage" content="tr" />
+        <meta itemProp="genre" content="Technical Documentation" />
+        <meta itemProp="audience" content="Android phone and tablet users" />
+        <meta itemProp="educationalLevel" content="Beginner" />
+        <meta itemProp="timeRequired" content="PT20M" />
+        <meta itemProp="keywords" content="Android, Samsung, Xiaomi, Huawei, Passgage, kurulum, NFC, MIUI, One UI, pil optimizasyonu" />
+
         {/* Hero Section - Standard Component */}
         <Hero
           icon={<i className="fab fa-android" />}

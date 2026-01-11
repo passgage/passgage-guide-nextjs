@@ -247,7 +247,16 @@ export default function IOSGuidePage() {
         progressSteps={iosSteps}
       />
 
-      <main>
+      <main itemScope itemType="https://schema.org/HowTo">
+        {/* AI-readable semantic metadata */}
+        <meta itemProp="name" content="Passgage iOS Installation Guide" />
+        <meta itemProp="inLanguage" content="tr" />
+        <meta itemProp="genre" content="Technical Documentation" />
+        <meta itemProp="audience" content="iPhone and iPad users" />
+        <meta itemProp="educationalLevel" content="Beginner" />
+        <meta itemProp="timeRequired" content="PT15M" />
+        <meta itemProp="keywords" content="iOS, iPhone, iPad, Passgage, kurulum, NFC, Safari, giriş" />
+
         {/* Hero Section */}
         <Hero
           icon={<i className="fab fa-apple"></i>}

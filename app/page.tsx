@@ -137,7 +137,13 @@ export default function Home() {
 
       <Header />
 
-      <main>
+      <main itemScope itemType="https://schema.org/TechArticle">
+        {/* AI-readable semantic metadata */}
+        <meta itemProp="inLanguage" content="tr" />
+        <meta itemProp="genre" content="Technical Documentation" />
+        <meta itemProp="audience" content="End Users" />
+        <meta itemProp="educationalLevel" content="Beginner" />
+        <meta itemProp="keywords" content="Passgage, kurulum, iOS, Android, Access Tag, NFC, QR kod, şifresiz giriş" />
         {/* Hero Section - Standard Component */}
         <Hero
           icon={<i className="fas fa-rocket"></i>}

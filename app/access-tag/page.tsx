@@ -138,7 +138,16 @@ export default function AccessTagPage() {
         progressSteps={accessTagSteps}
       />
 
-      <main>
+      <main itemScope itemType="https://schema.org/HowTo">
+        {/* AI-readable semantic metadata */}
+        <meta itemProp="name" content="Passgage Access Tag Installation Guide" />
+        <meta itemProp="inLanguage" content="tr" />
+        <meta itemProp="genre" content="Technical Documentation" />
+        <meta itemProp="audience" content="Facility managers, IT administrators" />
+        <meta itemProp="educationalLevel" content="Beginner" />
+        <meta itemProp="timeRequired" content="PT10M" />
+        <meta itemProp="keywords" content="Access Tag, NFC, QR kod, fiziksel kurulum, montaj, bakım, tag yerleştirme" />
+
         {/* Hero Section - Standard Component */}
         <Hero
           icon={<i className="fas fa-qrcode" />}

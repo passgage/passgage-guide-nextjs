@@ -73,6 +73,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://kilavuz.passgage.com",
   },
+  // AI-specific metadata for agent indexing
+  other: {
+    'ai:purpose': 'Installation guide for Passgage passwordless authentication system',
+    'ai:audience': 'End users, retail workers, warehouse staff, delivery personnel',
+    'ai:language': 'Turkish (tr)',
+    'ai:topics': 'mobile app installation, NFC setup, QR code scanning, troubleshooting, iOS, Android, Access Tag hardware',
+    'ai:platforms': 'iOS (iPhone 7+, iOS 13+), Android (8.0+), Access Tag (NFC/QR)',
+    'ai:content-type': 'step-by-step technical documentation',
+    'ai:skill-level': 'beginner to intermediate',
+    'ai:indexed-for': 'ChatGPT, Claude, Gemini, Perplexity AI',
+  },
 };
 
 export default function RootLayout({
