@@ -18,6 +18,87 @@ export default function IOSGuidePage() {
     { id: 'step6', number: 6, label: 'Sorun giderme' },
   ];
 
+  // HowTo Schema for SEO
+  const iosHowToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    'name': 'Passgage iOS Kurulum Rehberi',
+    'description': 'iPhone ve iPad için Passgage şifresiz giriş uygulamasını adım adım kurma kılavuzu. NFC ayarları, izinler, cihaz eşleştirme ve sorun giderme rehberi.',
+    'image': 'https://kilavuz.passgage.com/logo.png',
+    'estimatedCost': {
+      '@type': 'MonetaryAmount',
+      'currency': 'TRY',
+      'value': '0'
+    },
+    'totalTime': 'PT15M',
+    'tool': [
+      {
+        '@type': 'HowToTool',
+        'name': 'iPhone veya iPad (iPhone 7+, iOS 13+)'
+      }
+    ],
+    'supply': [
+      {
+        '@type': 'HowToSupply',
+        'name': 'Passgage hesabı ve giriş bilgileri'
+      },
+      {
+        '@type': 'HowToSupply',
+        'name': 'İnternet bağlantısı (Wi-Fi veya hücresel veri)'
+      }
+    ],
+    'step': [
+      {
+        '@type': 'HowToStep',
+        'position': 1,
+        'name': 'Uygulamayı İndirin',
+        'text': 'App Store\'dan Passgage uygulamasını ücretsiz indirin. iOS 13.0 veya üstü gereklidir. Uygulama iPhone 7 ve üstü modellerde çalışır.',
+        'url': 'https://kilavuz.passgage.com/ios#step1',
+        'image': 'https://kilavuz.passgage.com/logo.png'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 2,
+        'name': 'Gerekli İzinleri Verin',
+        'text': 'Konum, kamera ve bildirim izinlerini aktifleştirin. Ayarlar → Gizlilik ve Güvenlik menüsünden Passgage uygulamasına gerekli izinleri verin. Konum izni giriş-çıkış kayıtları için, kamera izni QR kod okutma için, bildirim izni güncellemeler için gereklidir.',
+        'url': 'https://kilavuz.passgage.com/ios#step2',
+        'image': 'https://kilavuz.passgage.com/screenshots/ios/step2-location-permission.jpg'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 3,
+        'name': 'Giriş Yapın ve Şifre Oluşturun',
+        'text': 'Şifre Al butonuna tıklayın. Şirket e-posta adresinizi veya telefon numaranızı girin. Size gönderilen 6 haneli OTP kodunu girin. Güvenli bir şifre oluşturun (minimum 8 karakter, en az 1 büyük harf, 1 küçük harf ve 1 rakam içermeli).',
+        'url': 'https://kilavuz.passgage.com/ios#step3',
+        'image': 'https://kilavuz.passgage.com/screenshots/ios/step3-1-login-screen.jpg'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 4,
+        'name': 'Cihaz Eşleştirme',
+        'text': 'Eşleştir butonuna tıklayın. iPhone\'unuza gelen SMS doğrulama kodunu girerek eşleştirme işlemini onaylayın. Her kullanıcı aynı anda sadece bir cihazla eşleştirilebilir.',
+        'url': 'https://kilavuz.passgage.com/ios#step4',
+        'image': 'https://kilavuz.passgage.com/screenshots/ios/step4-device-pairing.jpg'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 5,
+        'name': 'NFC Kurulumu',
+        'text': 'iOS 13 ve sonrası cihazlarda NFC otomatik olarak etkindir. iPhone 7 ve üstü modeller NFC destekler. NFC etiket okumak için iPhone\'un üst kısmını (kamera bölgesi) etikete yaklaştırın. iOS 14 ve sonrasında arka planda otomatik NFC okuma özelliği vardır.',
+        'url': 'https://kilavuz.passgage.com/ios#step5',
+        'image': 'https://kilavuz.passgage.com/logo.png'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 6,
+        'name': 'Sorun Giderme',
+        'text': 'Yaygın sorunlar ve çözümleri: Uygulama açılmıyorsa Safari önbelleğini temizleyin. Giriş yapamıyorsanız internet bağlantınızı kontrol edin. Bildirimler gelmiyorsa Ayarlar → Bildirimler → Safari → Passgage yolunu izleyin. NFC çalışmıyorsa iPhone modelinizin NFC desteklediğinden emin olun.',
+        'url': 'https://kilavuz.passgage.com/ios#step6',
+        'image': 'https://kilavuz.passgage.com/logo.png'
+      }
+    ]
+  };
+
   // NFC Troubleshooting Accordion
   const nfcTroubleshootingItems: AccordionItem[] = [
     {
@@ -114,6 +195,12 @@ export default function IOSGuidePage() {
 
   return (
     <>
+      {/* HowTo Schema JSON-LD for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(iosHowToSchema) }}
+      />
+
       {/* Standard Header Component */}
       <Header
         isGuide={true}

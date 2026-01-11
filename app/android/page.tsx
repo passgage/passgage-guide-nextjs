@@ -18,6 +18,91 @@ export default function AndroidGuidePage() {
     { id: 'step6', number: 6, label: 'Sorun giderme' }
   ];
 
+  // HowTo Schema for SEO
+  const androidHowToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    'name': 'Passgage Android Kurulum Rehberi',
+    'description': 'Samsung, Xiaomi, Huawei ve tüm Android telefonlar için Passgage şifresiz giriş uygulamasını adım adım kurma kılavuzu. NFC ayarları, pil optimizasyonu, izinler ve marka-spesifik sorun giderme rehberi.',
+    'image': 'https://kilavuz.passgage.com/logo.png',
+    'estimatedCost': {
+      '@type': 'MonetaryAmount',
+      'currency': 'TRY',
+      'value': '0'
+    },
+    'totalTime': 'PT20M',
+    'tool': [
+      {
+        '@type': 'HowToTool',
+        'name': 'Android telefon veya tablet (Android 8.0+)'
+      }
+    ],
+    'supply': [
+      {
+        '@type': 'HowToSupply',
+        'name': 'Passgage hesabı ve giriş bilgileri'
+      },
+      {
+        '@type': 'HowToSupply',
+        'name': 'İnternet bağlantısı (Wi-Fi veya hücresel veri)'
+      },
+      {
+        '@type': 'HowToSupply',
+        'name': 'Google Play Services (güncel sürüm)'
+      }
+    ],
+    'step': [
+      {
+        '@type': 'HowToStep',
+        'position': 1,
+        'name': 'Uygulamayı İndirin',
+        'text': 'Google Play Store veya Huawei AppGallery\'den Passgage uygulamasını ücretsiz indirin. Android 8.0 (Oreo) veya üstü gereklidir. Samsung, Xiaomi, Huawei, Oppo, Realme, OnePlus ve tüm Android cihazlar desteklenir.',
+        'url': 'https://kilavuz.passgage.com/android#step1',
+        'image': 'https://kilavuz.passgage.com/logo.png'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 2,
+        'name': 'Gerekli İzinleri Verin',
+        'text': 'Konum, kamera ve bildirim izinlerini aktifleştirin. Ayarlar menüsünden Passgage uygulamasına gerekli izinleri verin. Xiaomi MIUI ve Samsung One UI için ek izinler gerekebilir: Otomatik başlatma ve pil optimizasyonu ayarlarını kontrol edin.',
+        'url': 'https://kilavuz.passgage.com/android#step2',
+        'image': 'https://kilavuz.passgage.com/logo.png'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 3,
+        'name': 'Giriş Yapın ve Şifre Oluşturun',
+        'text': 'Şifre Al butonuna tıklayın. Şirket e-posta adresinizi veya telefon numaranızı girin. Size gönderilen 6 haneli OTP kodunu girin. Banking-style güvenli bir şifre oluşturun (minimum 8 karakter, en az 1 büyük harf, 1 küçük harf ve 1 rakam içermeli).',
+        'url': 'https://kilavuz.passgage.com/android#step3',
+        'image': 'https://kilavuz.passgage.com/logo.png'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 4,
+        'name': 'Cihaz Eşleştirme',
+        'text': 'Eşleştir butonuna tıklayın. Telefonunuza gelen SMS doğrulama kodunu girerek eşleştirme işlemini onaylayın. ÖNEMLİ: Her kullanıcı aynı anda sadece bir Android cihazla eşleştirilebilir. Yeni cihaz eklendiğinde eski cihaz otomatik olarak kaldırılır.',
+        'url': 'https://kilavuz.passgage.com/android#step4',
+        'image': 'https://kilavuz.passgage.com/logo.png'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 5,
+        'name': 'NFC Kurulumu',
+        'text': 'Marka-spesifik NFC ayarları: Samsung (One UI) için Ayarlar → Bağlantılar → NFC. Xiaomi (MIUI) için Ayarlar → Connection & sharing → NFC. Huawei için Ayarlar → Cihaz bağlantısı → NFC. Google Pixel için Ayarlar → Connected devices → NFC. NFC sensörü genellikle telefonun arka tarafında, kameranın yakınındadır.',
+        'url': 'https://kilavuz.passgage.com/android#step5',
+        'image': 'https://kilavuz.passgage.com/logo.png'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 6,
+        'name': 'Sorun Giderme',
+        'text': 'Yaygın Android sorunları ve çözümleri: Pil optimizasyonu uygulamayı engelliyorsa kapatın (MIUI/One UI için özel). Google Play Services güncel değilse güncelleyin. NFC çalışmıyorsa telefonu yeniden başlatın ve kalın kılıfları çıkarın. Konum doğruluğu için Google Location Accuracy özelliğini açın. MIUI ve One UI için arka plan kısıtlamalarını kaldırın.',
+        'url': 'https://kilavuz.passgage.com/android#step6',
+        'image': 'https://kilavuz.passgage.com/logo.png'
+      }
+    ]
+  };
+
   // NFC Manufacturer Accordion Data
   const nfcManufacturerSteps: AccordionItem[] = [
     {
@@ -435,6 +520,12 @@ export default function AndroidGuidePage() {
 
   return (
     <>
+      {/* HowTo Schema JSON-LD for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(androidHowToSchema) }}
+      />
+
       {/* Standard Header Component */}
       <Header
         isGuide={true}

@@ -13,8 +13,98 @@ const accessTagSteps = [
 ];
 
 export default function AccessTagPage() {
+  // HowTo Schema for SEO
+  const accessTagHowToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    'name': 'Passgage Access Tag Kurulum Rehberi',
+    'description': 'NFC tabanlı Passgage Access Tag fiziksel kurulum, montaj, yapılandırma ve bakım kılavuzu. QR kod tabanlı şifresiz giriş sistemi için detaylı yönerge.',
+    'image': 'https://kilavuz.passgage.com/logo.png',
+    'estimatedCost': {
+      '@type': 'MonetaryAmount',
+      'currency': 'TRY',
+      'value': '0'
+    },
+    'totalTime': 'PT10M',
+    'tool': [
+      {
+        '@type': 'HowToTool',
+        'name': 'Passgage Access Tag (150mm x 150mm veya 200mm x 200mm)'
+      },
+      {
+        '@type': 'HowToTool',
+        'name': 'Yumuşak temizlik bezi'
+      },
+      {
+        '@type': 'HowToTool',
+        'name': 'Mobil cihaz (kurulum doğrulama için)'
+      }
+    ],
+    'supply': [
+      {
+        '@type': 'HowToSupply',
+        'name': 'Düz montaj yüzeyi (cam, metal veya plastik)'
+      },
+      {
+        '@type': 'HowToSupply',
+        'name': 'İnternet bağlantısı (admin panel erişimi için)'
+      },
+      {
+        '@type': 'HowToSupply',
+        'name': 'Passgage admin panel erişimi'
+      }
+    ],
+    'step': [
+      {
+        '@type': 'HowToStep',
+        'position': 1,
+        'name': 'Teknik Özellikleri İnceleyin',
+        'text': 'Access Tag teknik özelliklerini kontrol edin: Boyutlar 150mm x 150mm (Standart) veya 200mm x 200mm (Büyük). Yüksek dayanıklı PVC veya metal (paslanmaz çelik) malzeme. IP65 su geçirmezlik derecesi (dış mekan kullanımı uygun). Operasyon sıcaklığı -20°C ile +60°C arası. UV koruması var. Ömür beklentisi 5+ yıl (dış mekan koşullarında).',
+        'url': 'https://kilavuz.passgage.com/access-tag#step1',
+        'image': 'https://kilavuz.passgage.com/logo.png'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 2,
+        'name': 'Kurulum Lokasyonunu Planlayın',
+        'text': 'İdeal yerleşim yüksekliği 1.2m - 1.5m (göz hizası). Kontrol listesi: Yüksek trafik alanı (çalışanların sık kullandığı giriş-çıkış), iyi aydınlatma (doğal veya yapay), hava koşullarından korunma (dış mekanda saçak veya koruma altında), Wi-Fi/cellular erişimi (doğrulama için), temiz düz yüzey (montaj için uygun), engelsiz görüş hattı (kolayca görülebilir konum). Yaklaşma yönünü ve arka plan kontrastını düşünün.',
+        'url': 'https://kilavuz.passgage.com/access-tag#step2',
+        'image': 'https://kilavuz.passgage.com/logo.png'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 3,
+        'name': 'Access Tag\'i Monte Edin',
+        'text': 'Yapışkan montaj yöntemi (en kolay, hızlı kurulum): 1) Yüzeyi temizleyin ve kurutun. 2) Yapışkan padın koruyucu filmini çıkarın. 3) Tag\'i yüzeye yerleştirin ve 30 saniye sabit basınç uygulayın. 4) 24 saat boyunca tam yapışma için bekleyin. Düz yüzeyler, cam, metal, plastik için uygun. Geçici kurulumlar için ideal.',
+        'url': 'https://kilavuz.passgage.com/access-tag#step3',
+        'image': 'https://kilavuz.passgage.com/logo.png'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 4,
+        'name': 'Dijital Yapılandırma',
+        'text': 'QR kodu Passgage admin panelinden sisteme tanıtın. Fiziksel ve dijital eşleştirme: Tag ID kontrolü yapın (fiziksel tag üzerindeki seri numarası ile dijital kayıttaki ID eşleşmeli). Konum ataması yapın (GPS koordinatları veya manuel adres). Kullanıcı dostu isim verin (örn: "B Binası 2. Kat Giriş"). Her Access Tag benzersiz QR kod ile dijital lokasyon kaydına bağlanır.',
+        'url': 'https://kilavuz.passgage.com/access-tag#step4',
+        'image': 'https://kilavuz.passgage.com/logo.png'
+      },
+      {
+        '@type': 'HowToStep',
+        'position': 5,
+        'name': 'Bakım ve Uzun Vadeli Yönetim',
+        'text': 'Temizlik talimatları: Yumuşak bez ve ılık su kullanın. Hafif sabunlu su yağlı kirler için. Microfiber bez çizilme riskini azaltır. KULLANMAYIN: Alkol bazlı temizleyici, aşındırıcı malzeme, basınçlı su. Sorun giderme: QR kod taranmıyorsa yüzeyi temizleyin, 15-30 cm mesafeden deneyin. Tag solmuşsa gölge alana taşıyın. Yapışkan tutmuyorsa yüzeyi temizleyin ve 24 saat bekleyin.',
+        'url': 'https://kilavuz.passgage.com/access-tag#step5',
+        'image': 'https://kilavuz.passgage.com/logo.png'
+      }
+    ]
+  };
   return (
     <>
+      {/* HowTo Schema JSON-LD for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(accessTagHowToSchema) }}
+      />
+
       {/* Standard Header Component */}
       <Header
         isGuide={true}
