@@ -84,6 +84,70 @@ export default function Home() {
     }))
   };
 
+  // VideoObject Schemas for tutorial videos
+  const videoSchemas = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'VideoObject',
+      'name': 'Passgage Vardiya Planlama Rehberi - Bölüm 1',
+      'description': 'Passgage sisteminde vardiya planlama ve personel yönetimi için adım adım video rehberi. Vardiya oluşturma, düzenleme ve atama işlemlerini öğrenin.',
+      'thumbnailUrl': 'https://img.youtube.com/vi/BP4v81qjrs0/maxresdefault.jpg',
+      'uploadDate': '2025-01-10T00:00:00Z',
+      'contentUrl': 'https://www.youtube.com/watch?v=BP4v81qjrs0',
+      'embedUrl': 'https://www.youtube.com/embed/BP4v81qjrs0',
+      'duration': 'PT5M30S',
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'Passgage',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': 'https://passgage.com/wp-content/uploads/2024/02/passgage-logo.png'
+        }
+      },
+      'inLanguage': 'tr'
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'VideoObject',
+      'name': 'Passgage Vardiya Planlama Rehberi - Bölüm 2',
+      'description': 'Passgage vardiya planlama sisteminin ileri özelliklerini keşfedin. Tekrarlayan vardiyalar, toplu atama ve raporlama işlemleri.',
+      'thumbnailUrl': 'https://img.youtube.com/vi/bHPdMFhUmsc/maxresdefault.jpg',
+      'uploadDate': '2025-01-10T00:00:00Z',
+      'contentUrl': 'https://www.youtube.com/watch?v=bHPdMFhUmsc',
+      'embedUrl': 'https://www.youtube.com/embed/bHPdMFhUmsc',
+      'duration': 'PT4M45S',
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'Passgage',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': 'https://passgage.com/wp-content/uploads/2024/02/passgage-logo.png'
+        }
+      },
+      'inLanguage': 'tr'
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'VideoObject',
+      'name': 'Passgage Şifre Oluşturma ve Güvenlik Rehberi',
+      'description': 'Passgage sisteminde güvenli şifre oluşturma, OTP doğrulama ve hesap güvenliği için detaylı video kılavuzu.',
+      'thumbnailUrl': 'https://img.youtube.com/vi/_g-zcaH-3bE/maxresdefault.jpg',
+      'uploadDate': '2025-01-10T00:00:00Z',
+      'contentUrl': 'https://www.youtube.com/watch?v=_g-zcaH-3bE',
+      'embedUrl': 'https://www.youtube.com/embed/_g-zcaH-3bE',
+      'duration': 'PT3M20S',
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'Passgage',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': 'https://passgage.com/wp-content/uploads/2024/02/passgage-logo.png'
+        }
+      },
+      'inLanguage': 'tr'
+    }
+  ];
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -134,6 +198,15 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+
+      {/* VideoObject Schemas for Tutorial Videos */}
+      {videoSchemas.map((schema, index) => (
+        <script
+          key={`video-schema-${index}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
 
       <Header />
 
