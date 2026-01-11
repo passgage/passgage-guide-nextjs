@@ -5,11 +5,11 @@ import Hero from '@/components/layout/Hero';
 import Footer from '@/components/layout/Footer';
 
 const accessTagSteps = [
-  { id: 'step1', number: 1, label: 'Teknik özellikler' },
-  { id: 'step2', number: 2, label: 'Lokasyon belirleme' },
-  { id: 'step3', number: 3, label: 'Montaj' },
-  { id: 'step4', number: 4, label: 'Yapılandırma' },
-  { id: 'step5', number: 5, label: 'Bakım' },
+  { id: 'technical-specs', number: 1, label: 'Teknik özellikler' },
+  { id: 'location-planning', number: 2, label: 'Lokasyon belirleme' },
+  { id: 'mounting', number: 3, label: 'Montaj' },
+  { id: 'configuration', number: 4, label: 'Yapılandırma' },
+  { id: 'maintenance', number: 5, label: 'Bakım' },
 ];
 
 export default function AccessTagPage() {
@@ -60,7 +60,7 @@ export default function AccessTagPage() {
         'position': 1,
         'name': 'Teknik Özellikleri İnceleyin',
         'text': 'Access Tag teknik özelliklerini kontrol edin: Boyutlar 150mm x 150mm (Standart) veya 200mm x 200mm (Büyük). Yüksek dayanıklı PVC veya metal (paslanmaz çelik) malzeme. IP65 su geçirmezlik derecesi (dış mekan kullanımı uygun). Operasyon sıcaklığı -20°C ile +60°C arası. UV koruması var. Ömür beklentisi 5+ yıl (dış mekan koşullarında).',
-        'url': 'https://kilavuz.passgage.com/access-tag#step1',
+        'url': 'https://kilavuz.passgage.com/access-tag#technical-specs',
         'image': 'https://kilavuz.passgage.com/logo.png'
       },
       {
@@ -68,7 +68,7 @@ export default function AccessTagPage() {
         'position': 2,
         'name': 'Kurulum Lokasyonunu Planlayın',
         'text': 'İdeal yerleşim yüksekliği 1.2m - 1.5m (göz hizası). Kontrol listesi: Yüksek trafik alanı (çalışanların sık kullandığı giriş-çıkış), iyi aydınlatma (doğal veya yapay), hava koşullarından korunma (dış mekanda saçak veya koruma altında), Wi-Fi/cellular erişimi (doğrulama için), temiz düz yüzey (montaj için uygun), engelsiz görüş hattı (kolayca görülebilir konum). Yaklaşma yönünü ve arka plan kontrastını düşünün.',
-        'url': 'https://kilavuz.passgage.com/access-tag#step2',
+        'url': 'https://kilavuz.passgage.com/access-tag#location-planning',
         'image': 'https://kilavuz.passgage.com/logo.png'
       },
       {
@@ -76,7 +76,7 @@ export default function AccessTagPage() {
         'position': 3,
         'name': 'Access Tag\'i Monte Edin',
         'text': 'Yapışkan montaj yöntemi (en kolay, hızlı kurulum): 1) Yüzeyi temizleyin ve kurutun. 2) Yapışkan padın koruyucu filmini çıkarın. 3) Tag\'i yüzeye yerleştirin ve 30 saniye sabit basınç uygulayın. 4) 24 saat boyunca tam yapışma için bekleyin. Düz yüzeyler, cam, metal, plastik için uygun. Geçici kurulumlar için ideal.',
-        'url': 'https://kilavuz.passgage.com/access-tag#step3',
+        'url': 'https://kilavuz.passgage.com/access-tag#mounting',
         'image': 'https://kilavuz.passgage.com/logo.png'
       },
       {
@@ -84,7 +84,7 @@ export default function AccessTagPage() {
         'position': 4,
         'name': 'Dijital Yapılandırma',
         'text': 'QR kodu Passgage admin panelinden sisteme tanıtın. Fiziksel ve dijital eşleştirme: Tag ID kontrolü yapın (fiziksel tag üzerindeki seri numarası ile dijital kayıttaki ID eşleşmeli). Konum ataması yapın (GPS koordinatları veya manuel adres). Kullanıcı dostu isim verin (örn: "B Binası 2. Kat Giriş"). Her Access Tag benzersiz QR kod ile dijital lokasyon kaydına bağlanır.',
-        'url': 'https://kilavuz.passgage.com/access-tag#step4',
+        'url': 'https://kilavuz.passgage.com/access-tag#configuration',
         'image': 'https://kilavuz.passgage.com/logo.png'
       },
       {
@@ -92,7 +92,7 @@ export default function AccessTagPage() {
         'position': 5,
         'name': 'Bakım ve Uzun Vadeli Yönetim',
         'text': 'Temizlik talimatları: Yumuşak bez ve ılık su kullanın. Hafif sabunlu su yağlı kirler için. Microfiber bez çizilme riskini azaltır. KULLANMAYIN: Alkol bazlı temizleyici, aşındırıcı malzeme, basınçlı su. Sorun giderme: QR kod taranmıyorsa yüzeyi temizleyin, 15-30 cm mesafeden deneyin. Tag solmuşsa gölge alana taşıyın. Yapışkan tutmuyorsa yüzeyi temizleyin ve 24 saat bekleyin.',
-        'url': 'https://kilavuz.passgage.com/access-tag#step5',
+        'url': 'https://kilavuz.passgage.com/access-tag#maintenance',
         'image': 'https://kilavuz.passgage.com/logo.png'
       }
     ]
@@ -160,7 +160,7 @@ export default function AccessTagPage() {
         {/* Main Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20 lg:py-24">
         {/* Step 1: Package Contents */}
-        <section className="mb-24" id="step1">
+        <section className="mb-24" id="technical-specs" aria-labelledby="technical-specs-title">
           <div className="flex items-start gap-6 mb-12">
             <div
               className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-passgage-red to-passgage-gold text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
@@ -168,13 +168,15 @@ export default function AccessTagPage() {
               1
             </div>
             <div className="flex-1">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
-                Access Tag{' '}
-                <span
-                  className="inline-block bg-gradient-to-r from-passgage-red to-passgage-gold bg-clip-text text-transparent"
-                >
-                  Özellikleri
-                </span>
+              <h2 id="technical-specs-title" className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
+                <a href="#technical-specs" className="no-underline hover:opacity-80 transition-opacity">
+                  Access Tag{' '}
+                  <span
+                    className="inline-block bg-gradient-to-r from-passgage-red to-passgage-gold bg-clip-text text-transparent"
+                  >
+                    Özellikleri
+                  </span>
+                </a>
               </h2>
               <p className="text-xl text-gray-600">Teknik özellikler ve cihaz bilgileri</p>
             </div>
@@ -223,7 +225,7 @@ export default function AccessTagPage() {
         </section>
 
         {/* Step 2: Location Planning */}
-        <section className="mb-24" id="step2">
+        <section className="mb-24" id="location-planning" aria-labelledby="location-planning-title">
           <div className="flex items-start gap-6 mb-12">
             <div
               className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-passgage-red to-passgage-gold text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
@@ -231,13 +233,15 @@ export default function AccessTagPage() {
               2
             </div>
             <div className="flex-1">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
-                Kurulum Lokasyonunu{' '}
-                <span
-                  className="inline-block bg-gradient-to-r from-passgage-red to-passgage-gold bg-clip-text text-transparent"
-                >
-                  Planlayın
-                </span>
+              <h2 id="location-planning-title" className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
+                <a href="#location-planning" className="no-underline hover:opacity-80 transition-opacity">
+                  Kurulum Lokasyonunu{' '}
+                  <span
+                    className="inline-block bg-gradient-to-r from-passgage-red to-passgage-gold bg-clip-text text-transparent"
+                  >
+                    Planlayın
+                  </span>
+                </a>
               </h2>
               <p className="text-xl text-gray-600">Optimal yerleşim için dikkat edilmesi gerekenler</p>
             </div>
@@ -361,7 +365,7 @@ export default function AccessTagPage() {
         </section>
 
         {/* Step 3: Physical Installation */}
-        <section className="mb-24" id="step3">
+        <section className="mb-24" id="mounting" aria-labelledby="mounting-title">
           <div className="flex items-start gap-6 mb-12">
             <div
               className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-passgage-red to-passgage-gold text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
@@ -369,13 +373,15 @@ export default function AccessTagPage() {
               3
             </div>
             <div className="flex-1">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
-                Access Tag&apos;i{' '}
-                <span
+              <h2 id="mounting-title" className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
+                <a href="#mounting" className="no-underline hover:opacity-80 transition-opacity">
+                  Access Tag&apos;i{' '}
+                  <span
                   className="inline-block bg-gradient-to-r from-passgage-red to-passgage-gold bg-clip-text text-transparent"
                 >
                   Monte Edin
                 </span>
+                </a>
               </h2>
               <p className="text-xl text-gray-600">Yapışkan bantla kolay kurulum</p>
             </div>
@@ -446,7 +452,7 @@ export default function AccessTagPage() {
         </section>
 
         {/* Step 4: QR Code Configuration */}
-        <section className="mb-24" id="step4">
+        <section className="mb-24" id="configuration" aria-labelledby="configuration-title">
           <div className="flex items-start gap-6 mb-12">
             <div
               className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-passgage-red to-passgage-gold text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
@@ -454,13 +460,15 @@ export default function AccessTagPage() {
               4
             </div>
             <div className="flex-1">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
+              <h2 id="configuration-title" className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
+                <a href="#configuration" className="no-underline hover:opacity-80 transition-opacity">
                 Dijital{' '}
                 <span
                   className="inline-block bg-gradient-to-r from-passgage-red to-passgage-gold bg-clip-text text-transparent"
                 >
                   Yapılandırma
                 </span>
+                </a>
               </h2>
               <p className="text-xl text-gray-600">QR kodu sisteme tanıtın ve yapılandırın</p>
             </div>
@@ -503,7 +511,7 @@ export default function AccessTagPage() {
         </section>
 
         {/* Step 5: Maintenance */}
-        <section className="mb-24" id="step5">
+        <section className="mb-24" id="maintenance" aria-labelledby="maintenance-title">
           <div className="flex items-start gap-6 mb-12">
             <div
               className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-passgage-red to-passgage-gold text-white rounded-2xl flex items-center justify-center text-2xl font-bold shadow-medium"
@@ -511,13 +519,15 @@ export default function AccessTagPage() {
               5
             </div>
             <div className="flex-1">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
-                Bakım ve{' '}
-                <span
+              <h2 id="maintenance-title" className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
+                <a href="#maintenance" className="no-underline hover:opacity-80 transition-opacity">
+                  Bakım ve{' '}
+                  <span
                   className="inline-block bg-gradient-to-r from-passgage-red to-passgage-gold bg-clip-text text-transparent"
                 >
                   Uzun Vadeli Yönetim
                 </span>
+                </a>
               </h2>
               <p className="text-xl text-gray-600">Access Tag&apos;lerinizi optimal durumda tutun</p>
             </div>
