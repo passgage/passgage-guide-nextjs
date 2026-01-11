@@ -9,14 +9,14 @@ import type { AccordionItem } from '@/components/guide';
 import { generateFAQSchema } from '@/lib/seo';
 
 export default function AndroidGuidePage() {
-  // Android Steps for ProgressNav
+  // Android Steps for ProgressNav with descriptive IDs
   const androidSteps = [
-    { id: 'step1', number: 1, label: 'Uygulamayı indirin' },
-    { id: 'step2', number: 2, label: 'Gerekli izinleri verin' },
-    { id: 'step3', number: 3, label: 'Giriş yapın ve şifre oluşturun' },
-    { id: 'step4', number: 4, label: 'Cihaz eşleştirme' },
-    { id: 'step5', number: 5, label: 'NFC kurulumu' },
-    { id: 'step6', number: 6, label: 'Sorun giderme' }
+    { id: 'install-app', number: 1, label: 'Uygulamayı indirin' },
+    { id: 'permissions', number: 2, label: 'Gerekli izinleri verin' },
+    { id: 'login-password', number: 3, label: 'Giriş yapın ve şifre oluşturun' },
+    { id: 'device-pairing', number: 4, label: 'Cihaz eşleştirme' },
+    { id: 'nfc-setup', number: 5, label: 'NFC kurulumu' },
+    { id: 'troubleshooting', number: 6, label: 'Sorun giderme' }
   ];
 
   // HowTo Schema for SEO
@@ -58,7 +58,7 @@ export default function AndroidGuidePage() {
         'position': 1,
         'name': 'Uygulamayı İndirin',
         'text': 'Google Play Store veya Huawei AppGallery\'den Passgage uygulamasını ücretsiz indirin. Android 8.0 (Oreo) veya üstü gereklidir. Samsung, Xiaomi, Huawei, Oppo, Realme, OnePlus ve tüm Android cihazlar desteklenir.',
-        'url': 'https://kilavuz.passgage.com/android#step1',
+        'url': 'https://kilavuz.passgage.com/android#install-app',
         'image': 'https://kilavuz.passgage.com/logo.png'
       },
       {
@@ -66,7 +66,7 @@ export default function AndroidGuidePage() {
         'position': 2,
         'name': 'Gerekli İzinleri Verin',
         'text': 'Konum, kamera ve bildirim izinlerini aktifleştirin. Ayarlar menüsünden Passgage uygulamasına gerekli izinleri verin. Xiaomi MIUI ve Samsung One UI için ek izinler gerekebilir: Otomatik başlatma ve pil optimizasyonu ayarlarını kontrol edin.',
-        'url': 'https://kilavuz.passgage.com/android#step2',
+        'url': 'https://kilavuz.passgage.com/android#permissions',
         'image': 'https://kilavuz.passgage.com/logo.png'
       },
       {
@@ -74,7 +74,7 @@ export default function AndroidGuidePage() {
         'position': 3,
         'name': 'Giriş Yapın ve Şifre Oluşturun',
         'text': 'Şifre Al butonuna tıklayın. Şirket e-posta adresinizi veya telefon numaranızı girin. Size gönderilen 6 haneli OTP kodunu girin. Banking-style güvenli bir şifre oluşturun (minimum 8 karakter, en az 1 büyük harf, 1 küçük harf ve 1 rakam içermeli).',
-        'url': 'https://kilavuz.passgage.com/android#step3',
+        'url': 'https://kilavuz.passgage.com/android#login-password',
         'image': 'https://kilavuz.passgage.com/logo.png'
       },
       {
@@ -82,7 +82,7 @@ export default function AndroidGuidePage() {
         'position': 4,
         'name': 'Cihaz Eşleştirme',
         'text': 'Eşleştir butonuna tıklayın. Telefonunuza gelen SMS doğrulama kodunu girerek eşleştirme işlemini onaylayın. ÖNEMLİ: Her kullanıcı aynı anda sadece bir Android cihazla eşleştirilebilir. Yeni cihaz eklendiğinde eski cihaz otomatik olarak kaldırılır.',
-        'url': 'https://kilavuz.passgage.com/android#step4',
+        'url': 'https://kilavuz.passgage.com/android#device-pairing',
         'image': 'https://kilavuz.passgage.com/logo.png'
       },
       {
@@ -90,7 +90,7 @@ export default function AndroidGuidePage() {
         'position': 5,
         'name': 'NFC Kurulumu',
         'text': 'Marka-spesifik NFC ayarları: Samsung (One UI) için Ayarlar → Bağlantılar → NFC. Xiaomi (MIUI) için Ayarlar → Connection & sharing → NFC. Huawei için Ayarlar → Cihaz bağlantısı → NFC. Google Pixel için Ayarlar → Connected devices → NFC. NFC sensörü genellikle telefonun arka tarafında, kameranın yakınındadır.',
-        'url': 'https://kilavuz.passgage.com/android#step5',
+        'url': 'https://kilavuz.passgage.com/android#nfc-setup',
         'image': 'https://kilavuz.passgage.com/logo.png'
       },
       {
@@ -98,7 +98,7 @@ export default function AndroidGuidePage() {
         'position': 6,
         'name': 'Sorun Giderme',
         'text': 'Yaygın Android sorunları ve çözümleri: Pil optimizasyonu uygulamayı engelliyorsa kapatın (MIUI/One UI için özel). Google Play Services güncel değilse güncelleyin. NFC çalışmıyorsa telefonu yeniden başlatın ve kalın kılıfları çıkarın. Konum doğruluğu için Google Location Accuracy özelliğini açın. MIUI ve One UI için arka plan kısıtlamalarını kaldırın.',
-        'url': 'https://kilavuz.passgage.com/android#step6',
+        'url': 'https://kilavuz.passgage.com/android#troubleshooting',
         'image': 'https://kilavuz.passgage.com/logo.png'
       }
     ]
@@ -594,7 +594,7 @@ export default function AndroidGuidePage() {
         {/* Main Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20 lg:py-24">
           {/* STEP 1: Download App */}
-          <section id="step1" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+          <section id="install-app" aria-labelledby="install-app-title" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
             <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
                 className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
@@ -603,18 +603,20 @@ export default function AndroidGuidePage() {
                 1
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
-                  Uygulamayı{' '}
-                  <span
-                    style={{
-                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text'
-                    }}
-                  >
-                    İndirin
-                  </span>
+                <h2 id="install-app-title" className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
+                  <a href="#install-app" className="no-underline hover:opacity-80 transition-opacity">
+                    Uygulamayı{' '}
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text'
+                      }}
+                    >
+                      İndirin
+                    </span>
+                  </a>
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-neutral-600">Google Play Store veya Huawei AppGallery'den ücretsiz indirin</p>
               </div>
@@ -703,7 +705,7 @@ export default function AndroidGuidePage() {
           </section>
 
           {/* STEP 2: Gerekli İzinleri Verin */}
-          <section id="step2" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+          <section id="permissions" aria-labelledby="permissions-title" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
             <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
                 className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
@@ -712,19 +714,21 @@ export default function AndroidGuidePage() {
                 2
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
-                  Gerekli{' '}
-                  <span
-                    style={{
-                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                    }}
-                  >
-                    İzinleri
-                  </span>{' '}
-                  Verin
+                <h2 id="permissions-title" className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
+                  <a href="#permissions" className="no-underline hover:opacity-80 transition-opacity">
+                    Gerekli{' '}
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                      }}
+                    >
+                      İzinleri
+                    </span>{' '}
+                    Verin
+                  </a>
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-neutral-600">
                   Android ayarlarından izinleri aktifleştirin
@@ -855,7 +859,7 @@ export default function AndroidGuidePage() {
           </section>
 
           {/* STEP 3: Giriş Yapın ve Şifre Oluşturun */}
-          <section id="step3" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+          <section id="login-password" aria-labelledby="login-password-title" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
             <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
                 className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
@@ -864,19 +868,21 @@ export default function AndroidGuidePage() {
                 3
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
-                  Giriş Yapın ve{' '}
-                  <span
-                    style={{
-                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                    }}
-                  >
-                    Şifre
-                  </span>{' '}
-                  Oluşturun
+                <h2 id="login-password-title" className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
+                  <a href="#login-password" className="no-underline hover:opacity-80 transition-opacity">
+                    Giriş Yapın ve{' '}
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                      }}
+                    >
+                      Şifre
+                    </span>{' '}
+                    Oluşturun
+                  </a>
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-neutral-600">
                   OTP doğrulama ile güvenli giriş yapın
@@ -1016,7 +1022,7 @@ export default function AndroidGuidePage() {
           </section>
 
           {/* STEP 4: Cihaz Eşleştirme */}
-          <section id="step4" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+          <section id="device-pairing" aria-labelledby="device-pairing-title" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
             <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
                 className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
@@ -1025,18 +1031,20 @@ export default function AndroidGuidePage() {
                 4
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
-                  Cihaz{' '}
-                  <span
-                    style={{
-                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                    }}
-                  >
-                    Eşleştirme
-                  </span>
+                <h2 id="device-pairing-title" className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
+                  <a href="#device-pairing" className="no-underline hover:opacity-80 transition-opacity">
+                    Cihaz{' '}
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                      }}
+                    >
+                      Eşleştirme
+                    </span>
+                  </a>
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-neutral-600">
                   Telefonunuzu hesabınızla eşleştirin
@@ -1132,7 +1140,7 @@ export default function AndroidGuidePage() {
           </section>
 
           {/* STEP 5: NFC Kurulumu */}
-          <section id="step5" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+          <section id="nfc-setup" aria-labelledby="nfc-setup-title" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
             <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
                 className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
@@ -1141,18 +1149,20 @@ export default function AndroidGuidePage() {
                 5
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
-                  NFC{' '}
-                  <span
-                    style={{
-                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
+                <h2 id="nfc-setup-title" className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
+                  <a href="#nfc-setup" className="no-underline hover:opacity-80 transition-opacity">
+                    NFC{' '}
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
                     }}
-                  >
-                    Kurulumu
-                  </span>
+                    >
+                      Kurulumu
+                    </span>
+                  </a>
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-neutral-600">
                   Üretici bazlı NFC aktivasyon talimatları
@@ -1210,7 +1220,7 @@ export default function AndroidGuidePage() {
           </section>
 
           {/* STEP 6: Troubleshooting (Existing but updated) */}
-          <section id="step6" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+          <section id="troubleshooting" aria-labelledby="troubleshooting-title" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
             <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
                 className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
@@ -1219,18 +1229,20 @@ export default function AndroidGuidePage() {
                 6
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
-                  Sorun{' '}
-                  <span
-                    style={{
-                      background: 'linear-gradient(135deg, #f59e0b 0%, #fb923c 100%)',
-                      WebkitBackgroundClip: 'text',
+                <h2 id="troubleshooting-title" className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
+                  <a href="#troubleshooting" className="no-underline hover:opacity-80 transition-opacity">
+                    Sorun{' '}
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #f59e0b 0%, #fb923c 100%)',
+                        WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text'
                     }}
-                  >
-                    Giderme
-                  </span>
+                    >
+                      Giderme
+                    </span>
+                  </a>
                 </h2>
                 <p className="text-xl text-neutral-600">Android'e özel sorunlar ve çözümleri</p>
               </div>
