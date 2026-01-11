@@ -30,6 +30,60 @@ export default function Home() {
     }
   };
 
+  // FAQ data for FAQPage schema
+  const faqData = [
+    {
+      question: 'Safari izinleri nasıl verilir? (iOS)',
+      answer: 'iOS cihazlarda Safari izinlerini vermek için: Ayarlar uygulamasını açın, Safari seçeneğine gidin, İzinler bölümünden Konum, Kamera ve Bildirimler için izin verin. Passgage uygulamasının düzgün çalışması için bu izinler gereklidir.'
+    },
+    {
+      question: 'iOS\'ta uygulama açılmıyor, ne yapmalıyım?',
+      answer: 'Uygulama açılmıyorsa: Safari tarayıcısını tamamen kapatın ve yeniden açın. Safari önbelleğini temizleyin (Ayarlar → Safari → Geçmişi ve Web Sitesi Verilerini Temizle). iPhone\'u yeniden başlatın. iOS sürümünüzün en az 13.0 olduğunu kontrol edin.'
+    },
+    {
+      question: 'iOS\'ta bildirimler gelmiyor nasıl düzeltebilirim?',
+      answer: 'Bildirimler gelmiyorsa: Ayarlar → Bildirimler → Safari → Passgage yolunu izleyin ve bildirimlere izin verin. Odak Modu (Focus Mode) ve Rahatsız Etmeyin (Do Not Disturb) modunun kapalı olduğundan emin olun. Safari\'de Passgage için bildirimleri engellediğinizden emin olun.'
+    },
+    {
+      question: 'Android\'de pil optimizasyonu uygulamayı engelliyor?',
+      answer: 'Pil optimizasyonunu kapatmak için: Ayarlar → Uygulamalar → Passgage → Pil → Pil optimizasyonu → Tümü sekmesi → Passgage → Optimize etme. Xiaomi (MIUI): Otomatik başlatmayı açın ve uygulama pil tasarrufunu "Sınırsız" yapın. Samsung (One UI): Asla uyumayan uygulamalar listesine ekleyin.'
+    },
+    {
+      question: 'Android uygulaması arka planda çalışmıyor?',
+      answer: 'Arka plan çalışması için: Ayarlar → Uygulamalar → Passgage → Pil → Arka plan kısıtlaması → Kapalı. Mobil veri ve Wi-Fi izinlerini kontrol edin. Xiaomi ve Samsung cihazlarda "Kullanılmayan uygulamaları uykuya al" seçeneğini kapatın.'
+    },
+    {
+      question: 'Xiaomi ve Samsung telefonlarda özel ayarlar gerekiyor mu?',
+      answer: 'Evet, bu markalarda ek ayarlar gereklidir. Xiaomi (MIUI): Otomatik başlatma açık, pil tasarrufu sınırsız, arka plan otomatik başlatma izni. Samsung (One UI): Pil optimizasyonu kapalı, asla uyumayan uygulamalar listesinde, kullanılmayan uygulamaları uykuya alma kapalı. Detaylı rehber için ilgili platform sayfasına bakın.'
+    },
+    {
+      question: 'NFC çalışmıyor, nasıl açarım?',
+      answer: 'NFC ayarları: iOS\'ta NFC otomatik açıktır (iPhone 7+, iOS 13+). Android\'de: Ayarlar → Bağlı cihazlar → NFC → Açık. Samsung: Ayarlar → Bağlantılar → NFC. Xiaomi: Ayarlar → Connection & sharing → NFC. Telefonu yeniden başlatın ve kalın kılıfları çıkarın.'
+    },
+    {
+      question: 'Access Tag QR kodu okunmuyor?',
+      answer: 'QR kod okuma sorunları: Kamerayı ve QR kod yüzeyini yumuşak bezle temizleyin. 15-30 cm mesafeden taramayı deneyin. Yeterli ışık olduğundan emin olun (gölge veya karanlık alanlar soruna neden olabilir). Farklı açılardan deneyerek en iyi tarama pozisyonunu bulun.'
+    },
+    {
+      question: 'Access Tag NFC kartı çalışmıyor?',
+      answer: 'NFC kart sorunları: Telefon ayarlarından NFC\'nin açık olduğundan emin olun. Kartı telefonun arka tarafına yaklaştırın (genellikle kamera bölgesi yakınında). Kalın veya metal kılıfları çıkarın. 1-2 saniye bekleyin. Telefonu yeniden başlatın ve tekrar deneyin.'
+    }
+  ];
+
+  // FAQPage Schema
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': faqData.map(item => ({
+      '@type': 'Question',
+      'name': item.question,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': item.answer
+      }
+    }))
+  };
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -74,6 +128,11 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      {/* FAQPage Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <Header />

@@ -6,6 +6,7 @@ import Hero from '@/components/layout/Hero';
 import Footer from '@/components/layout/Footer';
 import { PhoneMockup, Accordion, InfoBox } from '@/components/guide';
 import type { AccordionItem } from '@/components/guide';
+import { generateFAQSchema } from '@/lib/seo';
 
 export default function AndroidGuidePage() {
   // Android Steps for ProgressNav
@@ -518,12 +519,25 @@ export default function AndroidGuidePage() {
     },
   ];
 
+  // Generate FAQPage Schema from troubleshooting section
+  const androidFAQSchema = generateFAQSchema(
+    troubleshootingItems,
+    'https://kilavuz.passgage.com',
+    'https://kilavuz.passgage.com/android'
+  );
+
   return (
     <>
       {/* HowTo Schema JSON-LD for SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(androidHowToSchema) }}
+      />
+
+      {/* FAQPage Schema JSON-LD for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(androidFAQSchema) }}
       />
 
       {/* Standard Header Component */}

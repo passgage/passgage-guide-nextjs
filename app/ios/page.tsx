@@ -5,6 +5,7 @@ import Hero from '@/components/layout/Hero';
 import Footer from '@/components/layout/Footer';
 import { PhoneMockup, InfoBox, Accordion } from '@/components/guide';
 import type { AccordionItem } from '@/components/guide';
+import { generateCombinedFAQSchema } from '@/lib/seo';
 
 export default function IOSGuidePage() {
 
@@ -193,12 +194,25 @@ export default function IOSGuidePage() {
     },
   ];
 
+  // Generate FAQPage Schema from troubleshooting sections
+  const iosFAQSchema = generateCombinedFAQSchema(
+    [nfcTroubleshootingItems, troubleshootingItems],
+    'https://kilavuz.passgage.com',
+    'https://kilavuz.passgage.com/ios'
+  );
+
   return (
     <>
       {/* HowTo Schema JSON-LD for SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(iosHowToSchema) }}
+      />
+
+      {/* FAQPage Schema JSON-LD for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(iosFAQSchema) }}
       />
 
       {/* Standard Header Component */}
