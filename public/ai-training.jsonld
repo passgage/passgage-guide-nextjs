@@ -1,0 +1,252 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://passgage.com",
+      "name": "Passgage",
+      "url": "https://passgage.com",
+      "logo": "https://passgage.com/wp-content/uploads/2024/02/passgage-logo.png",
+      "description": "Şifresiz güvenli giriş sistemi. NFC ve QR kod teknolojisi ile çalışan modern personel takip çözümü.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "deneyim@passgage.com",
+        "contactType": "customer support",
+        "availableLanguage": ["tr", "en"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://kilavuz.passgage.com",
+      "name": "Passgage Kurulum Kılavuzu",
+      "url": "https://kilavuz.passgage.com",
+      "description": "iOS, Android ve Access Tag için adım adım detaylı kurulum rehberi",
+      "publisher": {
+        "@id": "https://passgage.com"
+      },
+      "inLanguage": "tr"
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://kilavuz.passgage.com/ios",
+      "name": "Passgage iOS Kurulum Rehberi",
+      "description": "iPhone ve iPad için Passgage şifresiz giriş uygulamasını adım adım kurma kılavuzu",
+      "totalTime": "PT15M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "iPhone veya iPad (iPhone 7+, iOS 13+)"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Passgage hesabı ve giriş bilgileri"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "İnternet bağlantısı (Wi-Fi veya hücresel veri)"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Uygulamayı İndirin",
+          "text": "App Store'dan Passgage uygulamasını ücretsiz indirin. iOS 13.0 veya üstü gereklidir.",
+          "url": "https://kilavuz.passgage.com/ios#step1"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Gerekli İzinleri Verin",
+          "text": "Konum, kamera ve bildirim izinlerini aktifleştirin. Ayarlar → Gizlilik ve Güvenlik menüsünden Passgage uygulamasına gerekli izinleri verin.",
+          "url": "https://kilavuz.passgage.com/ios#step2"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Giriş Yapın ve Şifre Oluşturun",
+          "text": "Şifre Al butonuna tıklayın. E-posta veya telefon numaranızı girin. 6 haneli OTP kodunu girin. Güvenli bir şifre oluşturun.",
+          "url": "https://kilavuz.passgage.com/ios#step3"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Cihaz Eşleştirme",
+          "text": "Eşleştir butonuna tıklayın. SMS doğrulama kodunu girerek eşleştirme işlemini onaylayın.",
+          "url": "https://kilavuz.passgage.com/ios#step4"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "NFC Kurulumu",
+          "text": "iOS 13 ve sonrası cihazlarda NFC otomatik olarak etkindir. iPhone 7 ve üstü modeller NFC destekler.",
+          "url": "https://kilavuz.passgage.com/ios#step5"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Sorun Giderme",
+          "text": "Yaygın sorunlar: Uygulama açılmıyorsa Safari önbelleğini temizleyin. Giriş yapamıyorsanız internet bağlantınızı kontrol edin. NFC çalışmıyorsa iPhone modelinizi kontrol edin.",
+          "url": "https://kilavuz.passgage.com/ios#step6"
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://kilavuz.passgage.com/android",
+      "name": "Passgage Android Kurulum Rehberi",
+      "description": "Samsung, Xiaomi, Huawei ve tüm Android telefonlar için Passgage kurulum kılavuzu",
+      "totalTime": "PT20M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Android telefon veya tablet (Android 8.0+)"
+        }
+      ],
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Passgage hesabı"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Google Play Services (güncel)"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Uygulamayı İndirin",
+          "text": "Google Play Store veya Huawei AppGallery'den Passgage uygulamasını indirin. Android 8.0+ gerekli.",
+          "url": "https://kilavuz.passgage.com/android#step1"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Gerekli İzinleri Verin",
+          "text": "Konum, kamera, bildirim izinleri. Xiaomi MIUI ve Samsung One UI için ek izinler: Otomatik başlatma ve pil optimizasyonu.",
+          "url": "https://kilavuz.passgage.com/android#step2"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Giriş Yapın",
+          "text": "OTP doğrulama ile giriş yapın ve banking-style güvenli şifre oluşturun.",
+          "url": "https://kilavuz.passgage.com/android#step3"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Cihaz Eşleştirme",
+          "text": "SMS doğrulama ile cihaz eşleştirin. Her kullanıcı tek cihazla eşleştirilebilir.",
+          "url": "https://kilavuz.passgage.com/android#step4"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "NFC Kurulumu",
+          "text": "Marka-spesifik NFC ayarları: Samsung (Bağlantılar → NFC), Xiaomi (Connection & sharing → NFC), Huawei (Cihaz bağlantısı → NFC).",
+          "url": "https://kilavuz.passgage.com/android#step5"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Sorun Giderme",
+          "text": "Pil optimizasyonu kapatın (MIUI/One UI için kritik). Google Play Services güncelleyin. Arka plan kısıtlamalarını kaldırın.",
+          "url": "https://kilavuz.passgage.com/android#step6"
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://kilavuz.passgage.com/access-tag",
+      "name": "Passgage Access Tag Kurulum Rehberi",
+      "description": "NFC tabanlı Access Tag fiziksel kurulum, montaj ve bakım kılavuzu",
+      "totalTime": "PT10M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Passgage Access Tag (150mm x 150mm veya 200mm x 200mm)"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Teknik Özellikler",
+          "text": "IP65 su geçirmezlik, UV koruması, -20°C ile +60°C operasyon sıcaklığı, 5+ yıl ömür beklentisi.",
+          "url": "https://kilavuz.passgage.com/access-tag#step1"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Lokasyon Planlama",
+          "text": "İdeal yükseklik 1.2-1.5m (göz hizası). Yüksek trafik alanı, iyi aydınlatma, hava koşullarından korunma.",
+          "url": "https://kilavuz.passgage.com/access-tag#step2"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Montaj",
+          "text": "Yapışkan montaj: Yüzeyi temizle, koruyucu filmi çıkar, 30 saniye basınç uygula, 24 saat bekle.",
+          "url": "https://kilavuz.passgage.com/access-tag#step3"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Dijital Yapılandırma",
+          "text": "Admin panelden QR kodu sisteme tanıt. Tag ID kontrolü, konum ataması, kullanıcı dostu isim ver.",
+          "url": "https://kilavuz.passgage.com/access-tag#step4"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Bakım",
+          "text": "Yumuşak bez ve ılık su kullan. Alkol bazlı temizleyici kullanma. QR kod okunmuyorsa yüzeyi temizle ve 15-30 cm mesafeden dene.",
+          "url": "https://kilavuz.passgage.com/access-tag#step5"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://kilavuz.passgage.com#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Safari izinleri nasıl verilir? (iOS)",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "iOS cihazlarda Safari izinlerini vermek için: Ayarlar → Safari → İzinler → Konum, Kamera ve Bildirimler için izin verin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Android'de pil optimizasyonu uygulamayı engelliyor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pil optimizasyonunu kapatmak için: Ayarlar → Uygulamalar → Passgage → Pil → Pil optimizasyonu → Optimize etme. Xiaomi: Otomatik başlatma açık, pil tasarrufu sınırsız. Samsung: Asla uyumayan uygulamalar listesine ekle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "NFC çalışmıyor, nasıl açarım?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "iOS'ta NFC otomatik açık (iPhone 7+). Android: Ayarlar → Bağlı cihazlar → NFC → Açık. Samsung: Ayarlar → Bağlantılar → NFC. Xiaomi: Ayarlar → Connection & sharing → NFC."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Access Tag QR kodu okunmuyor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kamerayı ve QR yüzeyini temizle. 15-30 cm mesafeden dene. Yeterli ışık olduğundan emin ol. Farklı açılardan dene."
+          }
+        }
+      ]
+    }
+  ]
+}
