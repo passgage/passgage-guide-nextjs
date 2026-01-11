@@ -9,14 +9,14 @@ import { generateCombinedFAQSchema } from '@/lib/seo';
 
 export default function IOSGuidePage() {
 
-  // Progress navigation steps
+  // Progress navigation steps with descriptive IDs
   const iosSteps = [
-    { id: 'step1', number: 1, label: 'Uygulamayı indirin' },
-    { id: 'step2', number: 2, label: 'Gerekli izinleri verin' },
-    { id: 'step3', number: 3, label: 'Giriş yapın ve şifre oluşturun' },
-    { id: 'step4', number: 4, label: 'Cihaz eşleştirme' },
-    { id: 'step5', number: 5, label: 'NFC kurulumu' },
-    { id: 'step6', number: 6, label: 'Sorun giderme' },
+    { id: 'install-app', number: 1, label: 'Uygulamayı indirin' },
+    { id: 'permissions', number: 2, label: 'Gerekli izinleri verin' },
+    { id: 'login-password', number: 3, label: 'Giriş yapın ve şifre oluşturun' },
+    { id: 'device-pairing', number: 4, label: 'Cihaz eşleştirme' },
+    { id: 'nfc-setup', number: 5, label: 'NFC kurulumu' },
+    { id: 'troubleshooting', number: 6, label: 'Sorun giderme' },
   ];
 
   // HowTo Schema for SEO
@@ -54,7 +54,7 @@ export default function IOSGuidePage() {
         'position': 1,
         'name': 'Uygulamayı İndirin',
         'text': 'App Store\'dan Passgage uygulamasını ücretsiz indirin. iOS 13.0 veya üstü gereklidir. Uygulama iPhone 7 ve üstü modellerde çalışır.',
-        'url': 'https://kilavuz.passgage.com/ios#step1',
+        'url': 'https://kilavuz.passgage.com/ios#install-app',
         'image': 'https://kilavuz.passgage.com/logo.png'
       },
       {
@@ -62,7 +62,7 @@ export default function IOSGuidePage() {
         'position': 2,
         'name': 'Gerekli İzinleri Verin',
         'text': 'Konum, kamera ve bildirim izinlerini aktifleştirin. Ayarlar → Gizlilik ve Güvenlik menüsünden Passgage uygulamasına gerekli izinleri verin. Konum izni giriş-çıkış kayıtları için, kamera izni QR kod okutma için, bildirim izni güncellemeler için gereklidir.',
-        'url': 'https://kilavuz.passgage.com/ios#step2',
+        'url': 'https://kilavuz.passgage.com/ios#permissions',
         'image': 'https://kilavuz.passgage.com/screenshots/ios/step2-location-permission.jpg'
       },
       {
@@ -70,7 +70,7 @@ export default function IOSGuidePage() {
         'position': 3,
         'name': 'Giriş Yapın ve Şifre Oluşturun',
         'text': 'Şifre Al butonuna tıklayın. Şirket e-posta adresinizi veya telefon numaranızı girin. Size gönderilen 6 haneli OTP kodunu girin. Güvenli bir şifre oluşturun (minimum 8 karakter, en az 1 büyük harf, 1 küçük harf ve 1 rakam içermeli).',
-        'url': 'https://kilavuz.passgage.com/ios#step3',
+        'url': 'https://kilavuz.passgage.com/ios#login-password',
         'image': 'https://kilavuz.passgage.com/screenshots/ios/step3-1-login-screen.jpg'
       },
       {
@@ -78,7 +78,7 @@ export default function IOSGuidePage() {
         'position': 4,
         'name': 'Cihaz Eşleştirme',
         'text': 'Eşleştir butonuna tıklayın. iPhone\'unuza gelen SMS doğrulama kodunu girerek eşleştirme işlemini onaylayın. Her kullanıcı aynı anda sadece bir cihazla eşleştirilebilir.',
-        'url': 'https://kilavuz.passgage.com/ios#step4',
+        'url': 'https://kilavuz.passgage.com/ios#device-pairing',
         'image': 'https://kilavuz.passgage.com/screenshots/ios/step4-device-pairing.jpg'
       },
       {
@@ -86,7 +86,7 @@ export default function IOSGuidePage() {
         'position': 5,
         'name': 'NFC Kurulumu',
         'text': 'iOS 13 ve sonrası cihazlarda NFC otomatik olarak etkindir. iPhone 7 ve üstü modeller NFC destekler. NFC etiket okumak için iPhone\'un üst kısmını (kamera bölgesi) etikete yaklaştırın. iOS 14 ve sonrasında arka planda otomatik NFC okuma özelliği vardır.',
-        'url': 'https://kilavuz.passgage.com/ios#step5',
+        'url': 'https://kilavuz.passgage.com/ios#nfc-setup',
         'image': 'https://kilavuz.passgage.com/logo.png'
       },
       {
@@ -94,7 +94,7 @@ export default function IOSGuidePage() {
         'position': 6,
         'name': 'Sorun Giderme',
         'text': 'Yaygın sorunlar ve çözümleri: Uygulama açılmıyorsa Safari önbelleğini temizleyin. Giriş yapamıyorsanız internet bağlantınızı kontrol edin. Bildirimler gelmiyorsa Ayarlar → Bildirimler → Safari → Passgage yolunu izleyin. NFC çalışmıyorsa iPhone modelinizin NFC desteklediğinden emin olun.',
-        'url': 'https://kilavuz.passgage.com/ios#step6',
+        'url': 'https://kilavuz.passgage.com/ios#troubleshooting',
         'image': 'https://kilavuz.passgage.com/logo.png'
       }
     ]
@@ -265,15 +265,15 @@ export default function IOSGuidePage() {
           titleAfter="Kurulumu"
           description="iPhone ve iPad için detaylı kurulum adımları, Safari ayarları ve sorun giderme rehberi."
           primaryButtonText="Başlayalım"
-          primaryButtonHref="#step1"
+          primaryButtonHref="#install-app"
           secondaryButtonText="Sorun Giderme"
-          secondaryButtonHref="#step6"
+          secondaryButtonHref="#troubleshooting"
         />
 
         {/* Main Content */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16 md:py-20 lg:py-24">
           {/* Step 1: Uygulamayı İndirin */}
-          <section id="step1" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+          <section id="install-app" aria-labelledby="install-app-title" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
             <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
                 className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-2xl sm:text-3xl font-bold shadow-medium"
@@ -282,18 +282,20 @@ export default function IOSGuidePage() {
                 1
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
-                  Uygulamayı{' '}
-                  <span
-                    style={{
-                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text'
-                    }}
-                  >
-                    İndirin
-                  </span>
+                <h2 id="install-app-title" className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
+                  <a href="#install-app" className="no-underline hover:opacity-80 transition-opacity">
+                    Uygulamayı{' '}
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text'
+                      }}
+                    >
+                      İndirin
+                    </span>
+                  </a>
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-neutral-600">App Store'dan ücretsiz indirin</p>
               </div>
@@ -356,7 +358,7 @@ export default function IOSGuidePage() {
           </section>
 
           {/* Step 2: Gerekli İzinleri Verin */}
-          <section id="step2" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+          <section id="permissions" aria-labelledby="permissions-title" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
             <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
                 className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
@@ -365,19 +367,21 @@ export default function IOSGuidePage() {
                 2
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
-                  Gerekli{' '}
-                  <span
-                    style={{
-                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                    }}
-                  >
-                    İzinleri
-                  </span>{' '}
-                  Verin
+                <h2 id="permissions-title" className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
+                  <a href="#permissions" className="no-underline hover:opacity-80 transition-opacity">
+                    Gerekli{' '}
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                      }}
+                    >
+                      İzinleri
+                    </span>{' '}
+                    Verin
+                  </a>
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-neutral-600">
                   iOS ayarlarından izinleri aktifleştirin
@@ -484,7 +488,7 @@ export default function IOSGuidePage() {
           </section>
 
           {/* Step 3: Giriş Yapın ve Şifre Oluşturun */}
-          <section id="step3" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+          <section id="login-password" aria-labelledby="login-password-title" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
             <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
                 className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
@@ -493,19 +497,21 @@ export default function IOSGuidePage() {
                 3
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
-                  Giriş Yapın ve{' '}
-                  <span
-                    style={{
-                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                    }}
-                  >
-                    Şifre
-                  </span>{' '}
-                  Oluşturun
+                <h2 id="login-password-title" className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
+                  <a href="#login-password" className="no-underline hover:opacity-80 transition-opacity">
+                    Giriş Yapın ve{' '}
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                      }}
+                    >
+                      Şifre
+                    </span>{' '}
+                    Oluşturun
+                  </a>
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-neutral-600">
                   OTP doğrulama ile güvenli giriş yapın
@@ -645,7 +651,7 @@ export default function IOSGuidePage() {
           </section>
 
           {/* Step 4: Cihaz Eşleştirme */}
-          <section id="step4" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+          <section id="device-pairing" aria-labelledby="device-pairing-title" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
             <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
                 className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
@@ -654,18 +660,20 @@ export default function IOSGuidePage() {
                 4
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
-                  Cihaz{' '}
-                  <span
-                    style={{
-                      background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                    }}
-                  >
-                    Eşleştirme
-                  </span>
+                <h2 id="device-pairing-title" className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
+                  <a href="#device-pairing" className="no-underline hover:opacity-80 transition-opacity">
+                    Cihaz{' '}
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                      }}
+                    >
+                      Eşleştirme
+                    </span>
+                  </a>
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-neutral-600">
                   iPhone'unuzu hesabınızla eşleştirin
@@ -761,7 +769,7 @@ export default function IOSGuidePage() {
           </section>
 
           {/* Step 5: NFC Kurulumu */}
-          <section id="step5" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+          <section id="nfc-setup" aria-labelledby="nfc-setup-title" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
             <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
                 className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
@@ -770,8 +778,10 @@ export default function IOSGuidePage() {
                 5
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
-                  NFC Ayarlarını Yapın
+                <h2 id="nfc-setup-title" className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
+                  <a href="#nfc-setup" className="no-underline hover:opacity-80 transition-opacity">
+                    NFC Ayarlarını Yapın
+                  </a>
                 </h2>
                 <p className="text-base md:text-lg text-neutral-600">
                   iPhone NFC özelliklerini kontrol edin
@@ -844,7 +854,7 @@ export default function IOSGuidePage() {
           </section>
 
           {/* Step 6: Sorun Giderme */}
-          <section id="step6" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
+          <section id="troubleshooting" aria-labelledby="troubleshooting-title" className="mb-20 md:mb-28 lg:mb-32 scroll-mt-24">
             <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-10 md:mb-12">
               <div
                 className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 text-white rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl font-bold shadow-medium"
@@ -853,18 +863,20 @@ export default function IOSGuidePage() {
                 6
               </div>
               <div className="flex-1">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
-                  Sorun{' '}
-                  <span
-                    style={{
-                      background: 'linear-gradient(135deg, #f59e0b 0%, #fb923c 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text'
-                    }}
-                  >
-                    Giderme
-                  </span>
+                <h2 id="troubleshooting-title" className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-900 mb-2 md:mb-3 leading-tight">
+                  <a href="#troubleshooting" className="no-underline hover:opacity-80 transition-opacity">
+                    Sorun{' '}
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #f59e0b 0%, #fb923c 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text'
+                      }}
+                    >
+                      Giderme
+                    </span>
+                  </a>
                 </h2>
                 <p className="text-xl text-neutral-600">iOS'e özel sorunlar ve çözümleri</p>
               </div>
