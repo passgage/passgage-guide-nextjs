@@ -84,10 +84,15 @@ export default function AIBottomSheet() {
     }
   };
 
-  // Reset height when opening
+  // Reset height and scroll position when opening
   useEffect(() => {
     if (isOpen) {
       setCurrentHeight(100); // Default to 100% (full screen) when opening
+
+      // Reset scroll to top when opening
+      if (contentRef.current) {
+        contentRef.current.scrollTop = 0;
+      }
     }
   }, [isOpen]);
 
@@ -104,9 +109,11 @@ export default function AIBottomSheet() {
     };
   }, [isOpen]);
 
-  // Auto-scroll to bottom when new conversation message arrives
+  // Auto-scroll to bottom ONLY when new conversation message arrives (follow-up questions)
   useEffect(() => {
-    if (contentRef.current && conversationHistory.length > 0) {
+    // Only scroll to bottom if there are multiple messages (follow-up conversation)
+    // Don't scroll on first search (conversationHistory.length === 0)
+    if (contentRef.current && conversationHistory.length >= 2) {
       const scrollToBottom = () => {
         contentRef.current?.scrollTo({
           top: contentRef.current.scrollHeight,
@@ -116,7 +123,7 @@ export default function AIBottomSheet() {
       // Delay scroll to allow DOM to update
       setTimeout(scrollToBottom, 100);
     }
-  }, [conversationHistory.length, aiAnswer]);
+  }, [conversationHistory.length]);
 
   // Keyboard navigation (Esc to close)
   useEffect(() => {
