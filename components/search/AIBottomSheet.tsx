@@ -190,9 +190,9 @@ export default function AIBottomSheet() {
         aria-labelledby="ai-search-title"
         aria-describedby="ai-search-description"
       >
-        {/* Drag Handle Header - Sticky */}
+        {/* Drag Handle Header - NOT sticky, just at top */}
         <div
-          className="flex-shrink-0 flex flex-col items-center pt-5 pb-4 px-4 bg-white border-b-2 border-neutral-200 sticky top-0 z-10"
+          className="flex-shrink-0 flex flex-col items-center pt-5 pb-4 px-4 bg-white border-b-2 border-neutral-200"
         >
           {/* Drag handle - VERY visible - ONLY THIS IS DRAGGABLE */}
           <div
