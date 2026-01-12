@@ -191,15 +191,23 @@ export default function AIBottomSheet() {
         >
           {/* Drag handle - VERY visible */}
           <div
-            className="w-20 h-2 rounded-full mb-4 shadow-md"
+            className="w-20 h-2 rounded-full mb-3 shadow-md"
             style={{ backgroundColor: '#9ca3af' }}
             role="presentation"
             aria-hidden="true"
           />
 
+          {/* Title */}
+          <div className="w-full mb-2">
+            <h3 className="text-base font-bold text-neutral-900 text-center flex items-center justify-center gap-2">
+              <span className="text-lg">🤖</span>
+              <span>Passgage Asistan</span>
+            </h3>
+          </div>
+
           {/* Query display */}
           <div className="w-full">
-            <p className="text-sm font-semibold text-neutral-700 text-center" role="status" aria-live="polite">
+            <p className="text-xs text-neutral-500 text-center" role="status" aria-live="polite">
               "{query}"
             </p>
           </div>

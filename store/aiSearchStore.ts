@@ -118,6 +118,11 @@ export const useAISearchStore = create<AISearchState>((set, get) => ({
   openSheet: () => {
     set({ isOpen: true });
 
+    // Close keyboard if open (blur any focused input)
+    if (typeof document !== 'undefined' && document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+
     // Track sheet opened
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'sheet_opened', {
