@@ -176,20 +176,32 @@ export default function AIBottomSheet() {
           {/* Drag handle - VERY visible - ONLY THIS IS DRAGGABLE */}
           <div
             className="w-20 h-2 rounded-full mb-3 shadow-md cursor-grab active:cursor-grabbing"
-            style={{ backgroundColor: '#9ca3af' }}
+            style={{ backgroundColor: '#9ca3af', touchAction: 'none' }}
             role="presentation"
             aria-hidden="true"
-            onMouseDown={(e) => handleDragStart(e.clientY)}
-            onMouseMove={(e) => handleDragMove(e.clientY)}
-            onMouseUp={handleDragEnd}
+            onMouseDown={(e) => {
+              e.stopPropagation();
+              handleDragStart(e.clientY);
+            }}
+            onMouseMove={(e) => {
+              e.stopPropagation();
+              handleDragMove(e.clientY);
+            }}
+            onMouseUp={(e) => {
+              e.stopPropagation();
+              handleDragEnd();
+            }}
             onMouseLeave={handleDragEnd}
             onTouchStart={(e) => {
+              e.stopPropagation();
               handleDragStart(e.touches[0].clientY);
             }}
             onTouchMove={(e) => {
+              e.stopPropagation();
               handleDragMove(e.touches[0].clientY);
             }}
             onTouchEnd={(e) => {
+              e.stopPropagation();
               handleDragEnd();
             }}
           />
@@ -211,7 +223,15 @@ export default function AIBottomSheet() {
         </div>
 
         {/* Scrollable Content */}
-        <div ref={contentRef} className="flex-1 px-4 pb-8 overflow-y-auto">
+        <div
+          ref={contentRef}
+          className="flex-1 px-4 pb-8 overflow-y-auto"
+          style={{
+            touchAction: 'pan-y',
+            WebkitOverflowScrolling: 'touch' as any,
+            overscrollBehavior: 'contain',
+          }}
+        >
           {/* New Conversation Button */}
           {conversationHistory.length > 0 && !isLoading && (
             <div className="flex justify-end mb-4">
