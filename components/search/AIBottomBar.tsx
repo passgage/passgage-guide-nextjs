@@ -79,6 +79,14 @@ export default function AIBottomBar({
     setIsFocused(true);
     inputRef.current?.focus();
 
+    // Scroll input into view to avoid keyboard overlap
+    setTimeout(() => {
+      containerRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    }, 100);
+
     // Track analytics
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'bottom_bar_click', {
@@ -164,7 +172,16 @@ export default function AIBottomBar({
           }
           value={query}
           onChange={handleInputChange}
-          onFocus={() => setIsFocused(true)}
+          onFocus={() => {
+            setIsFocused(true);
+            // Scroll into view when keyboard opens
+            setTimeout(() => {
+              containerRef.current?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+              });
+            }, 300); // Wait for keyboard animation
+          }}
           onKeyDown={handleKeyDown}
         />
 
