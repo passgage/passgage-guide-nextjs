@@ -89,12 +89,26 @@ export default function AIBottomSheet() {
     if (isOpen) {
       setCurrentHeight(100); // Default to 100% (full screen) when opening
 
-      // Reset scroll to top when opening
-      if (contentRef.current) {
-        contentRef.current.scrollTop = 0;
-      }
+      // Reset scroll to top when opening - use setTimeout to ensure DOM is ready
+      setTimeout(() => {
+        if (contentRef.current) {
+          contentRef.current.scrollTop = 0;
+        }
+      }, 50);
     }
   }, [isOpen]);
+
+  // Force scroll to top when aiAnswer changes (first render)
+  useEffect(() => {
+    if (isOpen && aiAnswer && conversationHistory.length === 0) {
+      // This is the first search result, force scroll to top
+      setTimeout(() => {
+        if (contentRef.current) {
+          contentRef.current.scrollTop = 0;
+        }
+      }, 150);
+    }
+  }, [isOpen, aiAnswer, conversationHistory.length]);
 
   // Prevent body scroll when sheet is open
   useEffect(() => {
