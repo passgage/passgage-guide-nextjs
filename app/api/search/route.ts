@@ -24,6 +24,25 @@ interface CloudflareAskResponse {
 }
 
 /**
+ * Generate follow-up chips based on category
+ */
+function generateFollowUpChips(category: string): string[] {
+  const followUpMap: Record<string, string[]> = {
+    'nfc': ['Ayarlarda bulamadım', 'Hâlâ çalışmıyor', 'Hangi model?'],
+    'konum-izni': ['İzin vermedim', 'GPS çalışmıyor', 'Hassas konum nasıl?'],
+    'pil-optimizasyonu': ['Ayarlarda nerede?', 'Xiaomi için', 'Samsung için'],
+    'cihaz-eslestirme': ['Eşleştirme yapamadım', 'Başka cihaz ekleyebilir miyim?', 'Kod gelmiyor'],
+    'uygulama-indirme': ['App Store\'da yok', 'Google Play\'de yok', 'Huawei için'],
+    'qr-okutma': ['QR okumuyor', 'Kamera izni', 'QR bulanık'],
+    'login': ['Şifremi unuttum', 'SMS gelmiyor', 'Email gelmiyor'],
+    'bildirim-izni': ['Bildirim ayarları', 'Bildirim gelmiyor', 'iOS bildirimleri'],
+    'geçiş-kontrol': ['Geçiş yapamadım', 'NFC okumadı', 'QR okumadı'],
+  };
+
+  return followUpMap[category] || ['Daha fazla bilgi', 'Hâlâ çözemedim', 'Başka soru'];
+}
+
+/**
  * POST /api/search
  * Search FAQs using Cloudflare Workers AI + Vectorize
  */
@@ -78,7 +97,8 @@ export async function POST(request: NextRequest) {
     // Handle unsuccessful response
     if (!data.success || !data.answer) {
       return NextResponse.json({
-        results: [],
+        aiAnswer: null,
+        sources: [],
         total: 0,
         queryTime: Date.now() - startTime,
         fallback: true,
@@ -129,17 +149,38 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Prepare response
-    const response: SearchResponse = {
-      results: allResults,
+    // Prepare hybrid response (AI answer + sources)
+    const aiAnswer = data.confidence && data.confidence >= 0.6 ? {
+      text: data.answer || '',
+      confidence: data.confidence,
+      source: {
+        id: result.id,
+        title: data.matchedQuestion || body.query,
+        url: guideLink || '/',
+      },
+      // Generate follow-up chips based on category
+      followUpChips: generateFollowUpChips(category),
+    } : null;
+
+    // Response with hybrid format
+    const response = {
+      // AI answer (if confidence is high enough)
+      aiAnswer,
+
+      // Source cards (FAQ results)
+      sources: allResults,
+
+      // Metadata
       total: allResults.length,
       queryTime: Date.now() - startTime,
+      fallback: false,
     };
 
     // Add method to response headers for debugging
     const headers = new Headers();
     headers.set('X-Search-Method', 'cloudflare-vectorize');
     headers.set('X-Query-Time', response.queryTime.toString());
+    headers.set('X-Has-AI-Answer', aiAnswer ? 'true' : 'false');
 
     return NextResponse.json(response, { headers });
   } catch (error) {
@@ -149,7 +190,8 @@ export async function POST(request: NextRequest) {
       {
         error: 'Internal server error',
         message: error instanceof Error ? error.message : 'Unknown error',
-        results: [],
+        aiAnswer: null,
+        sources: [],
         total: 0,
         queryTime: Date.now() - startTime,
       },

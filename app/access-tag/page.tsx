@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header';
 import Hero from '@/components/layout/Hero';
 import Footer from '@/components/layout/Footer';
 import { CrossLinks } from '@/components/guide';
+import { AIBottomBar } from '@/components/search';
 
 const accessTagSteps = [
   { id: 'technical-specs', number: 1, label: 'Teknik özellikler' },
@@ -680,6 +681,7 @@ export default function AccessTagPage() {
 
       {/* Standard Footer Component */}
       <Footer />
+      <AIBottomBar variant="guide" platform="access-tag" />
     </>
   );
 }

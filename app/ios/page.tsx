@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer';
 import { PhoneMockup, InfoBox, Accordion, CrossLinks } from '@/components/guide';
 import type { AccordionItem } from '@/components/guide';
 import { generateCombinedFAQSchema } from '@/lib/seo';
+import { AIBottomBar } from '@/components/search';
 
 export default function IOSGuidePage() {
 
@@ -65,7 +66,7 @@ export default function IOSGuidePage() {
         'name': 'Gerekli İzinleri Verin',
         'text': 'Konum, kamera ve bildirim izinlerini aktifleştirin. Ayarlar → Gizlilik ve Güvenlik menüsünden Passgage uygulamasına gerekli izinleri verin. Konum izni giriş-çıkış kayıtları için, kamera izni QR kod okutma için, bildirim izni güncellemeler için gereklidir.',
         'url': 'https://kilavuz.passgage.com/ios#permissions',
-        'image': 'https://kilavuz.passgage.com/screenshots/ios/step2-location-permission.jpg'
+        'image': 'https://kilavuz.passgage.com/screenshots/ios/step2-location-permission.svg'
       },
       {
         '@type': 'HowToStep',
@@ -73,7 +74,7 @@ export default function IOSGuidePage() {
         'name': 'Giriş Yapın ve Şifre Oluşturun',
         'text': 'Şifre Al butonuna tıklayın. Şirket e-posta adresinizi veya telefon numaranızı girin. Size gönderilen 6 haneli OTP kodunu girin. Güvenli bir şifre oluşturun (minimum 8 karakter, en az 1 büyük harf, 1 küçük harf ve 1 rakam içermeli).',
         'url': 'https://kilavuz.passgage.com/ios#login-password',
-        'image': 'https://kilavuz.passgage.com/screenshots/ios/step3-1-login-screen.jpg'
+        'image': 'https://kilavuz.passgage.com/screenshots/ios/step3-1-login-screen.svg'
       },
       {
         '@type': 'HowToStep',
@@ -81,7 +82,7 @@ export default function IOSGuidePage() {
         'name': 'Cihaz Eşleştirme',
         'text': 'Eşleştir butonuna tıklayın. iPhone\'unuza gelen SMS doğrulama kodunu girerek eşleştirme işlemini onaylayın. Her kullanıcı aynı anda sadece bir cihazla eşleştirilebilir.',
         'url': 'https://kilavuz.passgage.com/ios#device-pairing',
-        'image': 'https://kilavuz.passgage.com/screenshots/ios/step4-device-pairing.jpg'
+        'image': 'https://kilavuz.passgage.com/screenshots/ios/step4-device-pairing.svg'
       },
       {
         '@type': 'HowToStep',
@@ -394,7 +395,7 @@ export default function IOSGuidePage() {
             {/* Substep 2.1: Konum İzni */}
             <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
               <PhoneMockup
-                imageSrc="/screenshots/ios/step2-location-permission.jpg"
+                imageSrc="/screenshots/ios/step2-location-permission.svg"
                 alt="Konum izni ekranı"
                 platform="ios"
               />
@@ -423,7 +424,7 @@ export default function IOSGuidePage() {
             {/* Substep 2.2: Kamera İzni */}
             <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
               <PhoneMockup
-                imageSrc="/screenshots/ios/step2-camera-permission.jpg"
+                imageSrc="/screenshots/ios/step2-camera-permission.svg"
                 alt="Kamera izni ekranı"
                 platform="ios"
               />
@@ -451,7 +452,7 @@ export default function IOSGuidePage() {
             {/* Substep 2.3: Bildirim İzni */}
             <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
               <PhoneMockup
-                imageSrc="/screenshots/ios/step2-notification-permission.jpg"
+                imageSrc="/screenshots/ios/step2-notification-permission.svg"
                 alt="Bildirim izni ekranı"
                 platform="ios"
               />
@@ -524,7 +525,7 @@ export default function IOSGuidePage() {
             {/* Substep 3.1: Şifre Al Butonu */}
             <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
               <PhoneMockup
-                imageSrc="/screenshots/ios/step3-1-login-screen.jpg"
+                imageSrc="/screenshots/ios/step3-1-login-screen.svg"
                 alt="Giriş ekranı"
                 platform="ios"
               />
@@ -550,7 +551,7 @@ export default function IOSGuidePage() {
             {/* Substep 3.2: E-posta/Telefon Girişi */}
             <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
               <PhoneMockup
-                imageSrc="/screenshots/ios/step3-2-account-verification.jpg"
+                imageSrc="/screenshots/ios/step3-2-account-verification.svg"
                 alt="Hesap doğrulama ekranı"
                 platform="ios"
               />
@@ -577,7 +578,7 @@ export default function IOSGuidePage() {
             {/* Substep 3.3: OTP Kodu Girişi */}
             <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
               <PhoneMockup
-                imageSrc="/screenshots/ios/step3-3-otp-entry.jpg"
+                imageSrc="/screenshots/ios/step3-3-otp-entry.svg"
                 alt="OTP kod girişi ekranı"
                 platform="ios"
               />
@@ -602,7 +603,7 @@ export default function IOSGuidePage() {
             {/* Substep 3.4: Şifre Oluşturma */}
             <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
               <PhoneMockup
-                imageSrc="/screenshots/ios/step3-4-set-password.jpg"
+                imageSrc="/screenshots/ios/step3-4-set-password.svg"
                 alt="Şifre oluşturma ekranı"
                 platform="ios"
               />
@@ -686,7 +687,7 @@ export default function IOSGuidePage() {
             {/* Substep 4.1: Eşleştirme İsteği */}
             <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
               <PhoneMockup
-                imageSrc="/screenshots/ios/step4-device-pairing.jpg"
+                imageSrc="/screenshots/ios/step4-device-pairing.svg"
                 alt="Cihaz eşleştirme ekranı"
                 platform="ios"
               />
@@ -712,7 +713,7 @@ export default function IOSGuidePage() {
             {/* Substep 4.2: SMS Doğrulama */}
             <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
               <PhoneMockup
-                imageSrc="/screenshots/ios/step4-add-device.jpg"
+                imageSrc="/screenshots/ios/step4-add-device.svg"
                 alt="SMS doğrulama ekranı"
                 platform="ios"
               />
@@ -738,7 +739,7 @@ export default function IOSGuidePage() {
             {/* Substep 4.3: Eşleştirme Tamamlandı */}
             <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] lg:grid-cols-[420px_1fr] gap-8 md:gap-12 mb-16">
               <PhoneMockup
-                imageSrc="/screenshots/ios/step4-connected-devices.jpg"
+                imageSrc="/screenshots/ios/step4-connected-devices.svg"
                 alt="Eşleştirilmiş cihazlar ekranı"
                 platform="ios"
               />
@@ -967,6 +968,7 @@ export default function IOSGuidePage() {
       </main>
 
       <Footer />
+      <AIBottomBar variant="guide" platform="ios" />
     </>
   );
 }

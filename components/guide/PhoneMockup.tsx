@@ -25,6 +25,9 @@ export default function PhoneMockup({
   // Support both screenshot and imageSrc props
   const imageSource = imageSrc || screenshot;
 
+  // Check if image is SVG (for placeholder support)
+  const isSVG = imageSource?.endsWith('.svg');
+
   // Platform-specific frame colors
   const frameColor = platform === 'android' ? 'bg-neutral-900' : 'bg-neutral-900';
 
@@ -43,6 +46,7 @@ export default function PhoneMockup({
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 380px"
             priority={false}
+            unoptimized={isSVG}
           />
         ) : placeholder ? (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-neutral-50">

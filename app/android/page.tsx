@@ -7,6 +7,7 @@ import Footer from '@/components/layout/Footer';
 import { PhoneMockup, Accordion, InfoBox, CrossLinks } from '@/components/guide';
 import type { AccordionItem } from '@/components/guide';
 import { generateFAQSchema } from '@/lib/seo';
+import { AIBottomBar } from '@/components/search';
 
 export default function AndroidGuidePage() {
   // Android Steps for ProgressNav with descriptive IDs
@@ -1333,6 +1334,7 @@ export default function AndroidGuidePage() {
       </main>
 
       <Footer />
+      <AIBottomBar variant="guide" platform="android" />
     </>
   );
 }
