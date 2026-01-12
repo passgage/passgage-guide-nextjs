@@ -171,33 +171,30 @@ export default function AIBottomSheet() {
       >
         {/* Drag Handle Header - Sticky */}
         <div
-          className="flex-shrink-0 flex flex-col items-center pt-5 pb-4 px-4 cursor-grab active:cursor-grabbing bg-white border-b-2 border-neutral-200 sticky top-0 z-10"
-          onMouseDown={(e) => handleDragStart(e.clientY)}
-          onMouseMove={(e) => handleDragMove(e.clientY)}
-          onMouseUp={handleDragEnd}
-          onMouseLeave={handleDragEnd}
-          onTouchStart={(e) => {
-            e.preventDefault();
-            handleDragStart(e.touches[0].clientY);
-          }}
-          onTouchMove={(e) => {
-            e.preventDefault();
-            handleDragMove(e.touches[0].clientY);
-          }}
-          onTouchEnd={(e) => {
-            e.preventDefault();
-            handleDragEnd();
-          }}
+          className="flex-shrink-0 flex flex-col items-center pt-5 pb-4 px-4 bg-white border-b-2 border-neutral-200 sticky top-0 z-10"
         >
-          {/* Drag handle - VERY visible */}
+          {/* Drag handle - VERY visible - ONLY THIS IS DRAGGABLE */}
           <div
-            className="w-20 h-2 rounded-full mb-3 shadow-md"
+            className="w-20 h-2 rounded-full mb-3 shadow-md cursor-grab active:cursor-grabbing"
             style={{ backgroundColor: '#9ca3af' }}
             role="presentation"
             aria-hidden="true"
+            onMouseDown={(e) => handleDragStart(e.clientY)}
+            onMouseMove={(e) => handleDragMove(e.clientY)}
+            onMouseUp={handleDragEnd}
+            onMouseLeave={handleDragEnd}
+            onTouchStart={(e) => {
+              handleDragStart(e.touches[0].clientY);
+            }}
+            onTouchMove={(e) => {
+              handleDragMove(e.touches[0].clientY);
+            }}
+            onTouchEnd={(e) => {
+              handleDragEnd();
+            }}
           />
 
-          {/* Title */}
+          {/* Title - NOT draggable */}
           <div className="w-full mb-2">
             <h3 className="text-base font-bold text-neutral-900 text-center flex items-center justify-center gap-2">
               <span className="text-lg">🤖</span>
@@ -205,7 +202,7 @@ export default function AIBottomSheet() {
             </h3>
           </div>
 
-          {/* Query display */}
+          {/* Query display - NOT draggable */}
           <div className="w-full">
             <p className="text-xs text-neutral-500 text-center" role="status" aria-live="polite">
               "{query}"
