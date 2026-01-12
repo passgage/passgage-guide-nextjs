@@ -18,6 +18,7 @@ export default function AIBottomBar({
 }: AIBottomBarProps) {
   const [isFocused, setIsFocused] = useState(false);
   const [query, setQuery] = useState('');
+  const [keyboardOffset, setKeyboardOffset] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const setStoreQuery = useAISearchStore((state) => state.setQuery);
@@ -74,18 +75,38 @@ export default function AIBottomBar({
     }
   }, [shouldFocusBar, resetBottomBarFocus]);
 
+  // Handle keyboard visibility with Visual Viewport API
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.visualViewport) return;
+
+    const handleViewportResize = () => {
+      // Calculate keyboard height
+      const viewportHeight = window.visualViewport?.height || window.innerHeight;
+      const windowHeight = window.innerHeight;
+      const keyboardHeight = windowHeight - viewportHeight;
+
+      // If keyboard is open (keyboard height > 50px threshold), adjust offset
+      if (keyboardHeight > 50) {
+        // Add 16px extra padding above keyboard
+        setKeyboardOffset(keyboardHeight + 16);
+      } else {
+        setKeyboardOffset(0);
+      }
+    };
+
+    window.visualViewport.addEventListener('resize', handleViewportResize);
+    window.visualViewport.addEventListener('scroll', handleViewportResize);
+
+    return () => {
+      window.visualViewport?.removeEventListener('resize', handleViewportResize);
+      window.visualViewport?.removeEventListener('scroll', handleViewportResize);
+    };
+  }, []);
+
   // Handle expand on click
   const handleExpand = () => {
     setIsFocused(true);
     inputRef.current?.focus();
-
-    // Scroll input into view to avoid keyboard overlap
-    setTimeout(() => {
-      containerRef.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-    }, 100);
 
     // Track analytics
     if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -137,10 +158,13 @@ export default function AIBottomBar({
         transition-all duration-300 ease-in-out
         ${
           isCollapsed
-            ? 'bottom-4 md:bottom-8 left-4 md:left-1/2 right-4 md:right-auto md:-translate-x-1/2 md:max-w-2xl h-14 rounded-full shadow-medium'
-            : 'bottom-4 md:bottom-8 left-4 md:left-1/2 right-4 md:right-auto md:-translate-x-1/2 md:max-w-4xl rounded-3xl shadow-strong'
+            ? 'left-4 md:left-1/2 right-4 md:right-auto md:-translate-x-1/2 md:max-w-2xl h-14 rounded-full shadow-medium'
+            : 'left-4 md:left-1/2 right-4 md:right-auto md:-translate-x-1/2 md:max-w-4xl rounded-3xl shadow-strong'
         }
       `}
+      style={{
+        bottom: keyboardOffset > 0 ? `${keyboardOffset}px` : '1rem', // 1rem = 16px = bottom-4
+      }}
       onClick={isCollapsed ? handleExpand : undefined}
     >
       {/* Input Field */}
@@ -174,13 +198,6 @@ export default function AIBottomBar({
           onChange={handleInputChange}
           onFocus={() => {
             setIsFocused(true);
-            // Scroll into view when keyboard opens
-            setTimeout(() => {
-              containerRef.current?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
-              });
-            }, 300); // Wait for keyboard animation
           }}
           onKeyDown={handleKeyDown}
         />
