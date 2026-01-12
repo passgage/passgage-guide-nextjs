@@ -151,9 +151,56 @@
     animation-delay: 4s;
   }
 
+  /* Stagger Animation Delays for Lists */
+  .stagger-delay-1 {
+    animation-delay: 100ms;
+  }
+
+  .stagger-delay-2 {
+    animation-delay: 200ms;
+  }
+
+  .stagger-delay-3 {
+    animation-delay: 300ms;
+  }
+
+  .stagger-delay-4 {
+    animation-delay: 400ms;
+  }
+
+  .stagger-delay-5 {
+    animation-delay: 500ms;
+  }
+
   /* Float Animation */
   .animate-float {
     animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* iOS Safe Area Support */
+  .safe-area-inset-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-area-inset-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-area-inset-left {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-area-inset-right {
+    padding-right: env(safe-area-inset-right);
   }
 }
 
@@ -193,6 +240,18 @@
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
     @apply bg-neutral-300 rounded-full hover:bg-neutral-400 transition-colors;
+  }
+}
+
+/* Hide scrollbar for quick chips horizontal scroll */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
 }
 
