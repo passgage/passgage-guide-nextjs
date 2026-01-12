@@ -127,33 +127,6 @@ function formatAIAnswer(text: string) {
 export default function AIAnswerCard({ answer, onFollowUpClick }: AIAnswerCardProps) {
   return (
     <div className="bg-white rounded-2xl border-2 border-neutral-200 overflow-hidden animate-scale-in">
-      {/* Header */}
-      <div className="px-6 py-5 bg-gradient-to-r from-passgage-red/5 to-passgage-gold/5 border-b border-neutral-200">
-        <div className="flex items-start gap-4">
-          {/* Larger Avatar with pulse animation */}
-          <div className="relative">
-            <div
-              className="w-12 h-12 rounded-xl flex items-center justify-center text-white text-2xl shadow-lg"
-              style={{
-                background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
-              }}
-            >
-              🤖
-            </div>
-            <div
-              className="absolute -inset-1 rounded-xl opacity-30 animate-pulse"
-              style={{
-                background: 'linear-gradient(135deg, #FF501D 0%, #FFD700 100%)'
-              }}
-            />
-          </div>
-
-          <div className="flex-1">
-            <h3 className="font-bold text-neutral-900 text-lg">🤖 Passgage Asistan</h3>
-          </div>
-        </div>
-      </div>
-
       {/* AI Answer Content */}
       <div className="px-6 py-5">
         {formatAIAnswer(answer.text)}
