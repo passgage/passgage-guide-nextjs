@@ -27,7 +27,7 @@ export default function AIBottomSheet() {
   const sheetRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const snapPoints = [30, 60, 100]; // Snap points as percentages (full screen at max)
+  const snapPoints = [100]; // Simple: Full screen only, swipe down to close
 
   const handleFollowUpClick = (chip: string) => {
     // Track follow-up click
@@ -63,7 +63,7 @@ export default function AIBottomSheet() {
     const deltaY = dragStartY - clientY;
     const windowHeight = window.innerHeight;
     const deltaPercent = (deltaY / windowHeight) * 100;
-    const newHeight = Math.min(100, Math.max(30, currentHeight + deltaPercent));
+    const newHeight = Math.min(100, Math.max(0, currentHeight + deltaPercent));
 
     setCurrentHeight(newHeight);
     setDragStartY(clientY);
@@ -75,16 +75,12 @@ export default function AIBottomSheet() {
 
     setIsDragging(false);
 
-    // Snap to nearest snap point
-    const nearest = snapPoints.reduce((prev, curr) =>
-      Math.abs(curr - currentHeight) < Math.abs(prev - currentHeight) ? curr : prev
-    );
-
-    // If dragged down below 30%, close the sheet
-    if (currentHeight < 25) {
+    // If dragged down below 60%, close the sheet (easier to close)
+    if (currentHeight < 60) {
       closeSheet();
     } else {
-      setCurrentHeight(nearest);
+      // Snap back to full screen
+      setCurrentHeight(100);
     }
   };
 
@@ -487,7 +483,7 @@ export default function AIBottomSheet() {
         {/* Footer */}
         <div className="flex-shrink-0 px-4 py-3 border-t border-neutral-200 bg-white">
           <p className="text-xs text-neutral-400 text-center">
-            Swipe down to close
+            Kapatmak için aşağı kaydırın
           </p>
         </div>
       </div>
