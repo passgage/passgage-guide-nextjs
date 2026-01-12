@@ -175,18 +175,28 @@ export default function AIBottomSheet() {
       >
         {/* Drag Handle Header */}
         <div
-          className="flex flex-col items-center pt-3 pb-2 px-4 cursor-grab active:cursor-grabbing"
+          className="flex flex-col items-center pt-4 pb-2 px-4 cursor-grab active:cursor-grabbing bg-white"
+          style={{ paddingTop: 'max(16px, env(safe-area-inset-top))' }}
           onMouseDown={(e) => handleDragStart(e.clientY)}
           onMouseMove={(e) => handleDragMove(e.clientY)}
           onMouseUp={handleDragEnd}
           onMouseLeave={handleDragEnd}
-          onTouchStart={(e) => handleDragStart(e.touches[0].clientY)}
-          onTouchMove={(e) => handleDragMove(e.touches[0].clientY)}
-          onTouchEnd={handleDragEnd}
+          onTouchStart={(e) => {
+            e.preventDefault();
+            handleDragStart(e.touches[0].clientY);
+          }}
+          onTouchMove={(e) => {
+            e.preventDefault();
+            handleDragMove(e.touches[0].clientY);
+          }}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            handleDragEnd();
+          }}
         >
-          {/* Drag handle */}
+          {/* Drag handle - more visible */}
           <div
-            className="w-12 h-1 bg-neutral-300 rounded-full mb-3"
+            className="w-16 h-1.5 bg-neutral-400 rounded-full mb-3 shadow-sm"
             role="presentation"
             aria-hidden="true"
           />
