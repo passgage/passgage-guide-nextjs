@@ -175,8 +175,7 @@ export default function AIBottomSheet() {
       >
         {/* Drag Handle Header */}
         <div
-          className="flex flex-col items-center pt-4 pb-2 px-4 cursor-grab active:cursor-grabbing bg-white"
-          style={{ paddingTop: 'max(16px, env(safe-area-inset-top))' }}
+          className="flex flex-col items-center pt-5 pb-4 px-4 cursor-grab active:cursor-grabbing bg-white border-b-2 border-neutral-200"
           onMouseDown={(e) => handleDragStart(e.clientY)}
           onMouseMove={(e) => handleDragMove(e.clientY)}
           onMouseUp={handleDragEnd}
@@ -194,23 +193,24 @@ export default function AIBottomSheet() {
             handleDragEnd();
           }}
         >
-          {/* Drag handle - more visible */}
+          {/* Drag handle - VERY visible */}
           <div
-            className="w-16 h-1.5 bg-neutral-400 rounded-full mb-3 shadow-sm"
+            className="w-20 h-2 rounded-full mb-4 shadow-md"
+            style={{ backgroundColor: '#9ca3af' }}
             role="presentation"
             aria-hidden="true"
           />
 
           {/* Query display */}
           <div className="w-full">
-            <p className="text-sm text-neutral-500 text-center" role="status" aria-live="polite">
+            <p className="text-sm font-semibold text-neutral-700 text-center" role="status" aria-live="polite">
               "{query}"
             </p>
           </div>
         </div>
 
         {/* Scrollable Content */}
-        <div ref={contentRef} className="px-4 pb-8 overflow-y-auto" style={{ height: 'calc(100% - 80px)' }}>
+        <div ref={contentRef} className="px-4 pb-8 overflow-y-auto" style={{ height: 'calc(100% - 100px)' }}>
           {/* New Conversation Button */}
           {conversationHistory.length > 0 && !isLoading && (
             <div className="flex justify-end mb-4">
