@@ -159,7 +159,7 @@ export default function AIBottomSheet() {
       {/* Bottom Sheet */}
       <div
         ref={sheetRef}
-        className="fixed left-0 right-0 bg-white z-50 transition-all duration-300 ease-out"
+        className="fixed left-0 right-0 bg-white z-50 transition-all duration-300 ease-out flex flex-col"
         style={{
           bottom: 0,
           height: `${currentHeight}vh`,
@@ -173,9 +173,9 @@ export default function AIBottomSheet() {
         aria-labelledby="ai-search-title"
         aria-describedby="ai-search-description"
       >
-        {/* Drag Handle Header */}
+        {/* Drag Handle Header - Sticky */}
         <div
-          className="flex flex-col items-center pt-5 pb-4 px-4 cursor-grab active:cursor-grabbing bg-white border-b-2 border-neutral-200"
+          className="flex-shrink-0 flex flex-col items-center pt-5 pb-4 px-4 cursor-grab active:cursor-grabbing bg-white border-b-2 border-neutral-200 sticky top-0 z-10"
           onMouseDown={(e) => handleDragStart(e.clientY)}
           onMouseMove={(e) => handleDragMove(e.clientY)}
           onMouseUp={handleDragEnd}
@@ -210,7 +210,7 @@ export default function AIBottomSheet() {
         </div>
 
         {/* Scrollable Content */}
-        <div ref={contentRef} className="px-4 pb-8 overflow-y-auto" style={{ height: 'calc(100% - 100px)' }}>
+        <div ref={contentRef} className="flex-1 px-4 pb-8 overflow-y-auto">
           {/* New Conversation Button */}
           {conversationHistory.length > 0 && !isLoading && (
             <div className="flex justify-end mb-4">
@@ -485,7 +485,7 @@ export default function AIBottomSheet() {
         </div>
 
         {/* Footer */}
-        <div className="absolute bottom-0 left-0 right-0 px-4 py-3 border-t border-neutral-200 bg-white safe-area-inset-bottom">
+        <div className="flex-shrink-0 px-4 py-3 border-t border-neutral-200 bg-white">
           <p className="text-xs text-neutral-400 text-center">
             Swipe down to close
           </p>
